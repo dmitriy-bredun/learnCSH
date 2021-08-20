@@ -2,7 +2,7 @@
 
 namespace HomeworkMargaret
 {
-    class Program
+    class ProgramMargaret
     {
         static void Main(string[] args)
         {
