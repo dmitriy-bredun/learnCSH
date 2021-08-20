@@ -2,7 +2,7 @@
 
 namespace HomeworkOleg
 {
-    class Program
+    class ProgramOleg
     {
         static void Main(string[] args)
         {
