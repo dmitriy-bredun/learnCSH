@@ -1,4 +1,4 @@
-﻿using System;
+﻿using HomeworkMargaret.General;
 
 namespace HomeworkMargaret
 {
@@ -6,7 +6,7 @@ namespace HomeworkMargaret
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Homework1_Variables.Start();
         }
     }
 }
