@@ -1,4 +1,4 @@
-﻿using System;
+﻿using HomeworkOleg.General;
 
 namespace HomeworkOleg
 {
@@ -6,7 +6,7 @@ namespace HomeworkOleg
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Homework1_Variables.Start();
         }
     }
 }
