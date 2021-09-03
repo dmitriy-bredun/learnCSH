@@ -25,18 +25,30 @@ namespace HomeworkMargaret.General
             }
             else if (x > y)
             {
-                Console.WriteLine($"Число {x} больше числа {y}");
+                Console.WriteLine($"Число {x} больше");
             }
             else 
             {
-                Console.WriteLine($"Число {x} меньше числа {y}");
+                Console.WriteLine($"Число {y} больше");
             }
 
 
 
+            Console.WriteLine("TASK 2");
 
+            Console.Write("Введите целое число: ");
+            string val = Console.ReadLine();
 
-            
+            int number = Convert.ToInt32(val);
+
+            if (number > 0 && number < 100)
+            {
+                Console.WriteLine("Число находится в диапазоне от 0 до 100");
+            }
+            else
+            {
+                Console.WriteLine("Число не находится в диапазоне от 0 до 100");
+            }
         }
     }
 }
