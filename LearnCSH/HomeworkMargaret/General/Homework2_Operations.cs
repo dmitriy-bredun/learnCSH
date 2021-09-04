@@ -54,29 +54,29 @@ namespace HomeworkMargaret.General
 
             Console.WriteLine("TASK №3");
             Console.Write("Введите число 1: ");
-            string figure1 = Console.ReadLine();
+            string coordXSrt = Console.ReadLine();
 
             Console.Write("Введите число 2: ");
-            string figure2 = Console.ReadLine();
+            string coordYStr = Console.ReadLine();
 
-            int coordX = Convert.ToInt32(figure1);
-            int coordY = Convert.ToInt32(figure2);
+            int coordX = Convert.ToInt32(coordXSrt);
+            int coordY = Convert.ToInt32(coordYStr);
 
             if (coordX > 0 && coordY > 0)
             {
-                Console.WriteLine("Числа пренадлежат к I координатной четверти");
+                Console.WriteLine("Точка пренадлежит к I координатной четверти");
             }
             else if (coordX > 0 && coordY < 0)
             {
-                Console.WriteLine("Числа пренадлежат к II координатной четверти");
+                Console.WriteLine("Точка пренадлежит к IV координатной четверти");
             }
             else if (coordX < 0 && coordY < 0)
             {
-                Console.WriteLine("Числа пренадлежат к III координатной четверти");
+                Console.WriteLine("Точка пренадлежит к III координатной четверти");
             }
             else
             {
-                Console.WriteLine("Числа пренадлежат к IV координатной четверти");
+                Console.WriteLine("Точка пренадлежит к II координатной четверти");
             }
         }
     }
