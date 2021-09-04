@@ -2,7 +2,7 @@
 
 namespace Lessons.General
 {
-    class Lesson2_TypeConversion
+    class Lesson2_1TypeConversion
     {
         public static void Start()
         {

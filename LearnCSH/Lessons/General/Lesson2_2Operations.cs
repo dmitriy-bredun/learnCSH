@@ -4,7 +4,7 @@ using static System.Console;
 
 namespace Lessons.General
 {
-    class Lesson2_Operations
+    class Lesson2_2Operations
     {
         public static void Start()
         {

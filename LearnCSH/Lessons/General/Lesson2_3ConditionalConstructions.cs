@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lessons.General
 {
-    class Lesson2_ConditionalConstructions
+    class Lesson2_3ConditionalConstructions
     {
         public static void Start()
         {
