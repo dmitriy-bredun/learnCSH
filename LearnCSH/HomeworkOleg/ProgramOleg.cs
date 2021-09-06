@@ -6,7 +6,7 @@ namespace HomeworkOleg
     {
         static void Main(string[] args)
         {
-            Homework1_Variables.Start();
+
         }
     }
 }
