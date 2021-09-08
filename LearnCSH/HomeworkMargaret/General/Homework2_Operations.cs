@@ -19,7 +19,7 @@ namespace HomeworkMargaret.General
             {
                 case "1":                    
                     Console.WriteLine("you chose task 1");
-                    Task2();
+                    Task1();
                     break;
                 case "2":                    
                     Console.WriteLine("you chose task 2");
