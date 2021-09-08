@@ -108,8 +108,6 @@ namespace Lessons.General
                 Console.WriteLine("Тю... Ты придурок что ли ?");
             }
         }
-
-        public static void Task3()
-        { }
+        
     }
 }
