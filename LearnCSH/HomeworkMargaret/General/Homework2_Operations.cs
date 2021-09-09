@@ -7,36 +7,36 @@ namespace HomeworkMargaret.General
         public static void Start()
         {
             Console.WriteLine("Homework START");
-            Console.WriteLine("1 - Task 1");
-            Console.WriteLine("2 - Task 2");
-            Console.WriteLine("3 - Task 3");
-            Console.WriteLine("4 - Task 4");
-            Console.WriteLine("5 - Task 5");
+            Console.WriteLine("1 - Task 1 - MAX from 2 variables");
+            Console.WriteLine("2 - Task 2 - Entered value is int 0 to 100 diapason");
+            Console.WriteLine("3 - Task 3 - Determine the coordinate quarter");
+            Console.WriteLine("4 - Task 4 - MAX from 5 variables");
+            Console.WriteLine("5 - Task 5 - Send delivery to soldiers");
             Console.Write("---> ");
             string usersChoice = Console.ReadLine();
 
             switch (usersChoice)
             {
                 case "1":                    
-                    Console.WriteLine("you chose task 1");
                     Task1();
                     break;
+
                 case "2":                    
-                    Console.WriteLine("you chose task 2");
                     Task2();
                     break;
+
                 case "3":                    
-                    Console.WriteLine("you chose task 3");
                     Task3();
                     break;
+
                 case "4":
-                    Console.WriteLine("you chose task 4");
                     Task4();
                     break;
+
                 case "5":
-                    Console.WriteLine("you chose task 5");
                     Task5();
                     break;
+
                 default:                               
                 Console.WriteLine("you're stupid");
                     break;
@@ -44,6 +44,8 @@ namespace HomeworkMargaret.General
         } 
         public static void Task1()
         {
+            Console.WriteLine("TASK №1");
+
             Console.Write("Введите число №1: ");
             string val1 = Console.ReadLine();
 
@@ -115,6 +117,7 @@ namespace HomeworkMargaret.General
         }
         public static void Task4()
         {
+            Console.WriteLine("TASK №4");
             Console.WriteLine("ЗАДАЧА НА ПЯТЬ ЧИСЕЛ");
 
             Console.Write("Введите первое число: ");
@@ -158,6 +161,7 @@ namespace HomeworkMargaret.General
         }
         public static void Task5()
         {
+            Console.WriteLine("TASK №5");
             Console.WriteLine("Задача с доставкой припасок ВДВ-шникам");
 
             string sizeXStr;
@@ -185,42 +189,22 @@ namespace HomeworkMargaret.General
             int sizeX = Convert.ToInt32(sizeXStr);
             int sizeY = Convert.ToInt32(sizeYStr);
 
-            if ((coordX + 1) < sizeX  && (coordX +1) > 0)
+            if ((coordX + 1) <= sizeX)
             {
                 Console.WriteLine($"На позицию с координатами x = {coordX + 1}, y = {coordY}, можно скинуть припасы");
             }
 
-            if ((coordX + 1) == sizeX && (coordX + 1) > 0)
-            {
-                Console.WriteLine($"На позицию с координатами x = {coordX + 1}, y = {coordY}, можно скинуть припасы");
-            }
-
-            if ((coordY + 1) < sizeY && (coordY + 1) > 0)
+            if ((coordY + 1) <= sizeY)
             {
                 Console.WriteLine($"На позицию с координатами x = {coordX}, y = {coordY + 1}, можно скинуть припасы");
             }
 
-            if ((coordY + 1) == sizeY && (coordY + 1) > 0)
-            {
-                Console.WriteLine($"На позицию с координатами x = {coordX}, y = {coordY + 1}, можно скинуть припасы");
-            }
-
-            if ((coordX - 1) < sizeX && (coordX - 1) > 0)
+            if ((coordX - 1) > 0)
             {
                 Console.WriteLine($"На позицию с координатами x = {coordX - 1}, y = {coordY}, можно скинуть припасы");
             }
 
-            if ((coordX - 1) == sizeX && (coordX - 1) > 0)
-            {
-                Console.WriteLine($"На позицию с координатами x = {coordX - 1}, y = {coordY}, можно скинуть припасы");
-            }
-
-            if ((coordY - 1) < sizeY && (coordY - 1) > 0)
-            {
-                Console.WriteLine($"На позицию с координатами x = {coordX}, y = {coordY - 1}, можно скинуть припасы");
-            }
-
-            if ((coordY - 1) == sizeY && (coordY - 1) > 0)
+            if ((coordY - 1) > 0)
             {
                 Console.WriteLine($"На позицию с координатами x = {coordX}, y = {coordY - 1}, можно скинуть припасы");
             }
