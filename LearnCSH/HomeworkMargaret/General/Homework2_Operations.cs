@@ -185,24 +185,44 @@ namespace HomeworkMargaret.General
             int sizeX = Convert.ToInt32(sizeXStr);
             int sizeY = Convert.ToInt32(sizeYStr);
 
-            if ((coordX + 1) < sizeX && (coordX +1) > 0 )
+            if ((coordX + 1) < sizeX  && (coordX +1) > 0)
             {
-                Console.WriteLine($"На позицию с координатами {coordX + 1}, {coordY} можно скинуть припасы");
+                Console.WriteLine($"На позицию с координатами x = {coordX + 1}, y = {coordY}, можно скинуть припасы");
+            }
+
+            if ((coordX + 1) == sizeX && (coordX + 1) > 0)
+            {
+                Console.WriteLine($"На позицию с координатами x = {coordX + 1}, y = {coordY}, можно скинуть припасы");
             }
 
             if ((coordY + 1) < sizeY && (coordY + 1) > 0)
             {
-                Console.WriteLine($"На позицию с координатами {coordX}, {coordY + 1} можно скинуть припасы");
+                Console.WriteLine($"На позицию с координатами x = {coordX}, y = {coordY + 1}, можно скинуть припасы");
+            }
+
+            if ((coordY + 1) == sizeY && (coordY + 1) > 0)
+            {
+                Console.WriteLine($"На позицию с координатами x = {coordX}, y = {coordY + 1}, можно скинуть припасы");
             }
 
             if ((coordX - 1) < sizeX && (coordX - 1) > 0)
             {
-                Console.WriteLine($"На позицию с координатами {coordX - 1}, {coordY} можно скинуть припасы");
+                Console.WriteLine($"На позицию с координатами x = {coordX - 1}, y = {coordY}, можно скинуть припасы");
+            }
+
+            if ((coordX - 1) == sizeX && (coordX - 1) > 0)
+            {
+                Console.WriteLine($"На позицию с координатами x = {coordX - 1}, y = {coordY}, можно скинуть припасы");
             }
 
             if ((coordY - 1) < sizeY && (coordY - 1) > 0)
             {
-                Console.WriteLine($"На позицию с координатами {coordX}, {coordY - 1} можно скинуть припасы");
+                Console.WriteLine($"На позицию с координатами x = {coordX}, y = {coordY - 1}, можно скинуть припасы");
+            }
+
+            if ((coordY - 1) == sizeY && (coordY - 1) > 0)
+            {
+                Console.WriteLine($"На позицию с координатами x = {coordX}, y = {coordY - 1}, можно скинуть припасы");
             }
         }
     }
