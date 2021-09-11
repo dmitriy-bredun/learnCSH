@@ -6,7 +6,7 @@ namespace HomeworkOleg
     {
         static void Main(string[] args)
         {
-
+            Homework2_Operation.StartHomework2_Operation();
         }
     }
 }
