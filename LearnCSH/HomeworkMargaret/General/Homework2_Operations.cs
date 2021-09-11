@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HomeworkMargaret.General
 {
@@ -8,8 +6,46 @@ namespace HomeworkMargaret.General
     {
         public static void Start()
         {
-            Console.WriteLine("TAST #1");
-            
+            Console.WriteLine("Homework START");
+            Console.WriteLine("1 - Task 1 - MAX from 2 variables");
+            Console.WriteLine("2 - Task 2 - Entered value is int 0 to 100 diapason");
+            Console.WriteLine("3 - Task 3 - Determine the coordinate quarter");
+            Console.WriteLine("4 - Task 4 - MAX from 5 variables");
+            Console.WriteLine("5 - Task 5 - Send delivery to soldiers");
+            Console.Write("---> ");
+            string usersChoice = Console.ReadLine();
+
+            switch (usersChoice)
+            {
+                case "1":                    
+                    Task1();
+                    break;
+
+                case "2":                    
+                    Task2();
+                    break;
+
+                case "3":                    
+                    Task3();
+                    break;
+
+                case "4":
+                    Task4();
+                    break;
+
+                case "5":
+                    Task5();
+                    break;
+
+                default:                               
+                Console.WriteLine("you're stupid");
+                    break;
+            }
+        } 
+        public static void Task1()
+        {
+            Console.WriteLine("TASK №1");
+
             Console.Write("Введите число №1: ");
             string val1 = Console.ReadLine();
 
@@ -27,13 +63,13 @@ namespace HomeworkMargaret.General
             {
                 Console.WriteLine($"Число {x} больше");
             }
-            else 
+            else
             {
                 Console.WriteLine($"Число {y} больше");
             }
-
-
-
+        }
+        public static void Task2()
+        {
             Console.WriteLine("TASK №2");
 
             Console.Write("Введите целое число: ");
@@ -49,9 +85,9 @@ namespace HomeworkMargaret.General
             {
                 Console.WriteLine("Число не находится в диапазоне от 0 до 100");
             }
-
-
-
+        }
+        public static void Task3()
+        {
             Console.WriteLine("TASK №3");
             Console.Write("Введите число 1: ");
             string coordXSrt = Console.ReadLine();
@@ -77,6 +113,100 @@ namespace HomeworkMargaret.General
             else
             {
                 Console.WriteLine("Точка пренадлежит к II координатной четверти");
+            }
+        }
+        public static void Task4()
+        {
+            Console.WriteLine("TASK №4");
+            Console.WriteLine("ЗАДАЧА НА ПЯТЬ ЧИСЕЛ");
+
+            Console.Write("Введите первое число: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите второе число: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите третье число: ");
+            int num3 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите четвёртое число: ");
+            int num4 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите пятое число: ");
+            int num5 = Convert.ToInt32(Console.ReadLine());
+
+            int max;
+
+            if (num1 > num2)
+            {
+                max = num1;
+            }
+            else
+            {
+                max = num2;
+            }
+
+            if (max < num3)
+            {
+                max = num3;
+            }
+            
+            if (max < num4)
+            {
+                max = num4;
+            }
+            
+            if (max < num5)
+            {
+                max = num5;              
+            } 
+            
+            Console.WriteLine($"максимальное число: {max}");         
+        }
+        public static void Task5()
+        {
+            Console.WriteLine("TASK №5");
+            Console.WriteLine("Задача с доставкой припасок ВДВ-шникам");
+
+            string sizeXStr;
+            string sizeYStr;
+            string coordXStr;
+            string coordYStr;
+
+            Console.WriteLine("Введите границы карты...");
+            Console.Write("введите размер х: ");
+            sizeXStr = Console.ReadLine();
+
+            Console.Write("введите размер у: ");
+            sizeYStr = Console.ReadLine();
+
+            Console.WriteLine("Введите координаты десантников: ");
+            Console.Write("введите координату х: ");
+            coordXStr = Console.ReadLine();
+
+            Console.Write("введите кординаты у: ");
+            coordYStr = Console.ReadLine();
+
+            int coordX = Convert.ToInt32(coordXStr);
+            int coordY = Convert.ToInt32(coordYStr);
+
+            int sizeX = Convert.ToInt32(sizeXStr);
+            int sizeY = Convert.ToInt32(sizeYStr);
+
+            if ((coordX + 1) <= sizeX)
+            {
+                Console.WriteLine($"На позицию с координатами x = {coordX + 1}, y = {coordY}, можно скинуть припасы");
+            }
+
+            if ((coordY + 1) <= sizeY)
+            {
+                Console.WriteLine($"На позицию с координатами x = {coordX}, y = {coordY + 1}, можно скинуть припасы");
+            }
+
+            if ((coordX - 1) > 0)
+            {
+                Console.WriteLine($"На позицию с координатами x = {coordX - 1}, y = {coordY}, можно скинуть припасы");
+            }
+
+            if ((coordY - 1) > 0)
+            {
+                Console.WriteLine($"На позицию с координатами x = {coordX}, y = {coordY - 1}, можно скинуть припасы");
             }
         }
     }
