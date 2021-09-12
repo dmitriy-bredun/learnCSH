@@ -6,34 +6,34 @@ namespace HomeworkOleg.General
 {
     class Homework2_Operation
     {
-        public static void StartHomework2_Operation()
+        public static void Start()
         {
             {
                 Console.WriteLine("ДОМАШКА");
-                Console.WriteLine("1 - Задача 1");
-                Console.WriteLine("2 - Задача 2");
-                Console.WriteLine("3 - Задача 3");
-                Console.WriteLine("4 - Задача 4");
-                Console.WriteLine("5 - Задача 5");
+                Console.WriteLine("1 - Задача 1 - Найти большее из 2-х чисел");
+                Console.WriteLine("2 - Задача 2 - Принадлежит ли число диапазону от 0 до 100");
+                Console.WriteLine("3 - Задача 3 - Определить в какой четверти точка");
+                Console.WriteLine("4 - Задача 4 - Найти максимум из 5-ти чисел");
+                Console.WriteLine("5 - Задача 5 - Сброс вдвшникам еды");
                 Console.Write("---> ");
                 string usersChoice = Console.ReadLine();
 
                 switch (usersChoice)
                 {
                     case "1":
-                        Start1();
+                        Task1();
                         break;
                     case "2":
-                        Start2();
+                        Task2();
                         break;
                     case "3":
-                        Start3();
+                        Task3();
                         break;
                     case "4":
-                        Start4();
+                        Task4();
                         break;
                     case "5":
-                        Start5();
+                        Task5();
                         break;
                     default:
                         Console.WriteLine("СУКА БЛЭАТ ПИСЯТЬ НАУЧ");
@@ -41,7 +41,7 @@ namespace HomeworkOleg.General
                 }
             }
         }
-        public static void Start1()
+        public static void Task1()
         {
             Console.WriteLine("Какое число больше?");
             Console.Write("Введите число 1: ");
@@ -63,15 +63,13 @@ namespace HomeworkOleg.General
             else
             {
                 Console.Write($"result of {x} > {y} = {x}");
-
             }
         }
-        public static void Start2()
+        public static void Task2()
         {
             Console.WriteLine("Пренадлежит ли число диапазону от 0 до 100?");
             Console.Write("Введите число: ");
             int x = Convert.ToInt32(Console.ReadLine());
-
 
             if (x > 0 && x < 100)
             {
@@ -82,55 +80,52 @@ namespace HomeworkOleg.General
                 Console.WriteLine("GG");
             }
         }
-        public static void Start3()
+        public static void Task3()
         {
-            string cordXStr;
-            string cordYStr;
-
             Console.WriteLine("к какой четверти относяться координаты ");
 
             Console.Write("введите координату х: ");
-            cordXStr = Console.ReadLine();
+            string cordXStr = Console.ReadLine();
 
             Console.Write("введите кординаты у: ");
-            cordYStr = Console.ReadLine();
+            string cordYStr = Console.ReadLine();
 
             int cordX = Convert.ToInt32(cordXStr);
             int cordY = Convert.ToInt32(cordYStr);
 
             if (cordX > 0 && cordY > 0)
             {
-                Console.Write("1");
+                Console.WriteLine("Точка в 1-й четверти");
             }
             else if (cordX < 0 && cordY < 0)
             {
-                Console.Write("3");
+                Console.WriteLine("Точка в 3-й четверти");
             }
             else if (cordX < 0 && cordY > 0)
             {
-                Console.Write("2");
+                Console.WriteLine("Точка в 2-й четверти");
             }
             else if (cordX > 0 && cordY < 0)
             {
-                Console.Write("4");
+                Console.WriteLine("Точка в 4-й четверти");
             }
         }
-        public static void Start4()
+        public static void Task4()
         {
             Console.WriteLine("Задача 4");
-            Console.Write("Число: ");
+            Console.Write("Число 1: ");
             int a = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Число: ");
+            Console.Write("Число 2: ");
             int b = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Число: ");
+            Console.Write("Число 3: ");
             int c = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Число: ");
+            Console.Write("Число 4: ");
             int d = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Число: ");
+            Console.Write("Число 5: ");
             int e = Convert.ToInt32(Console.ReadLine());
             int max;
-            
-                if (a > b)
+
+            if (a > b)
             {
                 max = a;
             }
@@ -154,62 +149,46 @@ namespace HomeworkOleg.General
                 max = e;
             }
 
-            Console.WriteLine($"максимальное число: {max}");
+            Console.WriteLine($"Максимальное число: {max}");
         }
-        public static void Start5()
+        public static void Task5()
         {
-            string sizeXStr;
-            string sizeYStr;
-            string cordXStr;
-            string cordYStr;
-
             Console.WriteLine("Введите границы карты...");
             Console.Write("введите размер х: ");
-            sizeXStr = Console.ReadLine();
+            string sizeXStr = Console.ReadLine();
 
             Console.Write("введите размер у: ");
-            sizeYStr = Console.ReadLine();
+            string sizeYStr = Console.ReadLine();
 
             Console.WriteLine("Введите координаты сброса: ");
             Console.Write("введите координату х: ");
-            cordXStr = Console.ReadLine();
+            string cordXStr = Console.ReadLine();
 
             Console.Write("введите кординаты у: ");
-            cordYStr = Console.ReadLine();
+            string cordYStr = Console.ReadLine();
 
-            int cordX = Convert.ToInt32(cordXStr);
-            int cordY = Convert.ToInt32(cordYStr);
+            int coordX = Convert.ToInt32(cordXStr);
+            int coordY = Convert.ToInt32(cordYStr);
 
             int sizeX = Convert.ToInt32(sizeXStr);
             int sizeY = Convert.ToInt32(sizeYStr);
 
-
-            if (cordX + 1 <= sizeX)
-
+            if (coordX + 1 <= sizeX)
             {
-                Console.Write("СбросЭ");
+                Console.WriteLine($"По координате {coordX + 1}, {coordY} сбросить можно!");
             }
-            if (cordY + 1 <= sizeY)
+            if (coordY + 1 <= sizeY)
             {
-                Console.Write("ФАЙЕЕЕЕРРР");
+                Console.WriteLine($"По координате {coordX}, {coordY + 1} сбросить можно!");
             }
-            if (cordX - 1 > 0)
+            if (coordX - 1 > 0)
             {
-                Console.Write("ФАЙЕЕЕЕРРРРР");
+                Console.WriteLine($"По координате {coordX - 1}, {coordY} сбросить можно!");
             }
-            if (cordY - 1 > 0)
+            if (coordY - 1 > 0)
             {
-                Console.Write("ФАЙЕЕЕЕРРРРР");
+                Console.WriteLine($"По координате {coordX}, {coordY - 1} сбросить можно!");
             }
-            else
-            {
-                Console.Write("АРАДЖАНАМ КУДА СБРОСИЛ, ЭЭЭЭЭ");
-            }
-
         }
     }
 }
-
-
-
-
