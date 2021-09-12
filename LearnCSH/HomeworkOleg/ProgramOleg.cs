@@ -6,7 +6,8 @@ namespace HomeworkOleg
     {
         static void Main(string[] args)
         {
-            Homework1_Variables.Start();
+            //Homework1_Variables.Start();
+            Homework2_Operation.Start();
         }
     }
 }
