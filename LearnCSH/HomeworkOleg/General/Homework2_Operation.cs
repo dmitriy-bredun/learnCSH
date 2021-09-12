@@ -128,47 +128,49 @@ namespace HomeworkOleg.General
             int d = Convert.ToInt32(Console.ReadLine());
             Console.Write("Число: ");
             int e = Convert.ToInt32(Console.ReadLine());
+            int max;
+            
+                if (a > b)
+            {
+                max = a;
+            }
+            else
+            {
+                max = b;
+            }
 
-            if (a < b)
+            if (max < c)
             {
-                Console.Write($"result of {a} < {b} = {b}");
+                max = c;
             }
-            else if (a > b)
+
+            if (max < d)
             {
-                Console.Write($"result of {a} > {b} = {a}");
-                if (b < c)
-                {
-                    Console.Write($"result of {b} < {c} = {c}");
-                }
-                else if (b > c)
-                {
-                    Console.Write($"result of {b} > {c} = {b}");
-                }
-                if (c < d)
-                {
-                    Console.Write($"result of {c} < {d} = {d}");
-                }
-                else if (c > d)
-                {
-                    Console.Write($"result of {c} > {d} = {c}");
-                }
-                if (d < e)
-                {
-                    Console.Write($"result of {d} < {e} = {e}");
-                }
-                else if (d > e)
-                {
-                    Console.Write($"result of {d} > {e} = {d}");
-                }
+                max = d;
             }
+
+            if (max < e)
+            {
+                max = e;
+            }
+
+            Console.WriteLine($"максимальное число: {max}");
         }
         public static void Start5()
         {
+            string sizeXStr;
+            string sizeYStr;
             string cordXStr;
             string cordYStr;
 
-            Console.WriteLine("АРА, АРА, Я АРЁЛ, куда скинуть хавку? ");
+            Console.WriteLine("Введите границы карты...");
+            Console.Write("введите размер х: ");
+            sizeXStr = Console.ReadLine();
 
+            Console.Write("введите размер у: ");
+            sizeYStr = Console.ReadLine();
+
+            Console.WriteLine("Введите координаты сброса: ");
             Console.Write("введите координату х: ");
             cordXStr = Console.ReadLine();
 
@@ -178,19 +180,24 @@ namespace HomeworkOleg.General
             int cordX = Convert.ToInt32(cordXStr);
             int cordY = Convert.ToInt32(cordYStr);
 
-            if (cordX == 5 && cordY == 2 || cordX == 5 && cordY == 1)
+            int sizeX = Convert.ToInt32(sizeXStr);
+            int sizeY = Convert.ToInt32(sizeYStr);
+
+
+            if (cordX + 1 <= sizeX)
+
+            {
+                Console.Write("СбросЭ");
+            }
+            if (cordY + 1 <= sizeY)
+            {
+                Console.Write("ФАЙЕЕЕЕРРР");
+            }
+            if (cordX - 1 > 0)
             {
                 Console.Write("ФАЙЕЕЕЕРРРРР");
             }
-            else if (cordX == 2 && cordY == 1 || cordX == 1 && cordY == 2)
-            {
-                Console.Write("ФАЙЕЕЕЕРРРРР");
-            }
-            else if (cordX == 1 && cordY == 4 || cordX == 1 && cordY == 5)
-            {
-                Console.Write("ФАЙЕЕЕЕРРРРР");
-            }
-            else if (cordX == 5 && cordY == 4 || cordX == 4 && cordY == 4)
+            if (cordY - 1 > 0)
             {
                 Console.Write("ФАЙЕЕЕЕРРРРР");
             }
