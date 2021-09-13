@@ -102,10 +102,9 @@ namespace HomeworkOleg.General
         public static void Start4()
         {
             int counter = 1;
-
             while (counter < 14)
             {
-                if (counter % 2 == 0 && counter > 7)
+                if (counter % 2 == 0 && counter > 6)
                 {
                     Write("1 ");
                 }
