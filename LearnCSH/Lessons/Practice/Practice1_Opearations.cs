@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace Lessons.General
+namespace Lessons.Practice
 {
-    class Lesson2_4Practice
+    class Practice1_Opearations
     {
-        public static void StartPractice()
+        public static void Start()
         {
             Console.WriteLine("LESSON 2 PRACTICE");
             Console.WriteLine("1 - Задача про ВДВшников");
             Console.WriteLine("2 - Задача про калькулятор");
-            Console.WriteLine("3 - Задача про поиск максимума из 5 чисел");
             Console.Write("---> ");
             string usersChoice = Console.ReadLine();
 
@@ -22,10 +21,6 @@ namespace Lessons.General
             {
                 Task2();
             }
-            else if (usersChoice == "3")
-            {
-                Task3();
-            }
             else
             {
                 Console.WriteLine("Что за херню ты тут ввел ?! О_О");
@@ -34,24 +29,19 @@ namespace Lessons.General
 
         public static void Task1()
         {
-            string sizeXStr;
-            string sizeYStr;
-            string cordXStr;
-            string cordYStr;
-
             Console.WriteLine("Введите границы карты...");
             Console.Write("введите размер х: ");
-            sizeXStr = Console.ReadLine();
+            string sizeXStr = Console.ReadLine();
 
             Console.Write("введите размер у: ");
-            sizeYStr = Console.ReadLine();
+            string sizeYStr = Console.ReadLine();
 
             Console.WriteLine("Введите координаты десантников: ");
             Console.Write("введите координату х: ");
-            cordXStr = Console.ReadLine();
+            string cordXStr = Console.ReadLine();
 
             Console.Write("введите кординаты у: ");
-            cordYStr = Console.ReadLine();
+            string cordYStr = Console.ReadLine();
 
             int cordX = Convert.ToInt32(cordXStr);
             int cordY = Convert.ToInt32(cordYStr);

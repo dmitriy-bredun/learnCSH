@@ -4,7 +4,7 @@ namespace Lessons
 {
     class CurrentLesson
     {
-        public static void StartLesson()
+        public static void GoGoGo()
         {
 
         }

@@ -40,21 +40,23 @@ namespace Lessons.General
 
         public static void TernaryDemo()
         {
-            int result = 0;
-            int a = 0;
-            int b = 0;
+            int result;
+            int a = 2;
+            int b = 3;
 
-            if (a < b)
-            {
-                result = a + b;
-            }
-            else
-            {
-                result = a - b;
-            }
+            // if (a < b)
+            // {
+            //     result = a + b;
+            // }
+            // else
+            // {
+            //     result = a - b;
+            // }
 
+            // тернарный оператор эквивалентный if написанному выше
             // ... = (условие) ? true : false;
             result = (a < b) ? a + b : a - b;
+            WriteLine($"Result = {result}");
         }
     }
 }
