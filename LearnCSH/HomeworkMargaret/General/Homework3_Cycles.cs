@@ -20,6 +20,8 @@ namespace HomeworkMargaret.General
                 WriteLine("TASK 5 ----- multiples of 5");
                 WriteLine("TASK 6 ----- negative multilples of 2");
                 WriteLine("TASK 7 ----- sum of multiples of 3");
+                WriteLine("TASK 8 ----- drawing");
+                WriteLine("to exit ---- press 0");
                 Write("----> ");
 
                 usersChoice = Convert.ToInt32(ReadLine());
@@ -54,6 +56,13 @@ namespace HomeworkMargaret.General
                         Task7();
                         break;
 
+                    case 8:
+                        Task8();
+                        break;
+
+                    case 0:
+                        break;
+
                     default:
                         WriteLine("you're stupid");
                         break;
@@ -67,17 +76,19 @@ namespace HomeworkMargaret.General
             {
                 if (count % 2 == 0)
                 {
-                    WriteLine("0");
+                    Write("0");
                 }
                 else
                 {
-                    WriteLine("1");
+                    Write("1");
                 }
                 
                 count++;
-            } 
+            }
+            WriteLine();
+            WriteLine();
         }
-
+            
         public static void Task2()
         {
             int count = 1;
@@ -85,15 +96,17 @@ namespace HomeworkMargaret.General
             {
                 if (count % 3 == 0)
                 {
-                    WriteLine("1");
+                    Write("1");
                 }
                 else
                 {
-                    WriteLine("0");
+                    Write("0");
                 }
 
                 count++;
             }
+            WriteLine();
+            WriteLine();
         }
 
         public static void Task3()
@@ -103,15 +116,17 @@ namespace HomeworkMargaret.General
             {
                 if (count % 2 == 0 && count <= 6)
                 {
-                    WriteLine("1");
+                    Write("1");
                 }
                 else
                 {
-                    WriteLine("0");
+                    Write("0");
                 }
 
                 count++;
             }
+            WriteLine();
+            WriteLine();
         }
 
         public static void Task4()
@@ -121,15 +136,17 @@ namespace HomeworkMargaret.General
             {
                 if (count % 2 == 0 && count > 7)
                 {
-                    WriteLine("1");
+                    Write("1");
                 }
                 else
                 {
-                    WriteLine("0");
+                    Write("0");
                 }
 
                 count++;
             }
+            WriteLine();
+            WriteLine();
         }
 
         public static void Task5()
@@ -162,9 +179,9 @@ namespace HomeworkMargaret.General
 
             } while (count != b);
             WriteLine($"Found {result} numbers");
+            WriteLine();
+            WriteLine();
         }
-
-
 
         public static void Task6()
         {
@@ -196,6 +213,8 @@ namespace HomeworkMargaret.General
 
             } while (count != b);
             WriteLine($"Found {result} numbers");
+            WriteLine();
+            WriteLine();
         }
 
         public static void Task7()
@@ -228,6 +247,39 @@ namespace HomeworkMargaret.General
 
             } while (count != b);
             WriteLine($"Sum of multiples = {result}");
+            WriteLine();
+            WriteLine();
+        }
+
+        public static void Task8()
+        {
+            int counterLine = 1;
+            int counterRow = 1;
+            while (counterLine <= 5)
+            {
+                counterRow = 1;
+               while (counterRow <= 5)
+               {                  
+                    if (counterLine == 5)
+                    {
+                        Write("1");
+                    }                    
+                    else if (counterRow != 1 && counterRow !=5 && counterLine != 1)
+                    {
+                        Write("1");
+                    }         
+                    else  
+                    {
+                        Write("0");
+                    }      
+                    counterRow++;                    
+                }
+                
+                WriteLine();                                
+                counterLine++;
+            }
+            WriteLine();
+            WriteLine();
         }
     }
 }
