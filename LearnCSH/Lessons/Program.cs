@@ -1,5 +1,6 @@
 ﻿using Lessons.General;
 using Lessons.Practice;
+using System;
 
 namespace Lessons
 {
@@ -18,7 +19,8 @@ namespace Lessons
 
             // Practice1_Opearations.Start();
             // Practice2_Cycles.Start();
-            Practice2_DoubleCycles.Start();
+            //Practice2_DoubleCycles.Start();
+            Practice3_Tasks.Start();
         }
     }
 }
