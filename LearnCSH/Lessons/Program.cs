@@ -1,5 +1,6 @@
 ﻿using Lessons.General;
 using Lessons.Practice;
+using System;
 
 namespace Lessons
 {
@@ -15,9 +16,11 @@ namespace Lessons
             // Lesson2_2Operations.Start();
             // Lesson2_3ConditionalConstructions.Start();
             // Lesson3_SwitchAndTernaryOperation.Start();
-            
+
             // Practice1_Opearations.Start();
             // Practice2_Cycles.Start();
+            //Practice2_DoubleCycles.Start();
+            Practice3_Tasks.Start();
         }
     }
 }
