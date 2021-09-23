@@ -1,7 +1,7 @@
 ﻿using System;
 using static System.Console;
 
-namespace HomeworkMargaret
+namespace HomeworkMargaret.General
 {
     class Homework3_PartTwo
     {
@@ -99,25 +99,43 @@ namespace HomeworkMargaret
             {
                 int counterC = 0;
                 while (counterC < sizeColumns)
-                { 
+                {
+                    bool a1 = (counterL >= 3 && counterL <= 5) && counterC != 0 && counterC != 10;
+
+                    bool a3 = (counterL != 3 && counterC != 5);
+
                     if ((counterC == 1) && (counterL > 1) && (counterL <= 5) || (counterC == 9) && (counterL > 1) && (counterL <= 5))
                     {
                         Write("*");
-                    }    
-                    else if ((counterL > 0) && (counterL <= 2) && (counterC > 1) && (counterC <=2) || (counterL > 0) && (counterL <=2) && (counterC < 9) && (counterC >=8))
+                    }
+                    else if ((counterL > 0)
+                        && (counterL <= 2)
+                        && (counterC > 1)
+                        && (counterC <= 2)
+                        || (counterL > 0)
+                        && (counterL <= 2)
+                        && (counterC < 9)
+                        && (counterC >= 8))
                     {
                         Write("*");
                     }
-                    else if ((counterL >= 2 && counterL <=4) && (counterL + 1 == counterC || counterL + counterC == 9))
+                    else if ((counterL >= 2 && counterL <= 4) && (counterL + 1 == counterC || counterL + counterC == 9))
                     {
                         Write("*");
                     }
-                    else if ( (counterL >=6 && counterL <=9) && (counterL - 4 == counterC || counterL + counterC == 14))
+                    else if ((counterL >= 6 && counterL <= 9) && (counterL - 4 == counterC || counterL + counterC == 14))
                     {
                         Write("*");
                     }
-                    else if ((counterL >= 6 && counterL <= 9) && (counterL - 4 <
-                        counterC && counterL + counterC < 14))
+                    else if (counterL == 3 && counterC == 5)
+                    {
+                        Write("0");
+                    }
+                    else if ((counterL >= 6 && counterL <= 9) && (counterL - 4 < counterC && counterL + counterC < 14))
+                    {
+                        Write(" ");
+                    }
+                    else if ((counterL >= 3 && counterL <= 5) && counterC != 0 && counterC != 10)
                     {
                         Write(" ");
                     }
@@ -126,8 +144,8 @@ namespace HomeworkMargaret
                         Write("0");
                     }
 
-                    
-                    counterC++;                      
+                    Write(" ");
+                    counterC++;
                 }
                 
                counterL++;
