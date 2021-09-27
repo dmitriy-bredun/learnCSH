@@ -19,8 +19,8 @@ namespace Lessons
 
             // Practice1_Opearations.Start();
             // Practice2_Cycles.Start();
-            //Practice2_DoubleCycles.Start();
-            Practice3_Tasks.Start();
+            // Practice2_DoubleCycles.Start();
+            // Practice3_Tasks.Start();
         }
     }
 }
