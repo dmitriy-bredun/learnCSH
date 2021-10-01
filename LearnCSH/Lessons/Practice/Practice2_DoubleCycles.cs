@@ -13,7 +13,7 @@ namespace Lessons.Practice
             int userChoice;
             do
             {
-                ShowMenu();
+                Menu();
                 userChoice = Convert.ToInt32(ReadLine());
                 WriteLine();
 
@@ -117,7 +117,7 @@ namespace Lessons.Practice
             Console.Clear();
         }
 
-        private static void ShowMenu()
+        private static void Menu()
         {
             WriteLine("\t Добро пожаловать на практическое по двойным циклам!");
             WriteLine();

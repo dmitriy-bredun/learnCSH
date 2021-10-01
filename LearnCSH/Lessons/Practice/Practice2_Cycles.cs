@@ -6,8 +6,8 @@ namespace Lessons.Practice
     {
         public static void Start()
         {
-            Task1();
-            Task2();
+            // Task1();
+            // Task2();
         }
 
         public static void Task1()

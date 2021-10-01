@@ -1,4 +1,5 @@
 ﻿using HomeworkOleg.General;
+using HomeworkOleg.Practice;
 
 namespace HomeworkOleg
 {
@@ -7,7 +8,9 @@ namespace HomeworkOleg
         static void Main(string[] args)
         {
             //Homework1_Variables.Start();
-            Homework2_Operation.Start();
+            //Homework2_Operation.Start();
+
+            Practice1_Cycles.Start();
         }
     }
 }

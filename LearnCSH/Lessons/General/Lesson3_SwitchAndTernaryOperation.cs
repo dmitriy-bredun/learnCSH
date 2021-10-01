@@ -1,4 +1,5 @@
-﻿using static System.Console;
+﻿using System;
+using static System.Console;
 
 namespace Lessons.General
 {
@@ -8,6 +9,50 @@ namespace Lessons.General
         {
             SwitchDemo();
             TernaryDemo();
+
+            // Specific Switch example
+            TellMeType(28);
+            TellMeType(101);
+            TellMeType("just a string");
+            TellMeType("just a string converted to array".ToCharArray());
+            TellMeType('4');
+        }
+
+        private static void TellMeType(object varialbe)
+        {
+            switch (varialbe)
+            {
+                case int num when ((0 < num) && (num < 10)):
+                    WriteLine("Зачем в свитч добавили возможности if ?! ");
+                    break;
+
+                case int num when ((10 < num) && (num < 20)):
+                    WriteLine("Зачем в свитч добавили возможности if ?! ");
+                    break;
+
+                case int num when ((20 < num) && (num < 30)):
+                    WriteLine("Зачем в свитч добавили возможности if ?! ");
+                    break;
+
+                case int num when ((30 < num) && (num < 40)):
+                    WriteLine("Зачем в свитч добавили возможности if ?! ");
+                    break;
+
+                case int num:
+                    WriteLine("it is integer!");
+                    break;
+
+                case char[] array:
+                    WriteLine("it is char array!");
+                    break;
+
+                case string str:
+                    WriteLine("it is string!");
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         public static void SwitchDemo()
