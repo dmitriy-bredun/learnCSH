@@ -22,10 +22,7 @@ namespace HomeworkMargaret
             // Homework2_Operations.Start();
             // Homework3_Cycles.Start();
             // Homework3_PartTwo.Start();
-
-            //int t = 15;
-
-            //CT.ErrorMsg("Incorrect value!");
+            Homework3_PartThree.Start();
         }
     }
 }
