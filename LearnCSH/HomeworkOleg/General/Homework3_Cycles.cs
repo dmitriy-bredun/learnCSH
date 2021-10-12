@@ -49,7 +49,7 @@ namespace HomeworkOleg.General
                         //Task8();
                         break;
                     case "0":
-                        Exit;
+                        // Exit;
                         break;
                     default:
                         WriteLine("/////////////////");
