@@ -9,7 +9,7 @@ namespace Lessons.Practice
         public static void Start()
         {
             // Конвертер температур: Фаренгейт <-----> Цельсий
-            // Converter();  
+            Converter();  
 
             // Посчитать количество цифр в числе
             // Task2();

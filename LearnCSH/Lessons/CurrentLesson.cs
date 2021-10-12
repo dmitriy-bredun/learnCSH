@@ -1,29 +1,44 @@
 ﻿using System;
+
 using static System.Console;
+
+using Lessons.Tools;
 
 namespace Lessons
 {
     class CurrentLesson
     {
-        public static void GoGoGo()
+        private static DynamicMenu menu;
+
+        private static void PrepareMenu()
         {
-            int a = 15;
-            int b = 15;
-
-            int res = MethodSum(a, b);
-            res = MethodSum(a, b, true);
-
+            menu = new DynamicMenu("(IrrationalCats)");
+            menu.AddMenuItem("Задача про вдвшников", Task1);
+            menu.AddMenuItem("Рисунок бабочки в консоли", Task2);
         }
 
-        public static int MethodSum(int value1, int value2, bool mustBeShowed = false)
+        public static void GoGoGo()
         {
-            int result = value1 + value2;
-            if (mustBeShowed)
-            {
-                WriteLine($"Result = {result}");
-            }
+            PrepareMenu();
 
-            return result;
+            int userChoice;
+            
+            do
+            {
+                userChoice = menu.CallMenu();
+                CT.PrintSpace2();
+
+            } while (userChoice != 0);
+        }
+
+        public static void Task1()
+        {
+            WriteLine("Called Method1: Задача про вдвшников.");
+        }
+
+        public static void Task2()
+        {
+            WriteLine("Called Method2: Рисунок бабочки в консоли.");
         }
     }
 }
