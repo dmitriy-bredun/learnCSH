@@ -7,10 +7,17 @@ namespace HomeworkMargaret
 {
     class ProgramMargaret
     {
+        public static ConsoleColor AppForegroundColor;
+        public static ConsoleColor AppBackgroundColor;
+
         public static void PrepareConsole()
         {
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            AppBackgroundColor = ConsoleColor.Black;
+            AppForegroundColor = ConsoleColor.DarkCyan;
+
+            Console.BackgroundColor = AppBackgroundColor;
+            Console.ForegroundColor = AppForegroundColor;
+
             Console.Clear();
         }
 
