@@ -16,11 +16,28 @@ namespace Lessons.General
             WriteLine($"{txt} = {value}");
         }
 
+        public static void PrintString(string txt, bool isLine = true)
+        {
+            Write(txt);
+
+            if (isLine)
+            {
+                WriteLine();
+            }
+        }
+
         public static int EnterInt(string txt)
         {
             Write($"{txt}: ");
             int value = Convert.ToInt32(ReadLine());
             return value;
+        }
+
+        public static string EnterString(string txt)
+        {
+            Write($"{txt}: ");
+            string input = ReadLine();
+            return input;
         }
     }
 
@@ -60,6 +77,11 @@ namespace Lessons.General
             int coordX = Convert.ToInt32(Console.ReadLine());
             // Используя ConsoleHelper можно упростить до:
             int val = CH.EnterInt("Введите координату Х морпехов");
+
+            // Пример вывода строки с переводом или без
+            //
+            CH.PrintString("Какой то текст111");
+            CH.PrintString("Какой то текст222", false);
         }
 
         public static bool Method(int value1, int value2)

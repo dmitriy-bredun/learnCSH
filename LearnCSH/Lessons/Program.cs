@@ -21,7 +21,7 @@ namespace Lessons
         {
             GothamConsoleTheme();
 
-            CurrentLesson.GoGoGo();
+            // CurrentLesson.GoGoGo();
 
             // Раскомментируйте тот урок, который хотите повторить и перебилдите проект...
             // Lesson1_Variables.Start();
@@ -31,11 +31,13 @@ namespace Lessons
             // Lesson3_SwitchAndTernaryOperation.Start();
             // Lesson4_Cycles.Start();
             // Lesson5_StaticMethods.Start();
+            // Lesson6_SingleArray.Start();
 
             // Practice1_Opearations.Start();
             // Practice2_Cycles.Start();
             // Practice2_DoubleCycles.Start();
             // Practice3_Tasks.Start();
+            Practice4_SimpleArrays.Start();
         }
     }
 }
