@@ -8,8 +8,6 @@ namespace Lessons.Practice
     {
         public static void Start()
         {
-            PrepaceConsole();
-
             int userChoice;
             do
             {
@@ -108,13 +106,6 @@ namespace Lessons.Practice
             }
 
             WriteLine();
-        }
-
-        private static void PrepaceConsole()
-        {
-            BackgroundColor = ConsoleColor.Black;
-            ForegroundColor = ConsoleColor.DarkCyan;
-            Console.Clear();
         }
 
         private static void Menu()

@@ -6,8 +6,17 @@ namespace Lessons.Practice
     {
         public static void Start()
         {
-            // Task1();
-            // Task2();
+            WriteLine("TASK 1");
+            Task1();
+
+            WriteLine();
+            WriteLine();
+
+            WriteLine("TASK 2");
+            Task2();
+
+            WriteLine();
+            WriteLine();
         }
 
         public static void Task1()
@@ -36,11 +45,11 @@ namespace Lessons.Practice
             {
                 if (counter % 4 == 0) // вернет true, если число кратно четырем
                 {
-                    WriteLine("1");
+                    Write("1 ");
                 }
                 else
                 {
-                    WriteLine("0");
+                    Write("0 ");
                 }
 
                 counter++;
