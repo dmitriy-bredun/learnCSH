@@ -8,12 +8,10 @@ namespace Lessons.Practice
     {
         public static void Start()
         {
-            PrepaceConsole();
-
             int userChoice;
             do
             {
-                ShowMenu();
+                Menu();
                 userChoice = Convert.ToInt32(ReadLine());
                 WriteLine();
 
@@ -110,14 +108,7 @@ namespace Lessons.Practice
             WriteLine();
         }
 
-        private static void PrepaceConsole()
-        {
-            BackgroundColor = ConsoleColor.Black;
-            ForegroundColor = ConsoleColor.DarkCyan;
-            Console.Clear();
-        }
-
-        private static void ShowMenu()
+        private static void Menu()
         {
             WriteLine("\t Добро пожаловать на практическое по двойным циклам!");
             WriteLine();

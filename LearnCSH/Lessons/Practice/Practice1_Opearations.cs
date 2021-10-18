@@ -6,7 +6,7 @@ namespace Lessons.Practice
     {
         public static void Start()
         {
-            Console.WriteLine("LESSON 2 PRACTICE");
+            Console.WriteLine("PRACTICE MENU:");
             Console.WriteLine("1 - Задача про ВДВшников");
             Console.WriteLine("2 - Задача про калькулятор");
             Console.Write("---> ");

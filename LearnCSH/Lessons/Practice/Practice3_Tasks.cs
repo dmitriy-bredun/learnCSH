@@ -8,20 +8,30 @@ namespace Lessons.Practice
     {
         public static void Start()
         {
-            // Task1();
+            // Конвертер температур: Фаренгейт <-----> Цельсий
+            Converter();  
+
+            // Посчитать количество цифр в числе
             // Task2();
+
+            // Рисунок в консоли
             // Task3();
         }
 
         //************ TASK 1 ****************
         //
-        public static void Task1()
+        public static void Converter()
         {
             int userChoice;
 
             do
             {
-                Menu();
+                WriteLine("Converter Menu:");
+                WriteLine("1 --- convert C -> F");
+                WriteLine("2 --- convert F -> C");
+                WriteLine("0 --- exit");
+                Write("---> ");
+
                 userChoice = Convert.ToInt32(ReadLine());
                 switch (userChoice)
                 {
@@ -34,7 +44,6 @@ namespace Lessons.Practice
                     case 0:
                         WriteLine("Good Bye...");
                         break;
-
                     default:
                         WriteLine("Incorrect input...");
                         break;
@@ -62,15 +71,6 @@ namespace Lessons.Practice
 
             WriteLine($"F: {valueInF} ---> C: {valueInC}");
         }
-        public static void Menu()
-        {
-            WriteLine("Converter Menu");
-            WriteLine("1 --- convert C -> F");
-            WriteLine("2 --- convert F -> C");
-            WriteLine("0 --- exit");
-            Write("---> ");
-        }
-
 
 
         //************* TASK 2 **************
@@ -79,16 +79,14 @@ namespace Lessons.Practice
             Write("Enter the value: ");
             int value = Convert.ToInt32(ReadLine());
 
-            int result = 0;
-            while (value != 0)
+            int countOfDigits = 0;
+            while (value > 0)
             {
-                WriteLine($"value = {value}");
+                countOfDigits++;
                 value = value / 10;
-                result++;
-                WriteLine($"Result = {result}");
-                WriteLine();
             }
-            WriteLine($"result = " + result);
+
+            WriteLine($"Количество цифр в числе = {countOfDigits}");
         }
 
 
@@ -96,10 +94,10 @@ namespace Lessons.Practice
         //************* TASK 3 ***************
         public static void Task3()
         {
-            Write("Lines = ");
+            Write("Введите высоту (линии): ");
             int sizeLines = Convert.ToInt32(ReadLine());
 
-            Write("Columns = ");
+            Write("Введите ширину (колонки): ");
             int sizeColumns = Convert.ToInt32(ReadLine());
 
             int counterI = 0;
