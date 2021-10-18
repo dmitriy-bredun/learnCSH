@@ -8,7 +8,7 @@ namespace HomeworkDenis.General
     {
         public static void Start()
         {
-
+            //..Too easy! ;)
         }
     }
 }
