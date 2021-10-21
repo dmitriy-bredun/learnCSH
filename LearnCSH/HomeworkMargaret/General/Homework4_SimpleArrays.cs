@@ -151,7 +151,7 @@ namespace HomeworkMargaret.General
         public static void CountAverage(int[] values)
         {
             int sum = 0;
-            int reslut;
+            double reslut;
 
             for (int indx = 0; indx < values.Length; indx++)
             {
@@ -183,7 +183,6 @@ namespace HomeworkMargaret.General
                     max = values[indx];
                     maxIndx = indx;
                 }
-
             }
 
             CT.Print(minIndx, "Minimal index ");
@@ -199,8 +198,8 @@ namespace HomeworkMargaret.General
                 {
                     values[indx] = 0;
                 }
-                CT.Print("All negatives have been sent to Blackgate.");
             }
+            CT.Print("All negatives have been sent to Blackgate.");
         }
 
         public static void SumElements(int[] values)
