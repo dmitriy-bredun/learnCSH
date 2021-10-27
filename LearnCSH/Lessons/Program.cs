@@ -2,6 +2,7 @@
 
 using Lessons.General;
 using Lessons.Practice;
+using Lessons.Test;
 
 namespace Lessons
 {
@@ -37,7 +38,9 @@ namespace Lessons
             // Practice2_Cycles.Start();
             // Practice2_DoubleCycles.Start();
             // Practice3_Tasks.Start();
-            Practice4_SimpleArrays.Start();
+            //Practice4_SimpleArrays.Start();
+
+            TestProgram.StartTest();
         }
     }
 }
