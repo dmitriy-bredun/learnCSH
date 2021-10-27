@@ -35,22 +35,27 @@ namespace HomeworkMargaret.Tools
                 WriteLine();
             }
         }
+        public static void Space()
+        {
+            WriteLine();
+            WriteLine();
+        }
 
         public static int EnterInt(string msg)
         {
-            Write("Enter " + msg + " please: ");
+            Write(msg);
             return Convert.ToInt32(ReadLine());
         }
 
         public static double EnterDouble(string msg)
         {
-            Write("Enter " + msg + " please: ");
-            return Convert.ToInt32(ReadLine());
+            Write(msg);
+            return Convert.ToDouble(ReadLine());
         }
-
+        
         public static string EnterString(string msg)
         {
-            Write("Enter " + msg + ", please: ");
+            Write(msg);
             return ReadLine();
         }
         public static void ErrorMsg(string msg)
@@ -61,7 +66,18 @@ namespace HomeworkMargaret.Tools
             WriteLine("!ERROR: " + msg.ToUpper());
             WriteLine();
 
-            ForegroundColor = ConsoleColor.White;
+            ForegroundColor = ProgramMargaret.AppForegroundColor;
+        }
+        public static int Menu(params string[] msg)
+        {
+            WriteLine("MENU");
+            for (int i = 0; i < msg.Length; i++)
+            {
+                WriteLine($"{i + 1} ---- {msg[i]}");
+            }
+            WriteLine("0 ---- EXIT");
+
+            return Convert.ToInt32(ReadLine());
         }
     }
 }
