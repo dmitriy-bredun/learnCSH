@@ -37,6 +37,10 @@ namespace Lessons.General
             {
                 WriteLine($"array[{indx}] = {array[indx]}");
             }
+
+            // --- ПРИМЕРЫ ИНИЦИАЛИЗАЦИИ МАССИВА ЧЕРЕЗ КОД
+            int[] a = new int[5] { 2, 2, 5, 1, 5 };
+            int[] b = { 1, 2, 3, 4, 5, 5, 5 };
         }
     }
 }
