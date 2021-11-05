@@ -23,16 +23,16 @@ namespace HomeworkMargaret.General
             {
                 CT.Space();
                 usersChoice = CT.Menu(
-                    " manual array initialization",
-                    " random numbers array",
-                    " show array",
-                    " change an element in array",
-                    " count and show amount of even and odd numbers",
-                    " sum of elements in particular line",
-                    " sum of elements in particular column",
-                    " check value",
-                    " sort values vertically",
-                    " sort values horizonally");
+                    "manual array initialization",
+                    "random numbers array",
+                    "show array",
+                    "change an element in array",
+                    "count and show amount of even and odd numbers",
+                    "sum of elements in particular line",
+                    "sum of elements in particular column",
+                    "check value",
+                    "sort values vertically",
+                    "sort values horizonally");
                 CT.Space();
 
                 switch(usersChoice)
@@ -67,7 +67,6 @@ namespace HomeworkMargaret.General
                         int columnNum = CT.EnterInt("enter the column: ");
                         int res = SumElementsInColumn(array, columnNum);
                         CT.Print(res, "sum of elements in column ");
-                        ;
                         break;
 
                     case 8:
@@ -82,7 +81,6 @@ namespace HomeworkMargaret.General
                         {
                             CT.Print("Value is not found");
                         }
-
                         break;
 
                     case 9:
@@ -154,7 +152,7 @@ namespace HomeworkMargaret.General
             ShowArray(array);
 
             int val1 = CT.EnterInt("enter the first number of value you wanna change: ");
-            int val2 = CT.EnterInt("enter the first number of value you wanna change: ");
+            int val2 = CT.EnterInt("enter the second number of value you wanna change: ");
 
             int newVal = CT.EnterInt("write new value: "); 
 
@@ -236,7 +234,25 @@ namespace HomeworkMargaret.General
 
         public static void SortVertically(int[,] array)
         {
-            
+            for(int rowIndx = 0; rowIndx < array.GetLength(1); rowIndx++)
+            {
+                bool needSort = true;
+                while(needSort)
+                {
+                    needSort = false;
+                    for(int lineIndx = 0; lineIndx < array.GetLength(0) - 1; lineIndx++)
+                    {
+                        if(array[lineIndx, rowIndx] > array[lineIndx + 1, rowIndx])
+                        {
+                            int box = array[lineIndx, rowIndx];
+                            array[lineIndx, rowIndx] = array[lineIndx + 1, rowIndx];
+                            array[lineIndx + 1, rowIndx] = box;
+
+                            needSort = true;
+                        }
+                    }
+                }
+            }
         }
 
         public static void SortHorizonally(int[,] array)
@@ -261,7 +277,5 @@ namespace HomeworkMargaret.General
                 }
             }
         }
-
-
     }
 }
