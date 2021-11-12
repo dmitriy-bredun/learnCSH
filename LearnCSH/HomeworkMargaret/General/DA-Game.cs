@@ -12,11 +12,11 @@ namespace HomeworkMargaret.General
         {
             char[,] map = new char[10, 10];
             MapPreparation(map);
-            ShowMap(map);
 
             bool mouseCatchCheese = false;
             do
             {                
+                ShowMap(map);
                 ConsoleKeyInfo keyInfo = Console.ReadKey();
                              
                 switch (keyInfo.Key)
@@ -41,9 +41,11 @@ namespace HomeworkMargaret.General
                         break;
                 }
 
-                mouseCatchCheese = true;
+                Console.Clear();
 
+                mouseCatchCheese = IsCheeseCaught(map);
             } while (mouseCatchCheese != true);
+            YouWin(map);
         }
 
         public static void MapPreparation(char[,] map)
@@ -67,34 +69,21 @@ namespace HomeworkMargaret.General
             }
 
             Random rand = new Random();
+            for (int i = 0; i < 20; i++)
+            {
+                int vert = rand.Next(2, horizontalSize - 2);
+                int horiz = rand.Next(2, verticalSize - 2);
+                map[vert, horiz] = '*';
+            }
+
             int mVerticalCoord = rand.Next(1, horizontalSize - 2);
-            int mHorizontalCood = rand.Next(1, verticalSize - 2);
+            int mHorizontalCood = rand.Next(1, verticalSize - 2);            
             map[mVerticalCoord, mHorizontalCood] = 'M';
-
-
+            
             Random rnd = new Random();
             int сVerticalCoord = rand.Next(1, horizontalSize - 2);
             int сHorizontalCood = rand.Next(1, verticalSize - 2);
-            map[сVerticalCoord, сHorizontalCood] = 'С';
-
-            //for (int i = 0; i < map.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < map.GetLength(1); j++)
-            //    {
-            //        if (map[i, j] == 'M')
-            //        {
-            //            Console.ForegroundColor = ConsoleColor.White;
-            //            CT.Print($"{map[i, j]} ", false);
-            //            Console.ForegroundColor = ProgramMargaret.AppForegroundColor;
-            //        }
-            //        else if (map[i, j] == 'C')
-            //        {
-            //            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            //            CT.Print($"{map[i, j]} ", false);
-            //            Console.ForegroundColor = ProgramMargaret.AppForegroundColor;
-            //        }
-            //    }
-            //}
+            map[сVerticalCoord, сHorizontalCood] = 'C';
         }
 
         public static void ShowMap(char[,] array)
@@ -103,7 +92,22 @@ namespace HomeworkMargaret.General
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    CT.Print($"{array[i, j]} ", false);
+                    if (array[i, j] == 'M')
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                        CT.Print($"{array[i, j]} ", false);
+                        Console.ForegroundColor = ProgramMargaret.AppForegroundColor;
+                    }
+                    else if (array[i, j] == 'C')
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        CT.Print($"{array[i, j]} ", false);
+                        Console.ForegroundColor = ProgramMargaret.AppForegroundColor;
+                    }
+                    else
+                    {
+                        CT.Print($"{array[i, j]} ", false);
+                    }
                 }
                 CT.Print("");
             }
@@ -129,12 +133,15 @@ namespace HomeworkMargaret.General
                     }                    
                 }                
             }
-            
-            if (map[mouseH - 1, mouseW] != '*')
+
+            int stepH = mouseH - 1;
+            int stepW = mouseW;
+
+            if(map[stepH,stepW] != '*')
             {
-                map[mouseH - 1, mouseW] = 'M';
                 map[mouseH, mouseW] = ' ';
-            }
+                map[stepH, stepW] = 'M';
+            }            
         }
 
         public static void MoveDown(char[,] map)
@@ -153,11 +160,14 @@ namespace HomeworkMargaret.General
                     }
                 }
             }
-                        
-            if (map[mouseH, mouseW] != map[mouseH + 1, mouseW])
+
+            int stepH = mouseH + 1;
+            int stepW = mouseW;
+
+            if (map[stepH, stepW] != '*')
             {
-                map[mouseH + 1, mouseW] = 'M';
                 map[mouseH, mouseW] = ' ';
+                map[stepH, stepW] = 'M';
             }
         }
 
@@ -178,10 +188,13 @@ namespace HomeworkMargaret.General
                 }
             }
 
-            bool mouseCanMove = false;
-            if (map[mouseH, mouseW] != map[mouseH, mouseW - 1])
+            int stepH = mouseH;
+            int stepW = mouseW - 1;
+
+            if (map[stepH, stepW] != '*')
             {
-                mouseCanMove = true;
+                map[mouseH, mouseW] = ' ';
+                map[stepH, stepW] = 'M';
             }
         }
 
@@ -202,11 +215,41 @@ namespace HomeworkMargaret.General
                 }
             }
 
-            bool mouseCanMove = false;
-            if (map[mouseH, mouseW + 1] != '*')
+            int stepH = mouseH;
+            int stepW = mouseW + 1;
+
+            if (map[stepH, stepW] != '*')
             {
-                mouseCanMove = true;
+                map[mouseH, mouseW] = ' ';
+                map[stepH, stepW] = 'M';
             }
+        }
+
+        public static bool IsCheeseCaught(char[,] map)
+        {
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    if (map[i, j] == 'C')
+                    {
+                        return false;                   
+                    }                   
+                }
+            }
+            return true;
+        }
+
+        public static void YouWin(char[,] map)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;            
+            CT.Print("**************************");
+            CT.Print("*                        *");
+            CT.Print("*         YOU            *");
+            CT.Print("*         WIN            *");
+            CT.Print("*                        *");
+            CT.Print("**************************");
+            Console.ForegroundColor = ProgramMargaret.AppForegroundColor;
         }
     }
 }
