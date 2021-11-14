@@ -1,43 +1,24 @@
 ﻿using static System.Console;
-
+using System;
 using Lessons.Tools;
 
 namespace Lessons
 {
     class CurrentLesson
     {
-        //private static DynamicMenu menu;
-
-        //private static void PrepareMenu()
-        //{
-        //    menu = new DynamicMenu("(IrrationalCats)");
-        //    menu.AddMenuItem("Задача про вдвшников", Task1);
-        //    menu.AddMenuItem("Рисунок бабочки в консоли", Task2);
-        //}
-
         public static void GoGoGo()
         {
-            // Предварительная подготовка программы
-            //PrepareMenu();
+            Console.WriteLine("Введите имя:");
+            string name = Console.ReadLine();
 
-            //int userChoice;
-            
-            //do
-            //{
-            //    userChoice = menu.CallMenu();
-            //    CT.PrintSpace2();
+            Console.WriteLine("Введите возраст: ");
+            string age = Console.ReadLine();
 
-            //} while (userChoice != 0);
+
+
+            Console.WriteLine($" Р Е З У Л Ь Т А Т");
+            Console.WriteLine($"Имя: {name}");
+            Console.WriteLine($"Возраст: {age}");
         }
-
-        //public static void Task1()
-        //{
-        //    WriteLine("Called Method1: Задача про вдвшников.");
-        //}
-
-        //public static void Task2()
-        //{
-        //    WriteLine("Called Method2: Рисунок бабочки в консоли.");
-        //}
     }
 }
