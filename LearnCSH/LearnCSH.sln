@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31605.320
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lessons", "Lessons\Lessons.csproj", "{9B958D88-E211-4667-B262-2C7B41A12F78}"
 EndProject
@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeworkOleg", "HomeworkOle
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeworkMargaret", "HomeworkMargaret\HomeworkMargaret.csproj", "{32333089-4491-4E88-A0DA-4EF3F70F8FCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkDenis", "HomeworkDenis\HomeworkDenis.csproj", "{ED7B66F0-9F3D-44FF-8BAA-67C4EDCF065D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeworkDenis", "HomeworkDenis\HomeworkDenis.csproj", "{ED7B66F0-9F3D-44FF-8BAA-67C4EDCF065D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkSerg", "HomeworkSerg\HomeworkSerg.csproj", "{03C80575-94E6-4780-A0AF-4FD053118F14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{ED7B66F0-9F3D-44FF-8BAA-67C4EDCF065D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED7B66F0-9F3D-44FF-8BAA-67C4EDCF065D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED7B66F0-9F3D-44FF-8BAA-67C4EDCF065D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03C80575-94E6-4780-A0AF-4FD053118F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C80575-94E6-4780-A0AF-4FD053118F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C80575-94E6-4780-A0AF-4FD053118F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C80575-94E6-4780-A0AF-4FD053118F14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
