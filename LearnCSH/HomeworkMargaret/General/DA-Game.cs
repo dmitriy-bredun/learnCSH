@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 using HomeworkMargaret.Tools;
 
@@ -45,7 +43,7 @@ namespace HomeworkMargaret.General
 
                 mouseCatchCheese = IsCheeseCaught(map);
             } while (mouseCatchCheese != true);
-            YouWin(map);
+            YouWin();
         }
 
         public static void MapPreparation(char[,] map)
@@ -78,9 +76,8 @@ namespace HomeworkMargaret.General
 
             int mVerticalCoord = rand.Next(1, horizontalSize - 2);
             int mHorizontalCood = rand.Next(1, verticalSize - 2);            
-            map[mVerticalCoord, mHorizontalCood] = 'M';
+            map[mVerticalCoord, mHorizontalCood] = 'M';            
             
-            Random rnd = new Random();
             int сVerticalCoord = rand.Next(1, horizontalSize - 2);
             int сHorizontalCood = rand.Next(1, verticalSize - 2);
             map[сVerticalCoord, сHorizontalCood] = 'C';
@@ -112,15 +109,11 @@ namespace HomeworkMargaret.General
                 CT.Print("");
             }
         }
-        
-        public static void MoveUp(char[,] map)
-        {
-            // 1. найти текущие координаты мыши
-            // 2. проверить, можно ли сделать шаг вверх
-            // 3. сделать шаг 
 
-            int mouseH = -1;
-            int mouseW = -1;
+        public static void GetMouseCoordinates(char[,] map, out int mouseH, out int mouseW)
+        {
+            mouseH = -1;
+            mouseW = -1;
 
             for (int i = 0; i < map.GetLength(0); i++)
             {
@@ -130,9 +123,18 @@ namespace HomeworkMargaret.General
                     {
                         mouseH = i;
                         mouseW = j;
-                    }                    
-                }                
+                    }
+                }
             }
+        }
+
+        public static void MoveUp(char[,] map)
+        {
+            // 1. найти текущие координаты мыши
+            // 2. проверить, можно ли сделать шаг вверх
+            // 3. сделать шаг 
+            
+            GetMouseCoordinates(map, out int mouseH, out int mouseW);
 
             int stepH = mouseH - 1;
             int stepW = mouseW;
@@ -145,21 +147,8 @@ namespace HomeworkMargaret.General
         }
 
         public static void MoveDown(char[,] map)
-        {  
-            int mouseH = -1;
-            int mouseW = -1;
-
-            for (int i = 0; i < map.GetLength(0); i++)
-            {
-                for (int j = 0; j < map.GetLength(1); j++)
-                {
-                    if (map[i, j] == 'M')
-                    {
-                        mouseH = i;
-                        mouseW = j;
-                    }
-                }
-            }
+        {
+            GetMouseCoordinates(map, out int mouseH, out int mouseW);
 
             int stepH = mouseH + 1;
             int stepW = mouseW;
@@ -172,21 +161,8 @@ namespace HomeworkMargaret.General
         }
 
         public static void MoveLeft(char[,] map)
-        {  
-            int mouseH = -1;
-            int mouseW = -1;
-
-            for (int i = 0; i < map.GetLength(0); i++)
-            {
-                for (int j = 0; j < map.GetLength(1); j++)
-                {
-                    if (map[i, j] == 'M')
-                    {
-                        mouseH = i;
-                        mouseW = j;
-                    }
-                }
-            }
+        {
+            GetMouseCoordinates(map, out int mouseH, out int mouseW);
 
             int stepH = mouseH;
             int stepW = mouseW - 1;
@@ -200,20 +176,7 @@ namespace HomeworkMargaret.General
 
         public static void MoveRight(char[,] map)
         {
-            int mouseH = -1;
-            int mouseW = -1;
-
-            for (int i = 0; i < map.GetLength(0); i++)
-            {
-                for (int j = 0; j < map.GetLength(1); j++)
-                {
-                    if (map[i, j] == 'M')
-                    {
-                        mouseH = i;
-                        mouseW = j;
-                    }
-                }
-            }
+            GetMouseCoordinates(map, out int mouseH, out int mouseW);
 
             int stepH = mouseH;
             int stepW = mouseW + 1;
@@ -240,7 +203,7 @@ namespace HomeworkMargaret.General
             return true;
         }
 
-        public static void YouWin(char[,] map)
+        public static void YouWin()
         {
             Console.ForegroundColor = ConsoleColor.Magenta;            
             CT.Print("**************************");
