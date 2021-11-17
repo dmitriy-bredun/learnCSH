@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+
 using Lessons.Tools;
 
 namespace Lessons
