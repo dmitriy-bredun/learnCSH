@@ -34,7 +34,7 @@ namespace HomeworkMargaret.OOP
         {
 
             CT.Print("Welcome to HYPERION accounting form.");
-            CT.Print("Please, choose an option:");
+            CT.Print("Please, choose an option: ");
             int usersChoice;
             do
             {
@@ -92,16 +92,43 @@ namespace HomeworkMargaret.OOP
 
         public static void ShowBandits()
         {
-            
+            for (int i = 0; i < forms.Length; i++)
+            {
+                RegistrationForm form = forms[i];
+                if (form != null)
+                {
+                    CT.Print($"Bandit № {i + 1}");
+                    CT.Print($"Name:  {form.name}");
+                    CT.Print($"Award for their head:  {form.awardForTheirHead}");
+                    CT.Print($"Their location:  {form.latestLocation}");
+                    CT.Print($"Occupation:  {form.typeOfWork}");
+                    CT.Print($"Condition (alive/dead):  {form.condition}");
+                    CT.Space();
+                }
+            }
         }
 
         public static void ChangeBanditsStatus()
         {
+            ShowBandits();
             int usersChoice = CT.EnterInt("Choose a bandit: ");
-            for (int i = 0; i < forms.Length; i++)
+            int numb = CT.EnterInt("choose 1 or 2, where 1 is 'alive', 2 is 'dead': ");
+            
+            switch(numb)
             {
-                forms[usersChoice] = RegistrationForm()
+                case 1:
+                    forms[usersChoice - 1].condition = "alive";                    
+                    break;
+                case 2:
+                    forms[usersChoice - 1].condition = "dead";
+                    break;
+
+                default:
+                    CT.Print("You typed the wrong number");
+                    break;
             }
+
+            CT.Print("Condition has been changed.");
         }
     }
 }
