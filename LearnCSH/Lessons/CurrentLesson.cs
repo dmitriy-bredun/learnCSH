@@ -8,62 +8,78 @@ namespace Lessons
     {
         public static void GoGoGo()
         {
-            /////////////////////////////////////////////////////////////////////////////1 
-            ///                     ПРЕОБРАЗОВАНИЕ ТИПОВ
-            /// 
-            /// Бывает 2-х видов:   
-            /// 
-            ///     1) ЯВНОЕ - используется когда при преобразовании типов может быть утрачена 
-            /// часть информации. Например: при приобразовании float в int обрезается 
-            /// вся дробная часть числа. ТРЕБУЕТ ЯВНОГО ПРИВЕДЕНИЯ ТИПА.
-            /// 
-            /// Необходимо ЯВНО указывать тип, к которому выполняется преобразование:
-            /// 
-            ///     2) НЕ ЯВНОЕ - выполняется автоматически, если сохраняемое значение может уместиться 
-            /// в переменной без усечения или округления. НЕ ТРЕБУЕТ ЯВНОГО ПРИВЕДЕНИЯ ТИПА.
-            /// 
+            IfDemonstration();
+            OperationsDemonstration();
+        }
 
-            // 1 Явное ----------------------------
-            int intVal = 123;
-            sbyte sbVal = (sbyte)intVal;
-            short shshshVal = (short)intVal;
+        public static void IfDemonstration()
+        {
+            int x = 10;
+            int y = 10;
 
-            double dVal = 123.4565789;
-            long lVal = (long)dVal;
+            // Сокращеннвая версия if
+            // когда нам нужно выполнить дополнительное действие
+            if (x > 1000)
+            {
+                Console.WriteLine("Дополнительное действие:");
+                Console.WriteLine("Снижение цен...");
+            }
 
-            float f = 123.654f;
-            int intValffff = (int)f;
+            // Полная версия if
+            // когда нужно выполнить разветвление
+            if (x > 10)
+            {
+                Console.WriteLine("Х > чем 10");
+
+            }
+            else
+            {
+                Console.WriteLine("Х < чем 10");
+            }
 
 
-            // 2 Не явное ----------------------------
-            short shVal = short.MaxValue;
-            int iVAl = shVal;
-
-            long iiVAL = 123123123;
-            float fval = iiVAL;
-
+            // Ресширенная версия if, используется когда
+            // у нас много сравнений и блоков
+            if (x > y)
+            {
+                Console.WriteLine("Х > чем Y");
+            }
+            else if (x < y)
+            {
+                Console.WriteLine("Х < чем Y");
+            }
+            else
+            {
+                Console.WriteLine("Х равен Y");
+            }
+        }
+        public static void OperationsDemonstration()
+        {
+            Console.Write("Введите число 1: ");
+            int dVal1 = Convert.ToInt32(Console.ReadLine());
             
-            // ------------------------------- C O N V E R T I N G 
+            Console.Write("Введите число 2: ");
+            int dVal2 = Convert.ToInt32(Console.ReadLine()); ;
 
-            // Пример полного сценария
-            string strValue1 = Console.ReadLine();
-            string strValue2 = Console.ReadLine();
-
-            Console.WriteLine($"val1 = {strValue1}, val2 = {strValue2}");
-            Console.WriteLine($"str: str + str -> {strValue1 + strValue2}");
-
-            int val1 = Convert.ToInt32(strValue1);
-            int val2 = Convert.ToInt32(strValue2);
-            Console.WriteLine($"int: int + int -> {val1 + val2}");
-
-
-            // Пример короткого сценария
-            int shte = Convert.ToInt32(Console.ReadLine());
+            int res = 0;
+            string operation = Console.ReadLine();
+            if (operation == "+")
+            {
+                res = dVal1 + dVal2;
+            } 
+            else if (operation == "-")
+            {
+                res = dVal1 - dVal2;
+            }
 
 
-            // Как превратить переменную примитивного типа в тип string
-            float cheZaHernya = 123.456f;
-            string cheZaHernyaString1 = cheZaHernya.ToString();
+            // ==================================
+            if (dVal1 > 0 && dVal2 > 0)
+            {
+                Console.WriteLine("Оба больше 0");
+            }
+
+
 
         }
     }
