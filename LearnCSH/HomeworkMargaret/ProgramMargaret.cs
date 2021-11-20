@@ -1,6 +1,7 @@
 ﻿using System;
 
 using HomeworkMargaret.General;
+using HomeworkMargaret.OOP;
 
 namespace HomeworkMargaret
 {
@@ -31,7 +32,11 @@ namespace HomeworkMargaret
             // Homework3_PartThree.Start();
             // Homework4_SimpleArrays.Start();
             // Homework5_DoubleArrays.Start();
-            DA_Game.Start();
+            
+            // DA_Game.Start();
+
+            // Homework1_Classes.Start();
+            Homework1_PandoraBadassesRegistration.Start();
         }
     }
 }
