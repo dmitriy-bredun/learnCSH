@@ -14,20 +14,6 @@ namespace HomeworkDmitriy.General
             int val2 = Convert.ToInt32(intVal2);
             Console.WriteLine($"int: int + int -> {val1 + val2}");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
     }
 }
