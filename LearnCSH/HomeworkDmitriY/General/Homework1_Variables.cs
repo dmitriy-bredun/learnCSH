@@ -6,7 +6,7 @@ namespace HomeworkDmitriy.General
 {
     internal class Homework1_Variables
     {
-        public static void Startuem()
+        public static void Start()
         {
             Console.WriteLine();
             Console.WriteLine();
