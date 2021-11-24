@@ -9,7 +9,8 @@ namespace HomeworkSerg
         static void Main(string[] args)
         {
             //Homework1_Variables.Start();
-            Homework2_Convert.Start();
+            //Homework2_Convert.Start();
+            Homework3_Operation.Start();           
         }
     }
 }
