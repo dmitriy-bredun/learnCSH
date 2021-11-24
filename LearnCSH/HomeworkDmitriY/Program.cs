@@ -8,7 +8,9 @@ namespace HomeworkDmitriy
     {
         static void Main(string[] args)
         {
-           Homework1_Variables.Startuem();
+            // Homework1_Variables.Startuem();
+            // Homework3_Operations.Start1();
+            Homework3_Operations.Start2();
         }
     }
 }
