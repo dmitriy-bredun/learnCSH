@@ -10,13 +10,67 @@ namespace HomeworkSerg.General
     {
         public static void Start()
         {
-            Start1();
-            //Start2();
-            //Start3();
-            //Start4();
+            Console.WriteLine("ГЛАВНОЕ МЕНЮ !");
+            Console.WriteLine();
+            Console.WriteLine("Выбери что хочешь посмотреть и напиши соответствующую цифру:");
+            Console.WriteLine();
+            Console.WriteLine("1 - Задача 1. Маленький калькуляторчик");
+            Console.WriteLine("2 - Задача 2. Нахождение максимального числа");
+            Console.WriteLine("3 - Задача 3. Определение принадлежности к диапазону от 1 до 100");
+            Console.WriteLine("4 - Задача 4. Определение координатной четверти");
+            Console.WriteLine();
+            Console.WriteLine("Твой выбор -->"); string choice = Console.ReadLine();
+            Console.WriteLine();
+            switch (choice)
+            {
+                case "1":
+                    Task1();
+                    break;
+
+                case "2":
+                    Task2();
+                    break;
+
+                case "3":
+                    Task3();
+                    break;
+
+                case "4":
+                    Task4();
+                    break;
+
+                default:
+                    Console.WriteLine("Ты хош посмотреть что то не то шо нуно !");
+                    break;
+            }
+                //if (choice == "1")
+                //{
+                //    Task1();
+                //}
+                //else if (choice == "2")
+                //{
+                //    Task2();
+                //}
+                //else if (choice == "3")
+                //{
+                //    Task3();
+                //}
+                //else if (choice == "4")
+                //{
+                //    Task4();
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Ты хош посмотреть что то не то шо нуно !");
+                //}
+
+                //Task1();
+                //Task2();
+                //Task3();
+                //Task4();
         }
 
-        public static void Start1()
+        public static void Task1()
         {
             Console.WriteLine("Задача 1. Маленький калькуляторчик");
             Console.WriteLine();
@@ -61,7 +115,7 @@ namespace HomeworkSerg.General
                 Console.WriteLine("Вы ввели не верный символ");
             }
         }
-        public static void Start2()
+        public static void Task2()
         {
             Console.WriteLine("Задача 2. Нахождение максимального числа");
             Console.WriteLine();
@@ -99,9 +153,9 @@ namespace HomeworkSerg.General
             }
             Console.WriteLine($"Наибольшее число из введенных:  {over}");
         }
-        public static void Start3()
+        public static void Task3()
         {
-            Console.WriteLine("Задача 3. Определение принадлежности к диапазону от 1 до 100.");
+            Console.WriteLine("Задача 3. Определение принадлежности к диапазону от 1 до 100");
             Console.WriteLine();
 
             Console.WriteLine("Введите целое число от 1 до 100:");
@@ -148,9 +202,9 @@ namespace HomeworkSerg.General
                 Console.WriteLine($"Введенное число {numb} не попадает в диапазон от 1 до 100");
             }
         }
-        public static void Start4()
+        public static void Task4()
         {
-            Console.WriteLine("Задача 4. Определение координатной четверти.");
+            Console.WriteLine("Задача 4. Определение координатной четверти");
             Console.WriteLine();
 
             Console.WriteLine("Для определения координатной четверти поочередно введите");
