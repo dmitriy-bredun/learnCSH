@@ -1,6 +1,7 @@
 using System;
-
 using Lessons.Tools;
+
+using static System.Console;
 
 namespace Lessons
 {
@@ -8,79 +9,103 @@ namespace Lessons
     {
         public static void GoGoGo()
         {
-            IfDemonstration();
-            OperationsDemonstration();
+            //ConsoleDemo();
+
+            SwitchDemo();
+
         }
 
-        public static void IfDemonstration()
+        public static void SwitchDemo()
         {
-            int x = 10;
-            int y = 10;
+            WriteLine("-- Menu --");
+            WriteLine("1 - Калькулятор");
+            WriteLine("2 - task2");
+            WriteLine("3 - task3");
+            Write("enter your choice: ");
+            int userChoice = Convert.ToInt32(ReadLine());
 
-            // Сокращеннвая версия if
-            // когда нам нужно выполнить дополнительное действие
-            if (x > 1000)
+            switch (userChoice)
             {
-                Console.WriteLine("Дополнительное действие:");
-                Console.WriteLine("Снижение цен...");
-            }
+                case 1:
+                    WriteLine("Пользователь ввел 1, запущен маленький калькулятор...");
+                    SmallCalc();
+                    break;
 
-            // Полная версия if
-            // когда нужно выполнить разветвление
-            if (x > 10)
-            {
-                Console.WriteLine("Х > чем 10");
+                case 2:
+                    Task2();
+                    break;
 
-            }
-            else
-            {
-                Console.WriteLine("Х < чем 10");
-            }
+                case 3:
+                    Task3();
+                    break;
 
-
-            // Ресширенная версия if, используется когда
-            // у нас много сравнений и блоков
-            if (x > y)
-            {
-                Console.WriteLine("Х > чем Y");
-            }
-            else if (x < y)
-            {
-                Console.WriteLine("Х < чем Y");
-            }
-            else
-            {
-                Console.WriteLine("Х равен Y");
+                default:
+                    WriteLine("Выбран не сущесвтвующий пункт в меню...");
+                    break;
             }
         }
-        public static void OperationsDemonstration()
+
+
+        public static void SmallCalc()
         {
-            Console.Write("Введите число 1: ");
-            int dVal1 = Convert.ToInt32(Console.ReadLine());
+            Write("Введите число 1: ");
+            int x = Convert.ToInt32(ReadLine());
+
+            Write("Введите число 2: ");
+            int y = Convert.ToInt32(ReadLine());
+
+            Write("Введите знак операции:");
+            string operation = ReadLine();
+
+            int result = 0;
+
+            switch (operation)
+            {
+                case "+":
+                    result = x + y;
+                    break;
+
+                case "-":
+                    result = x - y;
+                    break;
+
+                case "*":
+                    result = x * y;
+                    break;
+
+                case "/":
+                    result = x / y;
+                    break;
+
+                default:
+                    WriteLine("Введен не верный знак операции...");
+                    break;
+            }
+
+            WriteLine($"Результат операции = {result}");
+
+        }
+
+        public static void Task2()
+        {
+            WriteLine("Task2");
+        }
+
+        public static void Task3()
+        {
+            WriteLine("Task3");
+        }
+
+        private static void ConsoleDemo()
+        {
+            //Дима, а как писать тест в консоль и в этой же строке в неё вводить что-нибудь?
             
-            Console.Write("Введите число 2: ");
-            int dVal2 = Convert.ToInt32(Console.ReadLine()); ;
+            int dickLength = -10;
 
-            int res = 0;
-            string operation = Console.ReadLine();
-            if (operation == "+")
-            {
-                res = dVal1 + dVal2;
-            } 
-            else if (operation == "-")
-            {
-                res = dVal1 - dVal2;
-            }
+            Write("Введите размер вашей достопримечательности: ");
+            dickLength = Convert.ToInt32(ReadLine());
 
-
-            // ==================================
-            if (dVal1 > 0 && dVal2 > 0)
-            {
-                Console.WriteLine("Оба больше 0");
-            }
-
-
-
+            Write($"Размер вашей достопримечательности = {dickLength}");
         }
     }
 }

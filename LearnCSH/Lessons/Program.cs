@@ -41,6 +41,7 @@ namespace Lessons
             // Practice2_DoubleCycles.Start();
             // Practice3_Tasks.Start();
             // Practice4_SimpleArrays.Start();
+            Practice5_VDV.Start();
 
             // TestProgram.StartTest();
         }
