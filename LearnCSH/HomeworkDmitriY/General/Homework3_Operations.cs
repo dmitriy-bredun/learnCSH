@@ -40,44 +40,36 @@ namespace HomeworkDmitriy.General
                 result = x / y;
                 Console.WriteLine($"результат: {x} / {y} = {result}");
             }
-
-
         }
-
         public static void Start2()
         {
             Console.WriteLine("Найти максимальное число из трех чисел");
 
             Console.Write("Введите первое число: ");
-                int a = Convert.ToInt32(Console.ReadLine());
+            int a = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Введите второе число: ");
-                int b = Convert.ToInt32(Console.ReadLine());
+            int b = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Введите третье число: ");
-                int c = Convert.ToInt32(Console.ReadLine());
+            int c = Convert.ToInt32(Console.ReadLine());
 
-                int max;
+            int max;
             
             if (a > b)
             {
                 max = a;
             }
-
             else if (b > c)
             {
                 max = b;
             }
-
             else
             {
                 max=c;
             }
-
             Console.Write($"Максимальное число: {max}");
-
         }
-
         public static void Start3()
         {
             Console.WriteLine("Определение принадлежности к диапазону от 1 до 100.");
@@ -93,7 +85,6 @@ namespace HomeworkDmitriy.General
             {
                 Console.WriteLine($"Число {znachenie} в диапазоне от 1 до 1000");
             }
-
             else
             {
                 Console.WriteLine($"Число {znachenie} в диапазоне от 1 до 1000");
@@ -116,17 +107,14 @@ namespace HomeworkDmitriy.General
             {
                 Console.WriteLine("Точка пренадлежит к I координатной четверти");
             }
-
             else if (X > 0 && Y < 0)
             {
                 Console.WriteLine("Точка пренадлежит к IV координатной четверти");
             }
-
             else if (X < 0 && Y < 0)
             {
                 Console.WriteLine("Точка пренадлежит к III координатной четверти");
             }
-
             else
             {
                 Console.WriteLine("Точка пренадлежит к II координатной четверти");
