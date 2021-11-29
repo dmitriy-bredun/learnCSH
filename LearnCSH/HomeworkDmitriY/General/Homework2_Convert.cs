@@ -6,7 +6,7 @@ namespace HomeworkDmitriy.General
 {
     internal class Homework2_Convert
     {
-        public static void Start0()
+        public static void Start()
         {
             // int intVal = 1234;
             // long longVal = (long)intVal;

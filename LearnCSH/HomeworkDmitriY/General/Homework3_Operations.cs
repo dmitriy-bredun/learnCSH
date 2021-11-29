@@ -6,7 +6,15 @@ namespace HomeworkDmitriy.General
 {
     internal class Homework3_Operations
     {
-        public static void Start1()
+        public static void Start()
+        {
+            Task1();
+            Task2();
+            Task3();
+            Task4();
+        }
+
+        public static void Task1()
         {
             Console.WriteLine("Калькулятор");
             Console.WriteLine("Введите первое дробное число: ");
@@ -41,7 +49,7 @@ namespace HomeworkDmitriy.General
                 Console.WriteLine($"результат: {x} / {y} = {result}");
             }
         }
-        public static void Start2()
+        public static void Task2()
         {
             Console.WriteLine("Найти максимальное число из трех чисел");
 
@@ -70,7 +78,7 @@ namespace HomeworkDmitriy.General
             }
             Console.Write($"Максимальное число: {max}");
         }
-        public static void Start3()
+        public static void Task3()
         {
             Console.WriteLine("Определение принадлежности к диапазону от 1 до 100.");
             Console.WriteLine();
@@ -90,7 +98,7 @@ namespace HomeworkDmitriy.General
                 Console.WriteLine($"Число {znachenie} в диапазоне от 1 до 1000");
             }
         }
-        public static void Start4()
+        public static void Task4()
         {
             Console.WriteLine("К какой координатной четверти принадлежит точка?");
             Console.WriteLine();
