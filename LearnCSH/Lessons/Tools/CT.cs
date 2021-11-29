@@ -15,6 +15,16 @@ namespace Lessons.Tools
             return string.IsNullOrEmpty(input) ? -1 : Convert.ToInt32(input);
         }
 
+        public static string EnterString(string txt)
+        {
+            if (!string.IsNullOrEmpty(txt))
+            {
+                Write(txt);
+            }
+
+            return ReadLine();
+        }
+
         public static void PrintSpace2()
         {
             WriteLine();
