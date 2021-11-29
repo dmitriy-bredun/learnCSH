@@ -8,11 +8,10 @@ namespace HomeworkDmitriy
     {
         static void Main(string[] args)
         {
-            // Homework1_Variables.Start();
-            Homework2_Convert.Start();
-
-
-
+            //Homework0_Test.Test();
+            //Homework1_Variables.Start();
+            //Homework2_Convert.Start();
+            Homework3_Operations.Start();
         }
     }
 }
