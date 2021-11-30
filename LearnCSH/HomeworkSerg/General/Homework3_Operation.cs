@@ -19,7 +19,8 @@ namespace HomeworkSerg.General
             Console.WriteLine("3 - Задача 3. Определение принадлежности к диапазону от 1 до 100");
             Console.WriteLine("4 - Задача 4. Определение координатной четверти");
             Console.WriteLine();
-            Console.WriteLine("Твой выбор -->"); string choice = Console.ReadLine();
+            Console.WriteLine("Твой выбор -->"); 
+            string choice = Console.ReadLine();
             Console.WriteLine();
             switch (choice)
             {
