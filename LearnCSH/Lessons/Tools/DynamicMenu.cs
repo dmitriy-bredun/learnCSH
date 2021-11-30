@@ -53,6 +53,8 @@ namespace Lessons.Tools
             WriteLine("0 --- Выход");
 
             var userChoice = CT.EnterInt("---> ");
+            WriteLine();
+
             if (userChoice == 0)
             {
                 return userChoice;

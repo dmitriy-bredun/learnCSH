@@ -8,12 +8,17 @@ namespace HomeworkDmitriy.General
     {
         public static void Start()
         {
-            int intVal = 35;
-            int intVal2 = 45;
-            int val1 = Convert.ToInt32(intVal);
-            int val2 = Convert.ToInt32(intVal2);
-            Console.WriteLine($"int: int + int -> {val1 + val2}");
+            // int intVal = 1234;
+            // long longVal = (long)intVal;
 
+            string name1 = Console.ReadLine();
+            string name2 = Console.ReadLine();
+            int str1 = Convert.ToInt32(name1);
+            int str2 = Convert.ToInt32(name2);
+            Console.WriteLine($"name1 = {str1}");
+            Console.WriteLine($"name2 = {str2}");
+            Console.WriteLine($"name1 + name2");
+            Console.WriteLine($"name1 + name2 = {str1 + str2}");
         }
     }
 }
