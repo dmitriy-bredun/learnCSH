@@ -20,7 +20,6 @@ namespace Lessons
 
         static void Main(string[] args)  
         {
-            GothamConsoleTheme();
 
             // CurrentLesson.GoGoGo();
             // CurrentLessonMargaret.Start();
@@ -44,6 +43,6 @@ namespace Lessons
             // Practice5_VDV.Start();
 
             // TestProgram.StartTest();
-        }
+        }/////////////////////////////////
     }
 }
