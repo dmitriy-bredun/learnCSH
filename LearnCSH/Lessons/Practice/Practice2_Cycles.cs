@@ -11,20 +11,7 @@ namespace Lessons.Practice
 
         public static void Task1()
         {
-            int counter = 0;
-            while (counter < 10)
-            {
-                if (counter < 5)
-                {
-                    Write("0 ");
-                }
-                else
-                {
-                    Write("1 ");
-                }
 
-                counter += 1;
-            }
         }
 
         public static void Task2()
