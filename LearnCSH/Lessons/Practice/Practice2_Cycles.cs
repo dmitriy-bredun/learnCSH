@@ -6,17 +6,7 @@ namespace Lessons.Practice
     {
         public static void Start()
         {
-            WriteLine("TASK 1");
-            Task1();
 
-            WriteLine();
-            WriteLine();
-
-            WriteLine("TASK 2");
-            Task2();
-
-            WriteLine();
-            WriteLine();
         }
 
         public static void Task1()
