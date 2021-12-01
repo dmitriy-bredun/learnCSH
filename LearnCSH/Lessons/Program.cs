@@ -20,6 +20,7 @@ namespace Lessons
 
         static void Main(string[] args)  
         {
+            GothamConsoleTheme();
 
             // CurrentLesson.GoGoGo();
             // CurrentLessonMargaret.Start();
