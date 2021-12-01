@@ -25,22 +25,6 @@ namespace Lessons
             // CurrentLesson.GoGoGo();
             // CurrentLessonMargaret.Start();
 
-            // Раскомментируйте тот урок, который хотите повторить и перебилдите проект...
-            // Lesson1_Variables.Start();
-            // Lesson2_1TypeConversion.Start();
-            // Lesson2_2Operations.Start();
-            // Lesson2_3ConditionalConstructions.Start();
-            // Lesson3_SwitchAndTernaryOperation.Start();
-            // Lesson4_Cycles.Start();
-            // Lesson5_StaticMethods.Start();
-            // Lesson6_SingleArray.Start();
-            // Lesson7_MultiDimensionalArrays.Start();
-
-            // Practice1_Opearations.Start();
-            // Practice2_Cycles.Start();
-            // Practice2_DoubleCycles.Start();
-            // Practice3_Tasks.Start();
-            // Practice4_SimpleArrays.Start();
 
             // TestProgram.StartTest();
         }////////////////////////
