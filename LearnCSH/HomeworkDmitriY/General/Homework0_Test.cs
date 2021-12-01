@@ -6,7 +6,7 @@ namespace HomeworkDmitriy.General
 {
     internal class Homework0_Test
     {
-        public static void Test()
+        public static void Task0()
         {
             Console.WriteLine($"Назови себя");
             string  number = Console.ReadLine();
