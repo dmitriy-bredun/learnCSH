@@ -36,12 +36,6 @@ namespace Lessons
             // Lesson6_SingleArray.Start();
             // Lesson7_MultiDimensionalArrays.Start();
 
-            // Practice1_Opearations.Start();
-            // Practice2_Cycles.Start();
-            // Practice2_DoubleCycles.Start();
-            // Practice3_Tasks.Start();
-            // Practice4_SimpleArrays.Start();
-            // Practice5_VDV.Start();
 
             // TestProgram.StartTest();
         
