@@ -32,11 +32,12 @@ namespace HomeworkMargaret
             // Homework3_PartThree.Start();
             // Homework4_SimpleArrays.Start();
             // Homework5_DoubleArrays.Start();
-            
+
             // DA_Game.Start();
 
             // Homework1_Classes.Start();
-            Homework1_PandoraBadassesRegistration.Start();
+            //Homework1_PandoraBadassesRegistration.Start();
+            HW3_Tamagochi.Start();
         }
     }
 }
