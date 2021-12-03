@@ -10,7 +10,7 @@ namespace HomeworkMargaret.Tools
     {
         public static void Print(int value, string msg = "Result", bool isLine = true)
         {
-            Write($"{msg} = {value}");
+            Write($"  {msg} = {value}");
             if (isLine)
             {
                 WriteLine();
@@ -19,7 +19,7 @@ namespace HomeworkMargaret.Tools
 
         public static void Print(double value, string msg = "Result", bool isLine = true)
         {
-            Write($"{msg} = {value}");
+            Write($"  {msg} = {value}");
 
             if (isLine)
             {
@@ -28,7 +28,7 @@ namespace HomeworkMargaret.Tools
         }
         public static void Print(string msg, bool isLine = true)
         {
-            Write(msg);
+            Write("  " + msg);
 
             if (isLine)
             {
@@ -43,19 +43,19 @@ namespace HomeworkMargaret.Tools
 
         public static int EnterInt(string msg)
         {
-            Write(msg);
+            Write("  " + msg);
             return Convert.ToInt32(ReadLine());
         }
 
         public static double EnterDouble(string msg)
         {
-            Write(msg);
+            Write("  " + msg);
             return Convert.ToDouble(ReadLine());
         }
         
         public static string EnterString(string msg)
         {
-            Write(msg);
+            Write("  " + msg);
             return ReadLine();
         }
         public static void ErrorMsg(string msg)
@@ -70,13 +70,28 @@ namespace HomeworkMargaret.Tools
         }
         public static int Menu(params string[] msg)
         {
-            WriteLine("MENU");
+            WriteLine();
+            WriteLine("\t ---MENU---");
             for (int i = 0; i < msg.Length; i++)
             {
-                WriteLine($"{i + 1} ---- {msg[i]}");
+                WriteLine($"  {i + 1} ---- {msg[i]}");
             }
-            WriteLine("0 ---- EXIT");
+            WriteLine("  0 ---- EXIT");
+            Write("  ---> ");
 
+            return Convert.ToInt32(ReadLine());
+        }
+
+        public static int EnumMenu(Type enumType)
+        {
+            WriteLine();
+            string[] items = Enum.GetNames(enumType);
+
+            for (int i = 0; i < items.Length; i++)
+            {
+                WriteLine($"  {i} ---- {items[i]}");
+            }
+            Write("  ---> ");
             return Convert.ToInt32(ReadLine());
         }
     }
