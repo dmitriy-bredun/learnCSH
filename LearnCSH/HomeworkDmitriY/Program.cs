@@ -64,6 +64,7 @@ namespace HomeworkDmitriy
                     WriteLine();
                     WriteLine();
                     break;
+                // КЛИКУНДА
             }
         }
     }
