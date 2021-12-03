@@ -17,8 +17,8 @@ namespace HomeworkDmitriy
             WriteLine("        2 - Convert        ");
             WriteLine("        3 - Operations        ");
             WriteLine("        4 - VDV        ");
-
             WriteLine();
+
             int Choice = Convert.ToInt32(ReadLine());
             WriteLine();
 
