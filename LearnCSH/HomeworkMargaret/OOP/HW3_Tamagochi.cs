@@ -114,7 +114,7 @@ namespace HomeworkMargaret.OOP
                 }
                 else
                 {
-                    CT.Print("_", false);
+                    CT.Print("-", false);
                 }
             }
             CT.Print("]");
