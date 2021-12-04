@@ -10,6 +10,8 @@ namespace HomeworkDmitriy
     {
         static void Main(string[] args)
         {
+            ForegroundColor = ConsoleColor.Green;
+
             WriteLine("   ///   Выберете Homework   ///   ");
             WriteLine();
 
