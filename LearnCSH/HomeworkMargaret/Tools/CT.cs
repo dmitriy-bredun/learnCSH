@@ -6,7 +6,7 @@ using static System.Console;
 
 namespace HomeworkMargaret.Tools
 {
-    static class CT
+    public static class CT
     {
         public static void Print(int value, string msg = "Result", bool isLine = true)
         {

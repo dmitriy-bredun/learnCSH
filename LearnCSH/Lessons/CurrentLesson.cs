@@ -1,7 +1,9 @@
 using System;
+using System.Threading;
 using Lessons.Tools;
 
 using static System.Console;
+using static System.Convert;
 
 namespace Lessons
 {
@@ -9,103 +11,184 @@ namespace Lessons
     {
         public static void GoGoGo()
         {
-            //ConsoleDemo();
+            // Cycles
 
-            SwitchDemo();
+            // WhileDemo();
+            // DoWhileDemo();
+            // MenuDemo();
 
+            CryBitch();
+
+            //int value1 = 3;
+            //int value2 = 6;
+
+            ////--------------------------------------------------
+            //if (value1 % 2 == 0)
+            //{
+            //    WriteLine($"����� {value1} - ������� 2-�");
+            //}
+            //else
+            //{
+            //    WriteLine($"����� {value1} - �� ������");
+
+            //}
+            ////--------------------------------------------------
+            //if (value2 % 2 == 0)
+            //{
+            //    WriteLine($"����� {value2} - ������� 2-�");
+            //}
+            //else
+            //{
+            //    WriteLine($"����� {value2} - �� ������");
+            //}
+            ////--------------------------------------------------
+            //if (value2 % 3 == 0)
+            //{
+            //    WriteLine($"����� {value2} - ������� 3-�");
+            //}
+            ////--------------------------------------------------
         }
 
-        public static void SwitchDemo()
+        public static void WhileDemo()
         {
-            WriteLine("-- Menu --");
-            WriteLine("1 - Калькулятор");
-            WriteLine("2 - task2");
-            WriteLine("3 - task3");
-            Write("enter your choice: ");
-            int userChoice = Convert.ToInt32(ReadLine());
+            int limit = 10;
+            int counter = 0;
 
-            switch (userChoice)
+            while (counter < limit)
             {
-                case 1:
-                    WriteLine("Пользователь ввел 1, запущен маленький калькулятор...");
-                    SmallCalc();
-                    break;
+                if (counter < 5)
+                {
+                    Write("*");
+                }
+                else
+                {
+                    Write("-");
+                }
 
-                case 2:
-                    Task2();
-                    break;
-
-                case 3:
-                    Task3();
-                    break;
-
-                default:
-                    WriteLine("Выбран не сущесвтвующий пункт в меню...");
-                    break;
-            }
-        }
-
-
-        public static void SmallCalc()
-        {
-            Write("Введите число 1: ");
-            int x = Convert.ToInt32(ReadLine());
-
-            Write("Введите число 2: ");
-            int y = Convert.ToInt32(ReadLine());
-
-            Write("Введите знак операции:");
-            string operation = ReadLine();
-
-            int result = 0;
-
-            switch (operation)
-            {
-                case "+":
-                    result = x + y;
-                    break;
-
-                case "-":
-                    result = x - y;
-                    break;
-
-                case "*":
-                    result = x * y;
-                    break;
-
-                case "/":
-                    result = x / y;
-                    break;
-
-                default:
-                    WriteLine("Введен не верный знак операции...");
-                    break;
+                counter += 1;
+                // counter = counter + 1;
+                // counter = counter * 3; counter *= 3;
             }
 
-            WriteLine($"Результат операции = {result}");
+            WriteLine("Finish");
+        }
+        public static void DoWhileDemo()
+        {
+            int limit = 10;
+            int counter = 100;
 
+            do
+            {
+                if (counter < 5)
+                {
+                    Write("*");
+                }
+                else
+                {
+                    Write("-");
+                }
+
+                counter += 1;
+            } while (counter < limit);
+            WriteLine("Finish");
+        }
+        public static void MenuDemo()
+        {
+            int userChoice = 0;
+
+            do
+            {
+                WriteLine("Menu");
+                WriteLine("1 --- First");
+                WriteLine("2 --- Second");
+                WriteLine("3 --- .....");
+                WriteLine("0 --- Exit");
+                userChoice = ToInt32(ReadLine());
+
+                switch (userChoice)
+                {
+                    case 1:
+                        WriteLine("1 task");
+                        break;
+                    case 2:
+                        WriteLine("2 task");
+                        break;
+                    case 3:
+                        WriteLine("3 task");
+                        break;
+                    case 0:
+                        WriteLine("Exit...");
+                        break;
+                    default:
+                        WriteLine("WTF?! O_o?");
+                        break;
+                }
+
+                WriteLine();
+                WriteLine();
+
+            } while (userChoice != 0);
         }
 
-        public static void Task2()
+        public static void CryBitch()
         {
-            WriteLine("Task2");
-        }
+            // TASK 1
+            // 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+            int lim = 15;
+            int count1 = 1;
+            while (count1 <= lim)
+            {
+                Write($"{count1} ");
+                count1 += 1;
+            }
 
-        public static void Task3()
-        {
-            WriteLine("Task3");
-        }
+            WriteLine("Finish");
+            WriteLine();
 
-        private static void ConsoleDemo()
-        {
-            //Дима, а как писать тест в консоль и в этой же строке в неё вводить что-нибудь?
-            
-            int dickLength = -10;
 
-            Write("Введите размер вашей достопримечательности: ");
-            dickLength = Convert.ToInt32(ReadLine());
+            // TASK 2
+            // 2) 0 1 * 1 0 * 0 1 * 1 0 * 0 1 * 1 0 * 0 1 
+            int count2 = 1;
+            while(count2 <= 20)
+            {
+                if (count2 % 3 == 0)
+                {
+                    Write("* ");
+                }
+                else if (count2 % 2 == 0)
+                {
+                    Write("1 ");
+                }
+                else
+                {
+                    Write("0 ");
+                }
+                count2 += 1;
+            }
 
-            Write($"Размер вашей достопримечательности = {dickLength}");
+            WriteLine("Finish");
+            WriteLine();
+
+
+            // TASK 3
+            // 3) 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1
+            WriteLine();
+            WriteLine();
+
+            int count3 = 0;
+
+            while (count3 < 20)
+            {
+                if (count3 < 10)
+                {
+                    Write("0 ");
+                }
+                else
+                {
+                    Write("1 ");
+                }
+                count3 += 1;
+            }
         }
     }
 }

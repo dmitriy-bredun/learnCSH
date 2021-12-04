@@ -3,138 +3,155 @@ using System.Collections.Generic;
 using System.Text;
 
 using static System.Console;
+using static System.Math;
+
+using static Lessons.Tools.CT;
 
 using Lessons.Tools;
 
 namespace Lessons
 {
-    enum Colors
+    enum Food
     {
-        Green,
-        Blue,
-        Red,
-        UNKNOWN
+        Meat,
+        Bread = 2,
+        Salmon,
+        Berry,
+        Tea,
+        G = 15,
+        K,
+        L
     }
+    //class Box
+    //{
+    //    private int age;
+    //    public int Age
+    //    {
+    //        get
+    //        {
+    //            return (int)(age * Math.PI);
+    //        }
+    //        set
+    //        {
+    //            age = value;
+    //            if(age < 18)
+    //            {
+    //                Console.WriteLine("Вы ещё не доросли");
+    //            }
+    //            else if(age > 30)
+    //            {
+    //                //logic....
+    //            }
+    //            else
+    //            {
+    //                //Приемлимый возраст
+    //            }
+    //        }
+    //    }
 
+
+    //    private int mainValue;
+
+    //    public int MainValue
+    //    {
+    //        private get
+    //        {
+    //            return x*y*z;
+    //        }
+    //        set
+    //        {
+    //            mainValue = value;
+    //        }
+    //    }
+
+
+    //    private int x;
+    //    private int y;
+    //    private int z;
+    //    public Box(int x)
+    //    {
+    //        this.x = x;
+    //    }
+    //    public Box(int x, int y) : this(x)
+    //    {
+    //        this.y = y;
+    //    }
+    //    public Box(int x, int y, int z) : this(x, y)
+    //    {
+    //        this.z = z;
+    //    }
+    //}
     class Box
     {
-        public int x;
-        public int y;
-        public int z;
-        public Colors color;
+        private int x;
+        private int y;
+        private int z;
 
-        public Box(int x, int y, int z, Colors color)
+        public int X
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.color = color;
+            get
+            {
+                return x;
+            }
+            set
+            {
+                x = value;
+            }
         }
 
-        public void ShowBox()
+        public int Y
         {
-            WriteLine();
-            WriteLine($"Box show");
-            WriteLine($"x = \t{x}");
-            WriteLine($"y = \t{y}");
-            WriteLine($"z = \t{z}");
-            WriteLine($"color = \t{color}");
-            WriteLine();
+            get
+            {
+                return y;
+            }
+            set
+            {
+                y = value;
+            }
+        }
+
+        public int Z
+        {
+            get
+            {
+                return z;
+            }
+            set
+            {
+                z = value;
+            }
+        }
+        
+        public int V
+        {
+            get
+            {
+                return x * y * z;
+            }
         }
     }
-
-
     class CurrentLessonMargaret
     {
-        static Box[] boxes = new Box[10];
+        public static void StartMargaretPractice()
+        {
+            Box box = new Box();
+            box.X = 5;
+            box.Y = 7;
+            box.Z = 6;
+            WriteLine(box.V);
+        }
 
         public static void Start()
         {
-            DynamicMenu menu = new DynamicMenu();
+            //StartMargaretPractice();
+            
+            //Box box1 = new Box(5, 6, 7);
 
-            int userChoice;
-            do
-            {
-                menu.AddMenuItem("Добавить коробку", AddNewBox);
-                menu.AddMenuItem("Отобразить все коробки", ShowAllBoxes);
-                menu.AddMenuItem("Отобразить крассные коробки", ShowRedBoxes);
+            Food food = (int)Food.Meat;
 
-                userChoice = menu.CallMenu();
-
-            } while (userChoice != 0);
-        }
-
-        public static void AddNewBox()
-        {
-            int x = CT.EnterInt("Введите размер по Х: ");
-            int y = CT.EnterInt("Введите размер по Y: ");
-            int z = CT.EnterInt("Введите размер по Z: ");
-
-            Write("Выберите цвет: (1 зеленый, 2 синий, 3 красный): ");
-            int colorChoice = Convert.ToInt32(ReadLine());
-
-            Colors color = colorChoice switch
-            {
-                1 => Colors.Green,
-                2 => Colors.Blue,
-                3 => Colors.Red,
-                _ => Colors.UNKNOWN
-            }; // под кодом - пример этого свитча, описанный классическим способом
-
-            for (int i = 0; i < boxes.Length; i++)
-            {
-                if (boxes[i] == null)
-                {
-                    boxes[i] = new Box(x, y, z, color); ;
-                    break;
-                }
-            }
-        }
-
-        public static void ShowAllBoxes()
-        {
-            foreach (var item in boxes)
-            {
-                if (item != null)
-                {
-                    item.ShowBox();
-                }
-            }
-        }
-
-        public static void ShowRedBoxes()
-        {
-            foreach (var item in boxes)
-            {
-                if (item == null)
-                {
-                    continue;
-                }
-
-                if (item.color == Colors.Red)
-                {
-                    item.ShowBox();
-                }
-            }
+            PrintSpace2();
+            PrintSpace2(); // CT писать не нужно из-за using static
         }
     }
 }
-
-// пример свитча, описанный классическим способом
-// switch (colorChoice)
-// {
-//     case 1:
-//         color = Colors.Green;
-//         break;
-//     case 2:
-//         color = Colors.Blue;
-//         break;
-//     default:
-//         color = Colors.UNKNOWN;
-//         break;
-//         ...
-// }
-
-// ??? public static int Counter;
-// ??? Default constructor
-// ??? constructors chain
