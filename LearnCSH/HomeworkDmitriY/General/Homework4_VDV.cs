@@ -31,32 +31,33 @@ namespace HomeworkDmitriy.General
             {
                 WriteLine("Пацаны на месте");
 
+                // Точка сверху
                 int xUp = xChel;
                 int yUp = yChel + 1;
-
                 if (yUp < yLimMap)
                 {
                     WriteLine($"Патроны на месте по {xUp} {yUp}");
                 }
+
+                // Точка снизу
                 int xDow = xChel;
                 int yDow = yChel - 1;
-
                 if (yDow > 0)
                 {
                     WriteLine($"Патроны на месте по {xDow} {yDow}");
                 }
 
+                // Точка слева
                 int xLef = xChel - 1;
                 int yLef = yChel;
-
                 if (yLef > 0)
                 {
                     WriteLine($"Патроны на месте по {xLef} {yLef}");
                 }
 
+                // Точка справа
                 int xRt = xChel + 1;
                 int yRt = yChel;
-
                 if (yRt < yLimMap)
                 {
                     WriteLine($"Патроны на месте по {xRt} {yRt}");
