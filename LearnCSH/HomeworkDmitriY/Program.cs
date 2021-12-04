@@ -2,6 +2,7 @@
 
 using HomeworkDmitriy.General;
 using static System.Console;
+using static System.Convert;
 
 namespace HomeworkDmitriy
 {
@@ -19,7 +20,7 @@ namespace HomeworkDmitriy
             WriteLine("        4 - VDV        ");
             WriteLine();
 
-            int Choice = Convert.ToInt32(ReadLine());
+            int Choice = ToInt32(ReadLine());
             WriteLine();
 
             switch (Choice)

@@ -13,51 +13,51 @@ namespace HomeworkDmitriy.General
         {
             WriteLine("Введите размеры карты");
 
-            int xLim = ToInt32(ReadLine());
-            int yLim = ToInt32(ReadLine());
+            int xLimMap = ToInt32(ReadLine());
+            int yLimMap = ToInt32(ReadLine());
 
-            WriteLine($"Карта создана с заданными размерами {xLim} и {yLim}");
+            WriteLine($"Карта создана с заданными размерами {xLimMap} на {yLimMap}");
 
             WriteLine("Введите координаты пацанов");
 
-            int x = ToInt32(ReadLine());
-            int y = ToInt32(ReadLine());
+            int xChel = ToInt32(ReadLine());
+            int yChel = ToInt32(ReadLine());
 
-            WriteLine($"Пацаны выброшены по координатам {x} на {y}");
+            WriteLine($"Пацаны выброшены по координатам {xChel} на {yChel}");
 
             WriteLine("Выполняем сравнение координат");
 
-            if (x < xLim && x > 0 && y < yLim && y > 0)
+            if (xChel < xLimMap && xChel > 0 && yChel < yLimMap && yChel > 0)
             {
                 WriteLine("Пацаны на месте");
 
-                int xUp = x;
-                int yUp = y + 1;
+                int xUp = xChel;
+                int yUp = yChel + 1;
 
-                if (yUp < yLim)
+                if (yUp < yLimMap)
                 {
                     WriteLine($"Патроны на месте по {xUp} {yUp}");
                 }
-                int xDow = x;
-                int yDow = y - 1;
+                int xDow = xChel;
+                int yDow = yChel - 1;
 
                 if (yDow > 0)
                 {
                     WriteLine($"Патроны на месте по {xDow} {yDow}");
                 }
 
-                int xLef = x - 1;
-                int yLef = y;
+                int xLef = xChel - 1;
+                int yLef = yChel;
 
                 if (yLef > 0)
                 {
-                    WriteLine($"Патроны на месте по {xLim} {yLim}");
+                    WriteLine($"Патроны на месте по {xLef} {yLef}");
                 }
 
-                int xRt = x + 1;
-                int yRt = y;
+                int xRt = xChel + 1;
+                int yRt = yChel;
 
-                if (yRt < yLim)
+                if (yRt < yLimMap)
                 {
                     WriteLine($"Патроны на месте по {xRt} {yRt}");
                 }
