@@ -61,7 +61,7 @@ namespace HomeworkDmitriy.General
                 // Точка слева
                 int xLef = xChel - 1;
                 int yLef = yChel;
-                if (yLef > 0)
+                if (xLef > 0)
                 {
                     WriteLine($"(слева) Патроны на месте по {xLef} {yLef}");
                     WriteLine();
@@ -70,7 +70,7 @@ namespace HomeworkDmitriy.General
                 // Точка справа
                 int xRt = xChel + 1;
                 int yRt = yChel;
-                if (yRt < yLimMap)
+                if (xRt < yLimMap)
                 {
                     WriteLine($"(справа) Патроны на месте по {xRt} {yRt}");
                     WriteLine();
