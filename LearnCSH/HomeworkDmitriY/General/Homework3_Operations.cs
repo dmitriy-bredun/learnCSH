@@ -2,29 +2,63 @@
 using System.Collections.Generic;
 using System.Text;
 
+using static System.Console;
+
 namespace HomeworkDmitriy.General
 {
     internal class Homework3_Operations
     {
         public static void Start()
         {
-            Task1();
-            Task2();
-            Task3();
-            Task4();
+            WriteLine("   ///   Выберете Таску   ///   ");
+            WriteLine();
+
+            WriteLine("        1 - Калькулятор        ");
+            WriteLine("        2 - Найти максимальное число        ");
+            WriteLine("        3 - Определение принадлежности к диапазону        ");
+            WriteLine("        4 - К какой координатной четверти принадлежит точка        ");
+
+            WriteLine();
+            int Choice = Convert.ToInt32(ReadLine());
+            WriteLine();
+
+            switch (Choice)
+            {
+                case 1:
+                    Task1();
+                    break;
+
+                case 2:
+                    Task2();
+                    break;
+
+                case 3:
+                    Task3();
+                    break;
+
+                case 4:
+                    Task4();
+                    break;
+
+                default:
+                    Write("Сделай правильный выбор");
+                    break;
+            }
         }
 
         public static void Task1()
         {
-            Console.WriteLine("Калькулятор");
-            Console.WriteLine("Введите первое дробное число: ");
+            WriteLine("   ///   Калькулятор   ///   ");
+            WriteLine();
+
+            Write("Введите первое дробное число: ");
             double x = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("Введите нужный символ:");
+            Write("Введите нужный символ:");
             string operation = Console.ReadLine();
 
-            Console.WriteLine("Введите второе дробное число: ");
-            double y = Convert.ToDouble(Console.ReadLine());
+            Write("Введите второе дробное число: ");
+            double y = Convert.ToDouble(ReadLine());
 
             double result;
 
@@ -51,7 +85,8 @@ namespace HomeworkDmitriy.General
         }
         public static void Task2()
         {
-            Console.WriteLine("Найти максимальное число из трех чисел");
+            Console.WriteLine("   ///   Найти максимальное число из трех чисел   ///   ");
+            Console.WriteLine();
 
             Console.Write("Введите первое число: ");
             int a = Convert.ToInt32(Console.ReadLine());
@@ -80,7 +115,7 @@ namespace HomeworkDmitriy.General
         }
         public static void Task3()
         {
-            Console.WriteLine("Определение принадлежности к диапазону от 1 до 100.");
+            Console.WriteLine("   ///   Определение принадлежности к диапазону от 1 до 100.   ///   ");
             Console.WriteLine();
 
             Console.Write("Введите целое число от 1 до 1000: ");
@@ -100,7 +135,7 @@ namespace HomeworkDmitriy.General
         }
         public static void Task4()
         {
-            Console.WriteLine("К какой координатной четверти принадлежит точка?");
+            Console.WriteLine("   ///   К какой координатной четверти принадлежит точка?   ///   ");
             Console.WriteLine();
             Console.Write("Введите число 1: ");
             string XSrt = Console.ReadLine();
