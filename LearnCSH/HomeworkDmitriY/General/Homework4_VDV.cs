@@ -11,32 +11,42 @@ namespace HomeworkDmitriy.General
     {
         internal static void Start()
         {
-            WriteLine("Введите размеры карты");
+            WriteLine("Введите размеры карты:");
 
+            Write("xLimMap = ");
             int xLimMap = ToInt32(ReadLine());
+
+            Write("yLimMap = ");
             int yLimMap = ToInt32(ReadLine());
 
             WriteLine($"Карта создана с заданными размерами {xLimMap} на {yLimMap}");
+            WriteLine();
 
-            WriteLine("Введите координаты пацанов");
 
+            WriteLine("Введите координаты пацанов:");
+
+            Write("xChel = ");
             int xChel = ToInt32(ReadLine());
+
+            Write("yChel = ");
             int yChel = ToInt32(ReadLine());
-
             WriteLine($"Пацаны выброшены по координатам {xChel} на {yChel}");
+            WriteLine();
 
-            WriteLine("Выполняем сравнение координат");
 
+            Write("Выполняем сравнение координат: ");
             if (xChel < xLimMap && xChel > 0 && yChel < yLimMap && yChel > 0)
             {
                 WriteLine("Пацаны на месте");
+                WriteLine();
 
                 // Точка сверху
                 int xUp = xChel;
                 int yUp = yChel + 1;
                 if (yUp < yLimMap)
                 {
-                    WriteLine($"Патроны на месте по {xUp} {yUp}");
+                    WriteLine($"(сверху) Патроны на месте по {xUp} {yUp}");
+                    WriteLine();
                 }
 
                 // Точка снизу
@@ -44,7 +54,8 @@ namespace HomeworkDmitriy.General
                 int yDow = yChel - 1;
                 if (yDow > 0)
                 {
-                    WriteLine($"Патроны на месте по {xDow} {yDow}");
+                    WriteLine($"(снизу) Патроны на месте по {xDow} {yDow}");
+                    WriteLine();
                 }
 
                 // Точка слева
@@ -52,7 +63,8 @@ namespace HomeworkDmitriy.General
                 int yLef = yChel;
                 if (yLef > 0)
                 {
-                    WriteLine($"Патроны на месте по {xLef} {yLef}");
+                    WriteLine($"(слева) Патроны на месте по {xLef} {yLef}");
+                    WriteLine();
                 }
 
                 // Точка справа
@@ -60,7 +72,8 @@ namespace HomeworkDmitriy.General
                 int yRt = yChel;
                 if (yRt < yLimMap)
                 {
-                    WriteLine($"Патроны на месте по {xRt} {yRt}");
+                    WriteLine($"(справа) Патроны на месте по {xRt} {yRt}");
+                    WriteLine();
                 }
             }
             else
