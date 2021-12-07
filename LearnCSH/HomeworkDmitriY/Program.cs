@@ -15,11 +15,12 @@ namespace HomeworkDmitriy
             WriteLine("   ///   Выберете Homework   ///   ");
             WriteLine();
 
-            WriteLine("        0 - Test        ");
-            WriteLine("        1 - Variables        ");
-            WriteLine("        2 - Convert        ");
-            WriteLine("        3 - Operations        ");
-            WriteLine("        4 - VDV        ");
+            WriteLine("        0 - Тесты        ");
+            WriteLine("        1 - Переменные        ");
+            WriteLine("        2 - Конверт        ");
+            WriteLine("        3 - Операции        ");
+            WriteLine("        4 - Выброска пацанов        ");
+            WriteLine("        5 - Циклы        ");
             WriteLine();
 
             int Choice = ToInt32(ReadLine());
@@ -60,6 +61,13 @@ namespace HomeworkDmitriy
                     WriteLine();
                     WriteLine();
                     Homework4_VDV.Start();
+                    break;
+
+                case 5:
+                    Write("Запущен Homework5_Cycles");
+                    WriteLine();
+                    WriteLine();
+                    Homework5_Cycles.Start();
                     break;
 
                 default:
