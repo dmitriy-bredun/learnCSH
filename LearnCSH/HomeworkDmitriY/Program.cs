@@ -3,6 +3,7 @@
 using HomeworkDmitriy.General;
 using static System.Console;
 using static System.Convert;
+using static System.ConsoleColor;
 
 namespace HomeworkDmitriy
 {
@@ -10,7 +11,7 @@ namespace HomeworkDmitriy
     {
         static void Main(string[] args)
         {
-            ForegroundColor = ConsoleColor.Green;
+            ForegroundColor = Green;
 
             WriteLine("   ///   Выберете Homework   ///   ");
             WriteLine();
@@ -75,7 +76,6 @@ namespace HomeworkDmitriy
                     WriteLine();
                     WriteLine();
                     break;
-                // КЛИКУНДА
             }
         }
     }
