@@ -11,7 +11,8 @@ namespace HomeworkSerg
             //Homework1_Variables.Start();
             //Homework2_Convert.Start();
             //Homework3_Operation.Start();
-            Homework4_VDV.Start();
+            //Homework4_VDV.Start();
+            Homework5_Cycles.Start();
         }
     }
 }
