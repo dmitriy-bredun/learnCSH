@@ -14,6 +14,20 @@ namespace Lessons
             // ForDemo();
             // StringArrayDemo();
             // ArrayWithRandomValuesDemo();
+
+            // Как передать массив в другой метод ?
+            int[] arr = new int[5];
+            arr[0] = 3;
+            arr[1] = 7;
+            arr[2] = 4;
+            arr[3] = 2;
+            arr[4] = 1;
+
+            int[] arr2 = new int[5];
+
+            Task1(arr);
+
+            WTF("alalal");
         }
 
         public static void ForDemo()
@@ -86,6 +100,19 @@ namespace Lessons
             {
                 WriteLine($"В ячейке с индексом [{indx}] хранится: arrayWithRandomValues[{indx}] = {arrayWithRandomValues[indx]}");
             }
+        }
+
+        public static void Task1(int[] numbers1)
+        {
+            for (int indx = 0; indx < numbers1.Length; indx++)
+            {
+                WriteLine($"numbers[{indx}] = {numbers1[indx]}");
+            }
+        }
+
+        public static void WTF(string text)
+        {
+            WriteLine($"Что за хуйню ты мне передал? {text}");
         }
     }
 }
