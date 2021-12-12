@@ -234,15 +234,131 @@ namespace HomeworkSerg.General
         }
         public static void Task6()
         {
+            
+            WriteLine(" Task 6");
+            WriteLine();
 
+            WriteLine(" Numb 1:");
+            int a = Convert.ToInt32(ReadLine());
+            WriteLine();
+
+            WriteLine(" Numb 2:");
+            int b = Convert.ToInt32(ReadLine());
+            WriteLine();
+
+            int range = 0;
+
+            if (a <= b)
+            {
+                while (a <= b)
+                {
+                    if (a % 7 == 0 || a % 13 == 0 && a > 0)
+                    {
+                        range += a;
+                    }
+                    a += 1;
+                }
+                Write($"   Solution:  {range}");
+                WriteLine();
+            }
+
+            else
+            {
+                while (b <= a)
+                {
+                    if (b % 7 == 0 || b % 13 == 0 && b > 0)
+                    {
+                        range += b;
+                    }
+                    b += 1;
+                }
+                Write($"   Solution:  {range}");
+                WriteLine();
+            } 
         }
         public static void Task7()
         {
+            WriteLine(" Task 7");
+            WriteLine();
 
+            WriteLine("Numb 1:");
+            int a = Convert.ToInt32(ReadLine());
+            WriteLine();
+
+            WriteLine("Numb 2:");
+            int b = Convert.ToInt32(ReadLine());
+            WriteLine();
+
+            int range = 0;
+
+            if (a <= b)
+            {
+                while (a <= b)
+                {
+                    if (a % 5 == 0)
+                    {
+                        range++;
+                    }
+                    a += 1;
+                }
+                Write($"   Solution:  {range}");
+                WriteLine();
+            }
+            else
+            {
+                while (b <= a)
+                {
+                    if (b % 5 == 0)
+                    {
+                        range++;
+                    }
+                    b += 1;
+                }
+                Write($"   Solution:  {range}");
+                WriteLine();
+            }
         }
         public static void Task8()
         {
+            WriteLine(" Task 8");
+            WriteLine();
 
+            WriteLine("Numb 1:");
+            int a = Convert.ToInt32(ReadLine());
+            WriteLine();
+
+            WriteLine("Numb 2:");
+            int b = Convert.ToInt32(ReadLine());
+            WriteLine();
+
+            int range = 0;
+
+            if (a <= b)
+            {
+                while (a <= b)
+                {
+                    if (a % 3 == 0 && a % 4 == 0 && a < 0)
+                    {
+                        range += a;
+                    }
+                    a += 1;
+                }
+                Write($"   Solution:  {range}");
+                WriteLine();
+            }
+            else
+            {
+                while (b <= a)
+                {
+                    if (b % 3 == 0 && b % 4 == 0 && b < 0)
+                    {
+                        range += b;
+                    }
+                    b += 1;
+                }
+                Write($"   Solution:  {range}");
+                WriteLine();
+            }
         }
         public static void Test()
         {
