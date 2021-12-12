@@ -11,183 +11,80 @@ namespace Lessons
     {
         public static void GoGoGo()
         {
-            // Cycles
-
-            // WhileDemo();
-            // DoWhileDemo();
-            // MenuDemo();
-
-            CryBitch();
-
-            //int value1 = 3;
-            //int value2 = 6;
-
-            ////--------------------------------------------------
-            //if (value1 % 2 == 0)
-            //{
-            //    WriteLine($"Число {value1} - кратное 2-м");
-            //}
-            //else
-            //{
-            //    WriteLine($"Число {value1} - не четное");
-
-            //}
-            ////--------------------------------------------------
-            //if (value2 % 2 == 0)
-            //{
-            //    WriteLine($"Число {value2} - кратное 2-м");
-            //}
-            //else
-            //{
-            //    WriteLine($"Число {value2} - не четное");
-            //}
-            ////--------------------------------------------------
-            //if (value2 % 3 == 0)
-            //{
-            //    WriteLine($"Число {value2} - кратное 3-м");
-            //}
-            ////--------------------------------------------------
+            // ForDemo();
+            // StringArrayDemo();
+            // ArrayWithRandomValuesDemo();
         }
 
-        public static void WhileDemo()
+        public static void ForDemo()
         {
-            int limit = 10;
-            int counter = 0;
+            Write("Введите лимит: ");
+            int limit = ToInt32(ReadLine());
 
-            while (counter < limit)
+            int number = 0;
+            for (int counter = 1; counter <= limit && counter < 100; counter += 3, number++)
             {
-                if (counter < 5)
-                {
-                    Write("*");
-                }
-                else
-                {
-                    Write("-");
-                }
-
-                counter += 1;
-                // counter = counter + 1;
-                // counter = counter * 3; counter *= 3;
-            }
-
-            WriteLine("Finish");
-        }
-        public static void DoWhileDemo()
-        {
-            int limit = 10;
-            int counter = 100;
-
-            do
-            {
-                if (counter < 5)
-                {
-                    Write("*");
-                }
-                else
-                {
-                    Write("-");
-                }
-
-                counter += 1;
-            } while (counter < limit);
-            WriteLine("Finish");
-        }
-        public static void MenuDemo()
-        {
-            int userChoice = 0;
-
-            do
-            {
-                WriteLine("Menu");
-                WriteLine("1 --- First");
-                WriteLine("2 --- Second");
-                WriteLine("3 --- .....");
-                WriteLine("0 --- Exit");
-                userChoice = ToInt32(ReadLine());
-
-                switch (userChoice)
-                {
-                    case 1:
-                        WriteLine("1 task");
-                        break;
-                    case 2:
-                        WriteLine("2 task");
-                        break;
-                    case 3:
-                        WriteLine("3 task");
-                        break;
-                    case 0:
-                        WriteLine("Exit...");
-                        break;
-                    default:
-                        WriteLine("WTF?! O_o?");
-                        break;
-                }
+                WriteLine($"Counter = {counter}  ");
+                WriteLine($"Number = {number}  ");
 
                 WriteLine();
                 WriteLine();
+            }
+        } 
 
-            } while (userChoice != 0);
+        public static void StringArrayDemo()
+        {
+            // создаем массив для хранения набора строк
+            string[] text = new string[4];
+
+            // записываем в него значения
+            text[0] = "Happy";
+            text[1] = "New";
+            text[2] = "Year,";
+            text[3] = "Cowboys!";
+
+            // мы так же можем считать из массива любое значение и сохранить его в отдельную переменную (если это нужно)
+            string str = text[0]; // в переменную string str запишется "Happy"
+
+            //получаем размер массива
+            int arraySize = text.Length;
+
+            // выводим значния массива 
+            for (int indx = 0; indx < arraySize; indx++)
+            {
+                Write($"{text[indx]}  ");
+            }
+
+            WriteLine();
+            WriteLine();
+
+            for (int indx = 0; indx < text.Length; ++indx)
+            {
+                WriteLine($"В ячейке с индексом [{indx}] хранится: text[{indx}] = {text[indx]}");
+            }
         }
 
-        public static void CryBitch()
+        // пример как создать массив и заполнить его случайными числами
+        public static void ArrayWithRandomValuesDemo()
         {
-            // TASK 1
-            // 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
-            int lim = 15;
-            int count1 = 1;
-            while (count1 <= lim)
+            // создаем массив для хранения целых чисел
+            int[] arrayWithRandomValues = new int[15];
+
+            // создаем переменную генератора чисел
+            Random generator = new Random();
+
+            // инициализируем массив случайными числами в диапазоне от min до max
+            const int MIN = -10;
+            const int MAX = 10;
+            for (int indx = 0; indx < arrayWithRandomValues.Length; indx++)
             {
-                Write($"{count1} ");
-                count1 += 1;
+                arrayWithRandomValues[indx] = generator.Next(MIN, MAX);
             }
 
-            WriteLine("Finish");
-            WriteLine();
-
-
-            // TASK 2
-            // 2) 0 1 * 1 0 * 0 1 * 1 0 * 0 1 * 1 0 * 0 1 
-            int count2 = 1;
-            while(count2 <= 20)
+            // выводим значния массива 
+            for (int indx = 0; indx < arrayWithRandomValues.Length; ++indx)
             {
-                if (count2 % 3 == 0)
-                {
-                    Write("* ");
-                }
-                else if (count2 % 2 == 0)
-                {
-                    Write("1 ");
-                }
-                else
-                {
-                    Write("0 ");
-                }
-                count2 += 1;
-            }
-
-            WriteLine("Finish");
-            WriteLine();
-
-
-            // TASK 3
-            // 3) 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1
-            WriteLine();
-            WriteLine();
-
-            int count3 = 0;
-
-            while (count3 < 20)
-            {
-                if (count3 < 10)
-                {
-                    Write("0 ");
-                }
-                else
-                {
-                    Write("1 ");
-                }
-                count3 += 1;
+                WriteLine($"В ячейке с индексом [{indx}] хранится: arrayWithRandomValues[{indx}] = {arrayWithRandomValues[indx]}");
             }
         }
     }
