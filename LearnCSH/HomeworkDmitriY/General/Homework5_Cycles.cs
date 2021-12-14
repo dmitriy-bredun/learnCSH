@@ -11,181 +11,310 @@ namespace HomeworkDmitriy.General
     {
         public static void Start()
         {
-            WriteLine("   ///   Выберете Таску   ///   ");
-            WriteLine();
+            int usersChoice;
 
-            WriteLine("        1 - С помощью цикла вывести в консоль 15 символов: 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0        ");
-            WriteLine("        2 - С помощью цикла вывести к консоль 15 символов: 0 0 0 0 5 0 0 0 0 10 0 0 0 0 15        ");
-            WriteLine("        3 - С помощью цикла вывести в консоль 15 символов: 0 0 0 0 5 1 0 1 0 10 0 0 0 0 15        ");
-            WriteLine("        4 - С помощью цикла вывести в консоль 10 символов: 1 2 3 4 5 10 9 8 7 6        ");
-            WriteLine("        5 - С помощью цикла вывести в консоль 10 символов [ + + + + + + + + - - ]        ");
-            WriteLine("        6 - Посчитать сумму ПОЛОЖИТЕЛЬНЫХ чисел кратных 13-ти ИЛИ 7-ми на промежутке от a до b (эти переменные вводит пользователь. Могут быть случаи, когда a > b и a < b)        ");
-            WriteLine("        7 - Посчитать сколько (количество) чисел кратных 5-ти находится на промежутке от a до b (эти переменные вводит пользователь. Могут быть случаи, когда a > b и a < b)        ");
-            WriteLine("        8 - Посчитать сколько (количество) отрицательных чисел кратных ОДНОВРЕМЕННО 3-м И 4-м находится на промежутке от а до b (эти переменные вводит пользователь. Могут быть случаи, когда a > b и a < b)        ");
-
-            WriteLine();
-            int Choice = ToInt32(ReadLine());
-            WriteLine();
-
-            switch (Choice)
+            do
             {
-                case 1:
-                    Task1();
-                    break;
+                WriteLine("   ///   Выбери Таску   ///   ");
+                WriteLine();
 
-                case 2:
-                    Task2();
-                    break;
+                WriteLine("         1 - Выводим в консоль 15 символов: 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0");
+                WriteLine("         2 - Выводим в консоль 15 символов: 0 0 0 0 5 0 0 0 0 10 0 0 0 0 15");
+                WriteLine("         3 - Выводим в консоль 15 символов: 0 0 0 0 5 1 0 1 0 10 0 0 0 0 15");
+                WriteLine("         4 - Выводим в консоль 10 символов: 1 2 3 4 5 10 9 8 7 6");
+                WriteLine("         5 - Выводим в консоль 10 символов: [ + + + + + + + + - - ]");
+                WriteLine("         6 - Сумма ПОЛОЖИТЕЛЬНЫХ чисел кратных 13-ти ИЛИ 7-ми на промежутке от a до b");
+                WriteLine("         7 - Количество чисел кратных 5-ти на промежутке от a до b");
+                WriteLine("         8 - Количество отрицательных чисел кратных 3-м И 4-м на промежутке от а до b");
+                WriteLine("         0 - Жмакни что б выйти");
+                WriteLine();
+                Write("         ");
 
-                case 3:
-                    Task3();
-                    break;
+                usersChoice = ToInt32(ReadLine());
+                WriteLine();
 
-                case 4:
-                    Task4();
-                    break;
+                switch (usersChoice)
+                {
+                    case 1:
+                        Task1();
+                        break;
 
-                case 5:
-                    Task5();
-                    break;
+                    case 2:
+                        Task2();
+                        break;
 
-                case 6:
-                    //Task6();
-                    break;
+                    case 3:
+                        Task3();
+                        break;
 
-                case 7:
-                    //Task7();
-                    break;
+                    case 4:
+                        Task4();
+                        break;
 
-                case 8:
-                    //Task8();
-                    break;
+                    case 5:
+                        Task5();
+                        break;
 
-                default:
-                    Write("Сделай правильный выбор");
-                    break;
-            }
+                    case 6:
+                        Task6();
+                        break;
+
+                    case 7:
+                        Task7();
+                        break;
+
+                    case 8:
+                        Task8();
+                        break;
+
+                    case 0:
+                        break;
+
+                    default:
+                        Write("Ты не то жмакнул :О");
+                        break;
+                }
+            } while (usersChoice != 0);
         }
 
         public static void Task1()
         {
-            WriteLine("Выводим в консоль 15 символов: 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0");
-            WriteLine();
+            int count = 1;
 
-            int count1 = 1;
-            while (count1 <= 15)
+            while (count <= 15)
             {
-                if (count1 % 2 == 0)
+                if (count % 2 == 0)
                 {
-                    Write("  1");
+                    Write(" 1");
                 }
-                else if (count1 % 1 == 0)
+                else
                 {
-                    Write("  0");
+                    Write(" 0");
                 }
-                count1 += 1;
+                count += 1;
             }
+            WriteLine();
+            WriteLine();
         }
         public static void Task2()
         {
-            WriteLine("Выводим в консоль 15 символов: 0 0 0 0 5 0 0 0 0 10 0 0 0 0 15");
-            WriteLine();
+            int count = 1;
 
-            int countTask2 = 1;
-            int kratnoe5Task2 = 5;
-
-            while (countTask2 <= 15)
+            while (count <= 15)
             {
-                if (countTask2 % 5 == 0)
+                if (count % 5 == 0)
                 {
-                    Write($"  {kratnoe5Task2}");
-                    kratnoe5Task2 += 5;
+                    Write($" {count}");
                 }
                 else
                 {
-                    Write("  0");
+                    Write(" 0");
                 }
-                countTask2 += 1;
+                count += 1;
             }
+            WriteLine();
+            WriteLine();
         }
         public static void Task3()
         {
-            WriteLine("Выводим в консоль 15 символов: 0 0 0 0 5 1 0 1 0 10 0 0 0 0 15");
-            WriteLine();
+            int count = 1;
 
-            int countTask3 = 1;
-
-            while (countTask3 <= 15)
+            while (count <= 15)
             {
-                if (countTask3 % 5 == 0)
+                if (count % 5 == 0)
                 {
-                    Write($"  {countTask3}");
+                    Write($" {count}");
                 }
-                else if (5 < countTask3 && countTask3 < 10)
+                else if (5 < count && count < 10)
                 {
-                    if (countTask3 % 2 == 0)
+                    if (count % 2 == 0)
                     {
-                        Write("  1");
+                        Write(" 1");
                     }
                     else
                     {
-                        Write("  0");
+                        Write(" 0");
                     }
                 }
                 else
-                { 
-                    Write("  0");
+                {
+                    Write(" 0");
                 }
-                countTask3 += 1;
+                count += 1;
             }
+            WriteLine();
+            WriteLine();
         }
         public static void Task4()
         {
-            WriteLine("Выводим в консоль 10 символов: 1 2 3 4 5 10 9 8 7 6");
+            int count = 1;
+            int number = 1;
+
+            while (count <= 10)
+            {
+                Write($" {number}");
+                if (number <= 5)
+                {
+                    number += 1;
+                    if (number == 6)
+                    {
+                        number = 10;
+                    }
+                }
+                else
+                {
+                    number -= 1;
+                }
+                count += 1;
+            }
             WriteLine();
-
-            int countTask4 = 1;
-            
-            while (countTask4 <= 5)
-            {
-                Write($"  {countTask4}");
-                countTask4 += 1;
-            }
-            int countTask44 = 10;
-
-            while (6 <= countTask44)
-            {
-                Write($"  {countTask44}");
-                countTask44 -= 1;
-            }
+            WriteLine();
         }
         public static void Task5()
         {
-            WriteLine("Выводим в консоль 10 символов: [ + + + + + + + + - - ]");
+            int count = 1;
+            while (count <= 12)
+            {
+                if (count == 1)
+                {
+                    Write(" [");
+                }
+                if (count >= 2 && count <= 9)
+                {
+                    Write(" +");
+                }
+                if (count >= 10 && count <= 11)
+                {
+                    Write(" -");
+                }
+                if (count == 12)
+                {
+                    Write(" ]");
+                }
+                count += 1;
+            }
+            WriteLine();
+            WriteLine();
+        }
+        public static void Task6()
+        {
+            Write("Введите первое число: ");
+            int aPoint = ToInt32(ReadLine());
+
+            Write("Введите второе число: ");
+            int bPoint = ToInt32(ReadLine());
+
+            int result = 0;
+            int result7 = 0;
+            int result13 = 0;
             WriteLine();
 
-            int countTask5 = 1;
-
-            while(countTask5 <= 10)
+            if (aPoint < bPoint)
             {
-                if (countTask5 == 1)
+                while (aPoint <= bPoint)
                 {
-                    Write("  [  +");
+                    if (aPoint > 0 && aPoint % 7 == 0)
+                    {
+                        result7 += 7;
+                    }
+                    else if (aPoint > 0 && aPoint % 13 == 0)
+                    {
+                        result13 += 13;
+                    }
+                    aPoint++;
                 }
-                if (countTask5 >= 2 && countTask5 <= 8)
-                {
-                    Write("  +");
-                }
-                if (countTask5 == 9)
-                {
-                    Write("  -");
-                }
-                if (countTask5 == 10)
-                {
-                    Write("  -  ]");
-                }
-                countTask5 += 1;
             }
+            else if (aPoint > bPoint)
+            {
+                while (aPoint >= bPoint)
+                {
+                    if (bPoint > 0 && bPoint % 7 == 0)
+                    {
+                        result7 += 7;
+                    }
+                    else if (bPoint > 0 && bPoint % 13 == 0)
+                    {
+                        result13 += 13;
+                    }
+                    bPoint++;
+                }
+            }
+            result = result7 + result13;
+            WriteLine($"Сумма всех чисел равна: {result}");
+            WriteLine($"Из них сумма кратных 7-ми: {result7}");
+            WriteLine($"И сумма кратных 13-ти: {result13}");
+            WriteLine();
+        }
+        public static void Task7()
+        {
+            Write("Введите первое число: ");
+            int aPoint = ToInt32(ReadLine());
+
+            Write("Введите второе число: ");
+            int bPoint = ToInt32(ReadLine());
+            int result = 0;
+            WriteLine();
+
+            if (aPoint < bPoint)
+            {
+                while (aPoint <= bPoint)
+                {
+                    if (aPoint % 5 == 0)
+                    {
+                        result++;
+                    }
+                    aPoint++;
+                }
+            }
+            else if (aPoint > bPoint)
+            {
+                while (aPoint >= bPoint)
+                {
+                    if (bPoint % 5 == 0)
+                    {
+                        result++;
+                    }
+                    bPoint++;
+                }
+            }
+            WriteLine($"Количество чисел кратных 5-ти: {result}");
+            WriteLine();
+        }
+        public static void Task8()
+        {
+            Write("Введите первое число: ");
+            int aPoint = ToInt32(ReadLine());
+
+            Write("Введите второе число: ");
+            int bPoint = ToInt32(ReadLine());
+            int result = 0;
+            WriteLine();
+
+
+            if (aPoint < bPoint)
+            {
+                while (aPoint <= bPoint)
+                {
+                    if (aPoint < 0 && aPoint % 3 == 0 && aPoint % 4 == 0)
+                    {
+                        result++;
+                    }
+                    aPoint++;
+                }
+            }
+            else if (aPoint > bPoint)
+            {
+                while (aPoint >= bPoint)
+                {
+                    if (bPoint < 0 && bPoint % 3 == 0 && bPoint % 4 == 0)
+                    {
+                        result++;
+                    }
+                    bPoint++;
+                }
+            }
+            WriteLine($"Количество чисел кратных 3-м И 4-м: {result}");
+            WriteLine();
         }
     }
 }

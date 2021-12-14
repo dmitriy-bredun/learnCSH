@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using static System.Console;
+using static System.Convert;
 
 namespace HomeworkDmitriy.General
 {
@@ -13,13 +14,13 @@ namespace HomeworkDmitriy.General
             WriteLine("   ///   Выберете Таску   ///   ");
             WriteLine();
 
-            WriteLine("        1 - Калькулятор        ");
-            WriteLine("        2 - Найти максимальное число        ");
-            WriteLine("        3 - Определение принадлежности к диапазону        ");
-            WriteLine("        4 - К какой координатной четверти принадлежит точка        ");
+            WriteLine("         1 - Калькулятор");
+            WriteLine("         2 - Найти максимальное число");
+            WriteLine("         3 - Определение принадлежности к диапазону");
+            WriteLine("         4 - К какой координатной четверти принадлежит точка");
 
             WriteLine();
-            int Choice = Convert.ToInt32(ReadLine());
+            int Choice = ToInt32(ReadLine());
             WriteLine();
 
             switch (Choice)
@@ -41,61 +42,55 @@ namespace HomeworkDmitriy.General
                     break;
 
                 default:
-                    Write("Сделай правильный выбор");
+                    Write("Ты не то жмакнул :О");
                     break;
             }
         }
 
         public static void Task1()
         {
-            WriteLine("   ///   Калькулятор   ///   ");
-            WriteLine();
-
             Write("Введите первое дробное число: ");
-            double x = Convert.ToDouble(Console.ReadLine());
+            double x = ToDouble(ReadLine());
 
             Write("Введите нужный символ:");
-            string operation = Console.ReadLine();
+            string operation = ReadLine();
 
             Write("Введите второе дробное число: ");
-            double y = Convert.ToDouble(ReadLine());
+            double y = ToDouble(ReadLine());
 
             double result;
 
             if (operation == "+")
             {
                 result = x + y;
-                Console.WriteLine($"результат: {x} + {y} = {result}");
+                WriteLine($"результат: {x} + {y} = {result}");
             }
             else if (operation == "-")
             {
                 result = x - y;
-                Console.WriteLine($"результат: {x} - {y} = {result}");
+                WriteLine($"результат: {x} - {y} = {result}");
             }
             else if (operation == "*")
             {
                 result = x * y;
-                Console.WriteLine($"результат: {x} * {y} = {result}");
+                WriteLine($"результат: {x} * {y} = {result}");
             }
             else if (operation == "/")
             {
                 result = x / y;
-                Console.WriteLine($"результат: {x} / {y} = {result}");
+                WriteLine($"результат: {x} / {y} = {result}");
             }
         }
         public static void Task2()
         {
-            Console.WriteLine("   ///   Найти максимальное число из трех чисел   ///   ");
-            Console.WriteLine();
+            Write("Введите первое число: ");
+            int a = ToInt32(ReadLine());
 
-            Console.Write("Введите первое число: ");
-            int a = Convert.ToInt32(Console.ReadLine());
+            Write("Введите второе число: ");
+            int b = ToInt32(ReadLine());
 
-            Console.Write("Введите второе число: ");
-            int b = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Введите третье число: ");
-            int c = Convert.ToInt32(Console.ReadLine());
+            Write("Введите третье число: ");
+            int c = ToInt32(ReadLine());
 
             int max;
             
@@ -111,56 +106,51 @@ namespace HomeworkDmitriy.General
             {
                 max=c;
             }
-            Console.Write($"Максимальное число: {max}");
+            Write($"Максимальное число: {max}");
         }
         public static void Task3()
         {
-            Console.WriteLine("   ///   Определение принадлежности к диапазону от 1 до 100.   ///   ");
-            Console.WriteLine();
+            Write("Введите целое число от 1 до 1000: ");
+            WriteLine();
 
-            Console.Write("Введите целое число от 1 до 1000: ");
-            Console.WriteLine();
-
-            int znachenie = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
+            int znachenie = ToInt32(ReadLine());
+            WriteLine();
 
             if (znachenie > 1 && znachenie < 1000)
             {
-                Console.WriteLine($"Число {znachenie} в диапазоне от 1 до 1000");
+                WriteLine($"Число {znachenie} в диапазоне от 1 до 1000");
             }
             else
             {
-                Console.WriteLine($"Число {znachenie} в диапазоне от 1 до 1000");
+                WriteLine($"Число {znachenie} в диапазоне от 1 до 1000");
             }
         }
         public static void Task4()
         {
-            Console.WriteLine("   ///   К какой координатной четверти принадлежит точка?   ///   ");
-            Console.WriteLine();
-            Console.Write("Введите число 1: ");
-            string XSrt = Console.ReadLine();
+            Write("Введите число 1: ");
+            string XSrt = ReadLine();
 
-            Console.Write("Введите число 2: ");
-            string YStr = Console.ReadLine();
+            Write("Введите число 2: ");
+            string YStr = ReadLine();
 
-            int X = Convert.ToInt32(XSrt);
-            int Y = Convert.ToInt32(YStr);
+            int X = ToInt32(XSrt);
+            int Y = ToInt32(YStr);
 
             if (X > 0 && Y > 0)
             {
-                Console.WriteLine("Точка пренадлежит к I координатной четверти");
+                WriteLine("Точка пренадлежит к I координатной четверти");
             }
             else if (X > 0 && Y < 0)
             {
-                Console.WriteLine("Точка пренадлежит к IV координатной четверти");
+                WriteLine("Точка пренадлежит к IV координатной четверти");
             }
             else if (X < 0 && Y < 0)
             {
-                Console.WriteLine("Точка пренадлежит к III координатной четверти");
+                WriteLine("Точка пренадлежит к III координатной четверти");
             }
             else
             {
-                Console.WriteLine("Точка пренадлежит к II координатной четверти");
+                WriteLine("Точка пренадлежит к II координатной четверти");
             }
         }
     }
