@@ -196,7 +196,7 @@ namespace HomeworkDmitriy.General
             WriteLine();
             WriteLine();
         }
-        public static void Task6()
+        public static void Task6()    // 12, 13, 14, 15,16,17,18,19,20, 21
         {
             Write("Введите первое число: ");
             int aPoint = ToInt32(ReadLine());
@@ -215,11 +215,11 @@ namespace HomeworkDmitriy.General
                 {
                     if (aPoint > 0 && aPoint % 7 == 0)
                     {
-                        result7 += 7;
+                        result7 += aPoint;
                     }
                     else if (aPoint > 0 && aPoint % 13 == 0)
                     {
-                        result13 += 13;
+                        result13 += aPoint;
                     }
                     aPoint++;
                 }
@@ -230,11 +230,11 @@ namespace HomeworkDmitriy.General
                 {
                     if (bPoint > 0 && bPoint % 7 == 0)
                     {
-                        result7 += 7;
+                        result7 += bPoint;
                     }
                     else if (bPoint > 0 && bPoint % 13 == 0)
                     {
-                        result13 += 13;
+                        result13 += bPoint;
                     }
                     bPoint++;
                 }
@@ -289,7 +289,6 @@ namespace HomeworkDmitriy.General
             int bPoint = ToInt32(ReadLine());
             int result = 0;
             WriteLine();
-
 
             if (aPoint < bPoint)
             {
