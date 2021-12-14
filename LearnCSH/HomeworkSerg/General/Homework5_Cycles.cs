@@ -165,7 +165,7 @@ namespace HomeworkSerg.General
                 //{
                 //    Write($"{val3} ");
                 //}
-                    val3 += 1;
+                val3 += 1;
             }
             WriteLine();
 
@@ -212,17 +212,14 @@ namespace HomeworkSerg.General
                 {
                     Write("[");
                 }
-
                 else if (val5 <= 8)
                 {
                     Write("+ ");
                 }
-
                 else if (val5 <= 10)
                 {
                     Write("- ");
                 }
-
                 else
                 {
                     Write("]");
@@ -258,10 +255,7 @@ namespace HomeworkSerg.General
                     }
                     a += 1;
                 }
-                Write($"   Solution:  {range}");
-                WriteLine();
             }
-
             else
             {
                 while (b <= a)
@@ -272,9 +266,11 @@ namespace HomeworkSerg.General
                     }
                     b += 1;
                 }
-                Write($"   Solution:  {range}");
-                WriteLine();
-            } 
+                
+            }
+
+            Write($"   Solution:  {range}");
+            WriteLine();
         }
         public static void Task7()
         {
@@ -301,8 +297,6 @@ namespace HomeworkSerg.General
                     }
                     a += 1;
                 }
-                Write($"   Solution:  {range}");
-                WriteLine();
             }
             else
             {
@@ -314,9 +308,10 @@ namespace HomeworkSerg.General
                     }
                     b += 1;
                 }
-                Write($"   Solution:  {range}");
-                WriteLine();
             }
+
+            Write($"   Solution:  {range}");
+            WriteLine();
         }
         public static void Task8()
         {
@@ -343,8 +338,6 @@ namespace HomeworkSerg.General
                     }
                     a += 1;
                 }
-                Write($"   Solution:  {range}");
-                WriteLine();
             }
             else
             {
@@ -356,9 +349,10 @@ namespace HomeworkSerg.General
                     }
                     b += 1;
                 }
-                Write($"   Solution:  {range}");
-                WriteLine();
             }
+
+            Write($"   Solution:  {range}");
+            WriteLine();
         }
         public static void Test()
         {
