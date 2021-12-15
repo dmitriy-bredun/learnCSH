@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Lessons.General;
+using Lessons.General.ClassesRelationship;
 using Lessons.Practice;
 using Lessons.Test;
 
@@ -42,6 +43,8 @@ namespace Lessons
             // Practice3_Tasks.Start();
             // Practice4_SimpleArrays.Start();
             // Practice5_VDV.Start();
+
+            Practice6_ClassesRelationship.Start();
 
             // TestProgram.StartTest();
         }
