@@ -2,6 +2,9 @@
 
 using HomeworkMargaret.General;
 using HomeworkMargaret.OOP;
+using HomeworkMargaret.OOP.HW4_Encapsulation;
+using HomeworkMargaret.OOP.HW4_Encapsulation.Task1;
+using HomeworkMargaret.OOP.HW4_Encapsulation.Task2;
 
 namespace HomeworkMargaret
 {
@@ -37,7 +40,9 @@ namespace HomeworkMargaret
 
             // Homework1_Classes.Start();
             //Homework1_PandoraBadassesRegistration.Start();
-            HW3_Tamagochi.Start();
+            //HW3_Tamagochi.Start();
+            Task.Start();
+            //Game.Start();
         }
     }
 }
