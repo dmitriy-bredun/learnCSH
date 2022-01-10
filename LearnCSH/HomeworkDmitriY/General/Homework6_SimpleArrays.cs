@@ -209,7 +209,7 @@ namespace HomeworkDmitriy.General
         {
             for (int indx = 0; indx < masiv.Length; ++indx)
             {
-                if (masiv[indx] < 0 || masiv[indx] % 2 == 0)
+                if (masiv[indx] < 0 && masiv[indx] % 2 == 0)
                 {
                     masiv[indx] = 0;
                 }
