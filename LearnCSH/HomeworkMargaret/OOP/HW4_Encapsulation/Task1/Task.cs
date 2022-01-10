@@ -10,14 +10,10 @@ namespace HomeworkMargaret.OOP.HW4_Encapsulation.Task1
 {
     class Task
     {
-        public static Box box1;
-        public static Box box2;
+        private static Box box1;
+        private static Box box2;
+        
         public static void Start()
-        {
-            BoxesMenu();
-        }
-
-        public static void BoxesMenu()
         {
             Clear();
             int userChoice;
@@ -35,6 +31,7 @@ namespace HomeworkMargaret.OOP.HW4_Encapsulation.Task1
                         break;
 
                     case 2:
+                        Clear();
                         CompareBoxes();
                         break;
 
@@ -94,18 +91,26 @@ namespace HomeworkMargaret.OOP.HW4_Encapsulation.Task1
         public static void CompareBoxes()
         {
             Clear();
-            ShowBoxes();
-            if (box1.Volume > box2.Volume)
+            if (box1 != null && box2 != null)
             {
-                Print("1st box has bigger volume than 2nd box.");
+                ShowBoxes();
+                if (box1.Volume > box2.Volume)
+                {
+                    Print("1st box has bigger volume than 2nd box.");
+                }
+                else if (box1.Volume == box2.Volume)
+                {
+                    Print("Boxes are equal.");
+                }
+                else
+                {
+                    Print("2nd box has bigger volume than 1st box.");
+                }
+
             }
-            else if (box1.Volume == box2.Volume)
+            else
             {
-                Print("Boxes are equal.");
-            }
-            else 
-            {
-                Print("2nd box has bigger volume than 1st box.");
+                Print("Comparing cannot be done. Not all boxes were initialized.");
             }
         }
 

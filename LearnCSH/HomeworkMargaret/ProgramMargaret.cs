@@ -41,8 +41,8 @@ namespace HomeworkMargaret
             // Homework1_Classes.Start();
             //Homework1_PandoraBadassesRegistration.Start();
             //HW3_Tamagochi.Start();
-            //Task.Start();
-            Game.Start();
+            Task.Start();
+            //Game.Start();
         }
     }
 }
