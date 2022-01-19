@@ -43,7 +43,8 @@ namespace HomeworkMargaret
             //HW3_Tamagochi.Start();
             //Task.Start();
             //Game.Start();
-            Lights.Start();
+            //Homework6_Lights.Start();
+            Homework7_DLights.Start();
         }
     }
 }
