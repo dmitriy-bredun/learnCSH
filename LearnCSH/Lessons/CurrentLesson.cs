@@ -9,110 +9,73 @@ namespace Lessons
 {
     class CurrentLesson
     {
-        public static void GoGoGo()
+        public static void Start()
         {
-            // ForDemo();
-            // StringArrayDemo();
-            // ArrayWithRandomValuesDemo();
+            // string txt = "Happy New Year 2222 :)";
 
-            //  ак передать массив в другой метод ?
-            int[] arr = new int[5];
-            arr[0] = 3;
-            arr[1] = 7;
-            arr[2] = 4;
-            arr[3] = 2;
-            arr[4] = 1;
+            // string message = "ƒорогой, купи нам печенюх, когда будешь возвращатьс€ с работы.";
 
-            int[] arr2 = new int[5];
 
-            Task1(arr);
+            // Min = minVal;
+            // int minVal = 0;
+            // WriteLine($"min = {minVal}");
+            // ћожно заменить на метод
+            // Print("min", minVal);
 
-            WTF("alalal");
+            // пример с переменной значимого типа
+            char x = 'a';
+            ChangeValue(x);
+            Print("x", x);
+
+            // пример с переменной ссылочного типа
+            int[] arr = new int[10];
+            int[] arr222 = new int[10];
+
+            ChangeArrayValue(arr222);
+            ChangeArrayValue(arr);
+
+
+            int kkk = GetRandomValue();
+            WriteLine($"kkk = {kkk}");
+
+
+            ////////////////////////////////////////////////////////
+            /// ѕример возвращение значени€ из метода
+
+            Write("¬ведите размер гипотенузы: ");
+            int newVal1 = Convert.ToInt32(ReadLine());
+
+            int newVal2 = EnterInt("¬ведите размер гипотенузы");
         }
 
-        public static void ForDemo()
+        public static void Demo( /*“о, что приходит на вход в метод*/ )
         {
-            Write("¬ведите лимит: ");
-            int limit = ToInt32(ReadLine());
 
-            int number = 0;
-            for (int counter = 1; counter <= limit && counter < 100; counter += 3, number++)
-            {
-                WriteLine($"Counter = {counter}  ");
-                WriteLine($"Number = {number}  ");
-
-                WriteLine();
-                WriteLine();
-            }
-        } 
-
-        public static void StringArrayDemo()
+        }
+        public static void Print(string msg, char value)
         {
-            // создаем массив дл€ хранени€ набора строк
-            string[] text = new string[4];
-
-            // записываем в него значени€
-            text[0] = "Happy";
-            text[1] = "New";
-            text[2] = "Year,";
-            text[3] = "Cowboys!";
-
-            // мы так же можем считать из массива любое значение и сохранить его в отдельную переменную (если это нужно)
-            string str = text[0]; // в переменную string str запишетс€ "Happy"
-
-            //получаем размер массива
-            int arraySize = text.Length;
-
-            // выводим значни€ массива 
-            for (int indx = 0; indx < arraySize; indx++)
-            {
-                Write($"{text[indx]}  ");
-            }
-
+            WriteLine($"{msg} = {value}");
             WriteLine();
-            WriteLine();
-
-            for (int indx = 0; indx < text.Length; ++indx)
-            {
-                WriteLine($"¬ €чейке с индексом [{indx}] хранитс€: text[{indx}] = {text[indx]}");
-            }
         }
-
-        // пример как создать массив и заполнить его случайными числами
-        public static void ArrayWithRandomValuesDemo()
+        public static void ChangeValue(char val)
         {
-            // создаем массив дл€ хранени€ целых чисел
-            int[] arrayWithRandomValues = new int[15];
-
-            // создаем переменную генератора чисел
-            Random generator = new Random();
-
-            // инициализируем массив случайными числами в диапазоне от min до max
-            const int MIN = -10;
-            const int MAX = 10;
-            for (int indx = 0; indx < arrayWithRandomValues.Length; indx++)
-            {
-                arrayWithRandomValues[indx] = generator.Next(MIN, MAX);
-            }
-
-            // выводим значни€ массива 
-            for (int indx = 0; indx < arrayWithRandomValues.Length; ++indx)
-            {
-                WriteLine($"¬ €чейке с индексом [{indx}] хранитс€: arrayWithRandomValues[{indx}] = {arrayWithRandomValues[indx]}");
-            }
+            val = 'b';
         }
-
-        public static void Task1(int[] numbers1)
+        public static void ChangeArrayValue(int[] array)
         {
-            for (int indx = 0; indx < numbers1.Length; indx++)
-            {
-                WriteLine($"numbers[{indx}] = {numbers1[indx]}");
-            }
+            array[0] = 100500;
         }
-
-        public static void WTF(string text)
+        public static int GetRandomValue()
         {
-            WriteLine($"„то за хуйню ты мне передал? {text}");
+            Random rand = new Random();
+            int newValue = rand.Next(0, 100);
+            return newValue;
+        }
+        public static int EnterInt(string txt)
+        {
+            Write($"{txt}: ");
+            int val = Convert.ToInt32(ReadLine());
+            return val;
         }
     }
 }
