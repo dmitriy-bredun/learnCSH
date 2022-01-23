@@ -9,73 +9,164 @@ namespace Lessons
 {
     class CurrentLesson
     {
-        public static void Start()
+        public static void GoGoGo()
         {
-            // string txt = "Happy New Year 2222 :)";
+            //RefExample();
+            //OutExample();
 
-            // string message = "Дорогой, купи нам печенюх, когда будешь возвращаться с работы.";
+            //OPTIONAL PARAMETERS
+            int result1 = Calculation(5, 5);     // result = 10
+            int result2 = Calculation(5, 5, 3);  // result = 13
 
+            //Params example
+            int bigSum1 = CalculateSumm(5, 3, 77, 2, 10, 1, 2, 34, 5, 6, 4, 3, 56, 6, 4, 3, 5, 6);
 
-            // Min = minVal;
-            // int minVal = 0;
-            // WriteLine($"min = {minVal}");
-            // Можно заменить на метод
-            // Print("min", minVal);
+            int[] someValues = new int[10];
+            someValues[1] = 123;
+            someValues[3] = 124;
+            someValues[5] = 125;
+            int bigSum2 = CalculateSumm(someValues);
 
-            // пример с переменной значимого типа
-            char x = 'a';
-            ChangeValue(x);
-            Print("x", x);
+            string[] messages = new string[2];
+            messages[0] = "Hello buddy";
+            messages[1] = "How are you?";
+            PrintMessages(messages);
 
-            // пример с переменной ссылочного типа
-            int[] arr = new int[10];
-            int[] arr222 = new int[10];
-
-            ChangeArrayValue(arr222);
-            ChangeArrayValue(arr);
-
-
-            int kkk = GetRandomValue();
-            WriteLine($"kkk = {kkk}");
-
-
-            ////////////////////////////////////////////////////////
-            /// Пример возвращение значения из метода
-
-            Write("Введите размер гипотенузы: ");
-            int newVal1 = Convert.ToInt32(ReadLine());
-
-            int newVal2 = EnterInt("Введите размер гипотенузы");
+            PrintMessages("Hello buddy 2", "How are you? 2", "123123", "34534");
         }
 
-        public static void Demo( /*То, что приходит на вход в метод*/ )
+        // =================== R E F    E X A M P L E =====================
+        public static void RefExample()
         {
+            // ref example
+            double[] chisla = new double[100];
 
+            int x = 7;
+            int y = 13;
+            int k = 1;
+
+            for (int indx = 0; indx < chisla.Length; indx++)
+            {
+                if (indx < 25)
+                {
+                    chisla[indx] = MathBomb1(x, y, ref k);
+                }
+                else if (indx > 25 && indx <= 50)
+                {
+                    chisla[indx] = MathBomb2(x, y, ref k);
+                }
+                else
+                {
+                    chisla[indx] = MathBomb3(x, y, ref k);
+                }
+            }
+
+            // тупо вывод на экv cvран 
+            ShowArray(chisla);
         }
-        public static void Print(string msg, char value)
+        public static double MathBomb1(int x, int y, ref int k)
         {
-            WriteLine($"{msg} = {value}");
-            WriteLine();
-        }
-        public static void ChangeValue(char val)
-        {
-            val = 'b';
-        }
-        public static void ChangeArrayValue(int[] array)
-        {
-            array[0] = 100500;
-        }
-        public static int GetRandomValue()
-        {
-            Random rand = new Random();
-            int newValue = rand.Next(0, 100);
-            return newValue;
-        }
-        public static int EnterInt(string txt)
-        {
-            Write($"{txt}: ");
-            int val = Convert.ToInt32(ReadLine());
+            int val = (x + y * k) / k;
+
+            k += 1;
+            if (k >= 10)
+            {
+                k = 1;
+            }
+
             return val;
+        }
+        public static double MathBomb2(int x, int y, ref int k)
+        {
+            int val = (x + y * 2 * k) / k;
+
+            k += 2;
+            if (k >= 10)
+            {
+                k = 1;
+            }
+
+            return val;
+        }
+        public static double MathBomb3(int x, int y, ref int k)
+        {
+            int val = (x + y * 3 * k) / k;
+
+            k += 3;
+            if (k >= 10)
+            {
+                k = 1;
+            }
+
+            return val;
+        }
+
+
+        // =================== O U T    E X A M P L E =====================
+        public static void OutExample()
+        {
+            double a = 5;
+            double b = 0;
+
+            bool isOperationDone = Divide(a, b, out double result);
+            if (isOperationDone == true)
+            {
+                WriteLine($"Операция деления выполнена успешно. Результат: {result}");
+            }
+            else
+            {
+                WriteLine($"Операция деления невозможна. Вы пытаетесь поделить на 0. Результат: {result}");
+            }
+        }
+        public static bool Divide(double a, double b, out double result)
+        {
+            result = 0;
+            if (b == 0)
+            {
+                return false;
+            }
+
+            result = a / b;
+            return true;
+        }
+
+        // =================== OPTIONAL PARAMETERS =====================
+        public static void ShowArray(double[] array, bool inColumn = true)
+        {
+            for (int indx = 0; indx < array.Length; indx++)
+            {
+                Write($"arr[{indx}] = {array[indx]} \t");
+
+                if (inColumn == true)
+                {
+                    WriteLine();
+                }
+            }
+        }
+        public static int Calculation(int x, int y, int z = 0)
+        {
+            return x + y + z;
+        }
+
+
+        // =================== PARAMS ==================================
+        public static int CalculateSumm(params int[] chisla)
+        {
+            int summ = 0;
+            for (int indx = 0; indx < chisla.Length; indx++)
+            {
+                summ += chisla[indx];
+            }
+
+            return summ;
+        }
+
+        public static void PrintMessages(params string[] messages)
+        {
+            for (int indx = 0; indx < messages.Length; indx++)
+            {
+                WriteLine($"Message {indx} text: {messages[indx]}");
+            }
         }
     }
 }
