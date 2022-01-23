@@ -18,21 +18,23 @@ namespace HomeworkSerg.Tools
             return newArray;
         }
         
-        public static void FillingManuall(int[] Array)
+        public static void FillingManuall(int[] array)
         {
-            for (int indx = 0; indx < Array.Length; indx++)
+            for (int indx = 0; indx < array.Length; indx++)
             {
                 Write($"Число для сохранения в ячейку [{indx}]: ");
-                Array[indx] = Convert.ToInt32(ReadLine());
+                array[indx] = Convert.ToInt32(ReadLine());
             }
             WriteLine("Масив заполнен.");
         }
-        public static void FillingRandom(int[] Array, int min, int max)
+        public static void FillingRandom(int[] array, int min, int max)
         {
             Random rand = new Random();
-            for (int indx = 0; indx < Array.Length; indx++)
+            for (int indx = 0; indx < array.Length; indx++)
             {
-                WriteLine($"Случайное число: {Array[indx] = rand.Next(min, max)}");
+                array[indx] = rand.Next(min, max);
+
+                WriteLine($"Случайное число: {indx} в ячейке: {array[indx]}");
             }
             WriteLine("Масив заполнен.");
         }
