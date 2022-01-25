@@ -16,7 +16,7 @@ namespace Lessons
 
             //OPTIONAL PARAMETERS
             int result1 = Calculation(5, 5);     // result = 10
-            int result2 = Calculation(5, 5, 3);  // result = 13
+            int result2 = Calculation(5, 5, 3, true);  // result = 13
 
             //Params example
             int bigSum1 = CalculateSumm(5, 3, 77, 2, 10, 1, 2, 34, 5, 6, 4, 3, 56, 6, 4, 3, 5, 6);
@@ -143,9 +143,16 @@ namespace Lessons
                 }
             }
         }
-        public static int Calculation(int x, int y, int z = 0)
+        public static int Calculation(int x, int y, int z = 0, bool printNeed = false)
         {
-            return x + y + z;
+            int result = x + y + z;
+
+            if (printNeed)
+            {
+                WriteLine(result);
+            }
+
+            return result;
         }
 
 
@@ -160,7 +167,6 @@ namespace Lessons
 
             return summ;
         }
-
         public static void PrintMessages(params string[] messages)
         {
             for (int indx = 0; indx < messages.Length; indx++)
