@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using static System.Console;
 
-namespace HomeworkSerg.Tools
+namespace HomeworkSerg.ToolsArray
 {
     internal class AT
     {
@@ -34,9 +34,16 @@ namespace HomeworkSerg.Tools
             {
                 array[indx] = rand.Next(min, max);
 
-                WriteLine($"Случайное число: {indx} в ячейке: {array[indx]}");
+                WriteLine($"In box: {indx}, random number: {array[indx]}");
             }
-            WriteLine("Масив заполнен.");
+            WriteLine("Array done.");
+        }
+        public static void ShowArray(int[] array)
+        {
+            for (int indx = 0; indx < array.Length; indx++)
+            {
+                WriteLine($"{array[indx]}");
+            }
         }
     }
 }
