@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using static System.Console;
 
-namespace HomeworkSerg.ToolsArray
+namespace HomeworkSerg.Tools
 {
     internal class AT
     {
@@ -40,9 +40,16 @@ namespace HomeworkSerg.ToolsArray
         }
         public static void ShowArray(int[] array)
         {
-            for (int indx = 0; indx < array.Length; indx++)
+            if(array != null)
             {
-                WriteLine($"{array[indx]}");
+                for (int indx = 0; indx < array.Length; indx++)
+                {
+                    WriteLine($"[{indx}] = {array[indx]} \t");
+                }
+            }
+            else
+            {
+                WriteLine("Массив пуст. Не могу его вывести");
             }
         }
     }

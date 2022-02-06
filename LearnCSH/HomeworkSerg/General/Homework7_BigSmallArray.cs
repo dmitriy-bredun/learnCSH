@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using static System.Console;
 using HomeworkSerg.Tools;
-using HomeworkSerg.ToolsArray;
-using HomeworkSerg.ToolsConsole;
 
 
 
@@ -17,16 +15,16 @@ namespace HomeworkSerg.General
             WriteLine();
             Write("     Welcome to:  Homework7 BigSmallArray");
             WriteLine();
-            
+
             int userChoice = 0;
 
-            Write("Ente size big array:    ");
-            int size = Convert.ToInt32(ReadLine());
-            int[]bigArray = AT.CreateSimplArray(size);
-            
+            Write("Ente size of big array:    ");
+            int sizeBigArray = Convert.ToInt32(ReadLine());
+            int[] bigArray = AT.CreateSimplArray(sizeBigArray);
+
             AT.FillingRandom(bigArray, 1, 100);
 
-            int[] smallArray;
+            int[] smallArray = null;
 
             do
             {
@@ -36,8 +34,8 @@ namespace HomeworkSerg.General
                     "Вывести мал масив",
                     "Выполнить проверку");
 
-                
-                
+
+
                 switch (userChoice)
                 {
                     case 1:
@@ -45,67 +43,88 @@ namespace HomeworkSerg.General
                         break;
 
                     case 2:
-                        smallArray = AT.CreateSimplArray(size);
+                        Write("Ente size of small array:    ");
+                        int sizeSmallArray = Convert.ToInt32(ReadLine());
+                        smallArray = AT.CreateSimplArray(sizeSmallArray);
                         AT.FillingManuall(smallArray);
-                        AT.ShowArray(smallArray);
                         break;
 
                     case 3:
-                        //AT.ShowArray(smallArray);
+                        AT.ShowArray(smallArray);
                         break;
-               
-                    case 5:
-                        Сhapter5();
+
+                    case 4:
+                        Сhapter4(bigArray, smallArray);
+                        break;
+
+                    case 0:
+                        WriteLine("Сладких снов, котик ;)");
                         break;
 
                     default:
                         WriteLine("     You missed. Try again ;)");
                         break;
                 }
-            }while(userChoice != 0) ;
+            } while (userChoice != 0);
         }
-        public static void Сhapter3()
+
+        public static void Сhapter4(int[] bigArray, int[] smallArray)
         {
+            //for (int indx = 0; indx < bigArray.Length; indx++)
+            //{
+            //    if (bigArray[indx] == smallArray[0])
+            //    {
+            //        int newInt = indx++;
+            //        WriteLine($"{newInt}");
+            //    }
+            //    if (bigArray[indx] == smallArray[1])
+            //    {
+            //        int newInt = indx++;
+            //        WriteLine($"{newInt}");
+            //    }
+            //    if (bigArray[indx] == smallArray[2])
+            //    {
+            //        int newInt = indx++;
+            //        WriteLine($"{newInt}");
+            //    }
+            //}
 
-        }
-      
-        public static void Сhapter5()
-        {
-            WriteLine();
-            Write("Ente size Big array:    ");
-            int size = Convert.ToInt32(ReadLine());
-            int[] bigArray = new int[size];
-            WriteLine();
+            //                 [5]
+            // big:   5 4 3 2 5 7 8 5   size: 8
+            // small: 7 8 5             size: 3     8 - 3 = limitIndx = 5
 
-            AT.FillingRandom(bigArray, 1, 100);
-            WriteLine();
+            bool result = false;
+            int limitIndx = bigArray.Length - smallArray.Length;
 
-            Write("Manuall filling Small array    ");
-
-            int[] smallArray = new int[3];
-            WriteLine();
-
-            AT.FillingManuall(smallArray);
-            WriteLine();
-
-            for (int indx = 0; indx < bigArray.Length; indx++)
+            for (int bigIndx = 0; bigIndx <= limitIndx; bigIndx++)
             {
-                if (bigArray[indx] == smallArray[0])
+                int smallIndx = 0;
+
+                if (bigArray[bigIndx] == smallArray[smallIndx])
                 {
-                    int newInt = indx++;
-                    WriteLine($"{newInt}");
+                    result = true;
+                    while (smallIndx < smallArray.Length)
+                    {
+                        if (smallArray[smallIndx] != bigArray[bigIndx + smallIndx])
+                        {
+                            result = false;
+                            break;
+                        }
+
+                        smallIndx++;
+                    }
                 }
-                if (bigArray[indx] == smallArray[1])
+
+                if (result == true)
                 {
-                    int newInt = indx++;
-                    WriteLine($"{newInt}");
-                }
-                if (bigArray[indx] == smallArray[2])
-                {
-                    int newInt = indx++;
-                    WriteLine($"{newInt}");
+                    // если мы нашли кусочек, который совпал, дальнейшее сравнение уже не нужно
+                    // выходим из цикла for
+                    break;
                 }
             }
+
+
+            WriteLine($"Найдено ли совпадение? Ответ - {result}");
         }
     }
 }
