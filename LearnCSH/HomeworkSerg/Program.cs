@@ -15,8 +15,7 @@ namespace HomeworkSerg
             //Homework4_VDV.Start();
             //Homework5_Cycles.Start();
             //Homework6_SimpleArrays.Start();
-            double result = AT.AreaСylinder(100, 2000);
-            Console.WriteLine(result);
+            Homework7_BigSmallArray.Start();
         }
     }
 }
