@@ -23,7 +23,7 @@ namespace Lessons
         {
             GothamConsoleTheme();
 
-            CurrentLesson.Start();
+            CurrentLesson.GoGoGo();
             // CurrentLessonMargaret.StartMargaretPractice();
 
             // Раскомментируйте тот урок, который хотите повторить и перебилдите проект...
