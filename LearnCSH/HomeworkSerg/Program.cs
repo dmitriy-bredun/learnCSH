@@ -14,8 +14,8 @@ namespace HomeworkSerg
             //Homework3_Operation.Start();
             //Homework4_VDV.Start();
             //Homework5_Cycles.Start();
-            //Homework6_SimpleArrays.Start();
-            Homework7_BigSmallArray.Start();
+            //Homework6_1_SimpleArrays.Start();
+            Homework6_2_BigSmallArray.Start();
         }
     }
 }

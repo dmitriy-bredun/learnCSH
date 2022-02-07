@@ -8,7 +8,7 @@ using HomeworkSerg.Tools;
 
 namespace HomeworkSerg.General
 {
-    internal class Homework7_BigSmallArray
+    internal class Homework6_2_BigSmallArray
     {
         public static void Start()
         {
