@@ -12,11 +12,13 @@ namespace HomeworkDmitriy.General
     {
         public static void Start()
         {
-            CT.PrintL("Создадим новый массив");
+            //CT.CreateArray(nums);
+            CT.PrintL("--Создаём новый массив--");
             CT.Space();
-            CT.Print("Введите размер массива: ");
 
+            CT.Print("Введите размер массива: ");
             int size = ToInt32(ReadLine());
+            CT.PrintL("Массив инициализирован..");
             CT.Space();
 
             int[] nums = new int[size];
@@ -25,24 +27,16 @@ namespace HomeworkDmitriy.General
 
             do
             {
-                CT.PrintL("   ///   Выбери Таску   ///   ");
-                CT.Space();
-
-                CT.PrintL("         1 - Заполняем массив вручную");
-                CT.PrintL("         2 - Заполнить массив случайными числами");
-                CT.PrintL("         3 - Выводим массив");
-                CT.PrintL("         4 - Изменить какой-нибудь элемент массива");
-                CT.PrintL("         5 - Посчитать и вывести количество четных/нечетных значений массива");
-                CT.PrintL("         6 - Посчитать среднее арифметическое по значениям массива");
-                CT.PrintL("         7 - Найти индексы минимального и максимального значения и напечатать в консоль");
-                CT.PrintL("         8 - Обнулить все отрицательные элементы, кратные 2-м сбросив их значения в 0");
-                CT.PrintL("         0 - Жмакни что б выйти");
-                CT.Space();
-
-                Write("         ");
-                usersChoice = ToInt32(ReadLine());
-                CT.Space();
-
+                usersChoice = CT.Menu(
+                    "Заполняем массив вручную",
+                    "Заполнить массив случайными числами",
+                    "Выводим массив",
+                    "Изменить какой-нибудь элемент массива",
+                    "Посчитать и вывести количество четных/нечетных значений массива",
+                    "Посчитать среднее арифметическое по значениям массива",
+                    "Найти индексы минимального и максимального значения и напечатать в консоль",
+                    "Обнулить все отрицательные элементы, кратные 2-м сбросив их значения в 0");
+                CT.Space2();
                 switch (usersChoice)
                 {
                     case 1:
@@ -87,33 +81,18 @@ namespace HomeworkDmitriy.General
             } while (usersChoice != 0);
         }
 
-        public static void Task1(int[] kkk)
+        public static void Task1(int[] masiv)
         {
-            CT.PrintL("Введите значения массива: ");
-
-            for (int i = 0; i < kkk.Length; i++)
-            {
-                CT.Print($"[{i}] = ");
-                kkk[i] = ToInt32(ReadLine());
-            }
-
-            CT.PrintL("Массив инициализирован..");
+            CT.MasivManual(masiv);
             CT.Space2();
         }
+
         public static void Task2(int[] masiv)
         {
-            Random random = new Random();
-
-            int min = CT.Int("Введи минимальное значение");
-            int max = CT.Int("Введи максимальное значение");
-
-            for (int indx = 0; indx < masiv.Length; ++indx)
-            {
-                masiv[indx] = random.Next(min, max);
-            }
-            WriteLine($"Массив рандомизирован :О");
+            CT.MasivRandom(masiv);
             CT.Space2();
         }
+
         public static void Task3(int[] masiv)
         {
             WriteLine("Выводим массив: ");
@@ -124,6 +103,7 @@ namespace HomeworkDmitriy.General
             }
             CT.Space2();
         }
+
         public static void Task4(int[] masiv)
         {
             Write($"Выбери ячейку для изменения: ");
@@ -138,6 +118,7 @@ namespace HomeworkDmitriy.General
             WriteLine($"Новые значения в ячейках: [{indx}] = {change}");
             CT.Space2();
         }
+
         public static void Task5(int[] masiv)
         {
             int nums1 = 0;
@@ -159,6 +140,7 @@ namespace HomeworkDmitriy.General
             WriteLine($"Количество не кратных значений: {nums2}");
             CT.Space2();
         }
+
         public static void Task6(int[] masiv)
         {
             float result = 0;
@@ -171,6 +153,7 @@ namespace HomeworkDmitriy.General
             WriteLine($"Среднее арифметическое: {result / masiv.Length}");
             CT.Space2();
         }
+
         public static void Task7(int[] masiv)
         {
             int min = masiv[0];
@@ -195,6 +178,7 @@ namespace HomeworkDmitriy.General
             WriteLine($": {maxIndx}");
             CT.Space2();
         }
+
         public static void Task8(int[] masiv)
         {
             for (int indx = 0; indx < masiv.Length; ++indx)

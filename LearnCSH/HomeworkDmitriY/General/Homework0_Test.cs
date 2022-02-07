@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using HomeworkDmitriy.Tools;
 
 namespace HomeworkDmitriy.General
 {
@@ -9,9 +10,8 @@ namespace HomeworkDmitriy.General
         public static void Task0()
         {
             Console.WriteLine($"Назови себя");
-            string  number = Console.ReadLine();
+            string number = Console.ReadLine();
             long num1 = Convert.ToInt64(number);
-
         }
     }
 }
