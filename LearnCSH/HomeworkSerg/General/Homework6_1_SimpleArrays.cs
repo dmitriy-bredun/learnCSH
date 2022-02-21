@@ -5,7 +5,7 @@ using static System.Console;
 
 namespace HomeworkSerg.General
 {
-    internal class Homework6_SimpleArrays
+    internal class Homework6_1_SimpleArrays
     {
         public static void Start()
         {

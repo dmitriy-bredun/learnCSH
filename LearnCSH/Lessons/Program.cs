@@ -1,7 +1,6 @@
 ﻿using System;
 
 using Lessons.General;
-using Lessons.General.ClassesRelationship;
 using Lessons.Practice;
 using Lessons.Test;
 
@@ -23,8 +22,7 @@ namespace Lessons
         {
             GothamConsoleTheme();
 
-            CurrentLesson.Start();
-            // CurrentLessonMargaret.StartMargaretPractice();
+            CurrentLesson.GoGoGo();
 
             // Раскомментируйте тот урок, который хотите повторить и перебилдите проект...
             // Lesson1_Variables.Start();

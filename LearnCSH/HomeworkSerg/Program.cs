@@ -1,6 +1,7 @@
 ﻿using System;
 
 using HomeworkSerg.General;
+using HomeworkSerg.Tools;
 
 namespace HomeworkSerg
 {
@@ -13,7 +14,8 @@ namespace HomeworkSerg
             //Homework3_Operation.Start();
             //Homework4_VDV.Start();
             //Homework5_Cycles.Start();
-            Homework6_SimpleArrays.Start();
+            //Homework6_1_SimpleArrays.Start();
+            Homework6_2_BigSmallArray.Start();
         }
     }
 }
