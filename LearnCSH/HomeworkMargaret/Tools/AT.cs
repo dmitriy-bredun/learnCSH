@@ -9,14 +9,26 @@ namespace HomeworkMargaret.Tools
 {
     class AT
     {
+        private static Random rnd = new Random();
+
         public static int CreateArray(int size)
         {
+            if(size <=0)
+            {
+                Print("your size cannot be equal or less than 0");
+            }
+
             int[] array = new int[size];
             return array[size];
         }
          
         public static int CreateArray(int height, int width)
         {
+            if (height <= 0 || width <= 0)
+            {
+                Print("your height and width cannot be equal or less than 0");
+            }
+
             int[,] array = new int[height, width];
             return array[height, width];
         }
@@ -37,7 +49,7 @@ namespace HomeworkMargaret.Tools
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    array[i, j] = CT.EnterInt($"Enter values [{i}, {j}]: ");
+                    array[i, j] = EnterInt($"Enter values [{i}, {j}]: ");
                 }
             }
             Print("Array is initialized.");
@@ -45,7 +57,6 @@ namespace HomeworkMargaret.Tools
 
         public static void RandomArray(int[] array)
         {
-            Random rnd = new Random();
             int min = EnterInt("Write MIN value: ");
             int max = EnterInt("Write MAX value: ");
 
@@ -58,7 +69,6 @@ namespace HomeworkMargaret.Tools
 
         public static void RandomArray(int[,] array)
         {
-            Random rnd = new Random();
             int min = EnterInt("write MIN value: ");
             int max = EnterInt("write MAX value: ");
 
