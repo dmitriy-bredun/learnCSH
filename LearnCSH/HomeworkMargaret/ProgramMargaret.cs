@@ -44,7 +44,8 @@ namespace HomeworkMargaret
             //Task.Start();
             //Game.Start();
             //Homework6_Lights.Start();
-            Homework7_DLights.Start();
+            //Homework7_DLights.Start();
+            Homework_R_Arrays.Start();
         }
     }
 }
