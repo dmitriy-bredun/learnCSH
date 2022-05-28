@@ -23,6 +23,7 @@ namespace HomeworkDmitriy
             WriteLine("         4 - Выброска пацанов");
             WriteLine("         5 - Циклы");
             WriteLine("         6 - Массивы");
+            WriteLine("         7 - Массивы (повторение)");
             WriteLine();
             Write("         ");
 
@@ -57,6 +58,9 @@ namespace HomeworkDmitriy
 
                 case 6:
                     Homework4_SimpleArrays.Start();
+                    break;
+                case 7:
+                    Homework7_R_Arrays.Start();
                     break;
 
                 default:
