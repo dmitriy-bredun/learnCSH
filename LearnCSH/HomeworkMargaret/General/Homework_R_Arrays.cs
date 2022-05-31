@@ -30,18 +30,23 @@ namespace HomeworkMargaret.General
                     " sort array in ascending order");
                 CT.Space();
 
-                switch(userChoice)
+                switch (userChoice)
                 {
                     case 1:
                         FillWithRandNumb(array);
-                        break; 
+                        break;
 
                     case 2:
                         ShowArray(array);
                         break;
 
                     case 3:
-                        ChangeElement(array);
+                        ShowArray(array);
+                        CT.Space();
+                        int indx = CT.EnterInt($"write the element you want to change: ");
+                        int newNumb = CT.EnterInt($"write new number: ");
+                        ChangeElement(array, indx, newNumb);
+                        CT.Print("Old element has been changed.");
                         break;
 
                     case 4:
@@ -59,6 +64,7 @@ namespace HomeworkMargaret.General
 
                     case 7:
                         SortArray(array);
+                        CT.Print("The array has been sorted.");
                         break;
 
                     case 0:
@@ -83,16 +89,10 @@ namespace HomeworkMargaret.General
             AT.ShowArray(array);
         }
 
-        private static void ChangeElement(int[] array)
+        private static void ChangeElement(int[] array, int indx, int newNumb)
         {
-            ShowArray(array);
-            CT.Space();
-            int indx = CT.EnterInt($"write the element you want to change: ");
-            int newNumb = CT.EnterInt($"write new number: ");
-
             array[indx] = newNumb;
             CT.Space();
-            CT.Print("Old element has been changed.");
         }
 
         private static double ArithmeticMeanOfEvenNumb(int[] array)
@@ -103,7 +103,7 @@ namespace HomeworkMargaret.General
 
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] % 2 == 0)
+                if (i % 2 == 0 && i != 0)
                 {
                     sum = array[i] + sum;
                     counter++;
@@ -113,21 +113,18 @@ namespace HomeworkMargaret.General
 
             CT.Print(arithMean, "arithmetic mean ");
             return arithMean;
-            
         }
 
         private static bool SumOfOddElements(int[] array, int limit)
         {
             bool limitIsLess = true;
-            int oddCounter = 0;
             int sum = 0;
 
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] % 2 != 0)
+                if (i % 2 != 0 && i != 0)
                 {
                     sum = array[i] + sum;
-                    oddCounter++;
                 }
             }
 
@@ -139,43 +136,79 @@ namespace HomeworkMargaret.General
             else if (limit == sum)
             {
                 CT.Print("Sum and limit are equal.");
-                limitIsLess = false;
+                limitIsLess = true;
             }
             else
             {
-               CT.Print("Sum of odd elements is smaller than limit.");
-               limitIsLess = false;
+                CT.Print("Sum of odd elements is smaller than limit.");
+                limitIsLess = false;
             }
 
             return limitIsLess;
         }
 
-        private static void SumBetweenMaxAndMin(int[] array)
+        private static int SumBetweenMaxAndMin(int[] array)
         {
-            throw new NotImplementedException();
+            int min = array[0];
+            int max = array[0];
+
+            int minIndx = -1;
+            int maxIndx = -1;
+
+            int sum = 0;
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                if(array[i] > max)
+                {
+                    max = array[i];
+                    maxIndx = i;
+                }
+
+                if(array[i] < min)
+                {
+                    min = array[i];
+                    minIndx = i;
+                }
+            }
+
+            if (minIndx > maxIndx)
+            {
+                for(int i = maxIndx + 1; i < minIndx; i++)
+                {
+                    sum += array[i];
+                }
+            }
+            else
+            {
+                for(int i = minIndx + 1; i < maxIndx; i++)
+                {
+                    sum += array[i];
+                }
+            }
+            CT.Print(sum, "The sum is ");
+            return sum;
         }
 
         private static void SortArray(int[] array)
         {
             bool needSorting = true;
-            {
-                while(needSorting)
-                {
-                    needSorting = false;
-                    for (int i = 0; i < array.Length - 1; i++)
-                    {
-                        if (array[i] > array[i+ 1])
-                        {
-                            int box = array[i];
-                            array[i] = array[i + 1];
-                            array[i + 1] = box;
 
-                            needSorting = true;
-                        }
+            while (needSorting)
+            {
+                needSorting = false;
+                for (int i = 0; i < array.Length - 1; i++)        // -1, чтобы не выйти за границу массива, когда array[i+1];
+                {
+                    if (array[i] > array[i + 1])
+                    {
+                        int box = array[i];
+                        array[i] = array[i + 1];
+                        array[i + 1] = box;
+
+                        needSorting = true;
                     }
                 }
             }
-            CT.Print("The array has been sorted.");
         }
     }
 }
