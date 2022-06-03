@@ -50,16 +50,26 @@ namespace HomeworkMargaret.General
                         break;
 
                     case 4:
-                        ArithmeticMeanOfEvenNumb(array);
+                        double arithMean = ArithmeticMeanOfEvenNumb(array);
+                        CT.Print(arithMean, "arithmetic mean ");
                         break;
 
                     case 5:
                         int limit = CT.EnterInt("enter the limit: ");
-                        SumOfOddElements(array, limit);
+                        bool limitIsLess = SumOfOddElements(array, limit);
+                        if (limitIsLess)
+                        {
+                            CT.Print("Sum of odd elements is bigger than limit.");
+                        }
+                        else
+                        {
+                            CT.Print("Sum of odd elements is smaller than limit.");
+                        }
                         break;
 
                     case 6:
-                        SumBetweenMaxAndMin(array);
+                        int sum = SumBetweenMaxAndMin(array);
+                        CT.Print(sum, "The sum is ");
                         break;
 
                     case 7:
@@ -110,8 +120,7 @@ namespace HomeworkMargaret.General
                 }
             }
             arithMean = sum / counter;
-
-            CT.Print(arithMean, "arithmetic mean ");
+                        
             return arithMean;
         }
 
@@ -128,19 +137,12 @@ namespace HomeworkMargaret.General
                 }
             }
 
-            if (limit < sum)
+            if (limit <= sum)
             {
-                CT.Print("Sum of odd elements is bigger than limit.");
-                limitIsLess = true;
-            }
-            else if (limit == sum)
-            {
-                CT.Print("Sum and limit are equal.");
                 limitIsLess = true;
             }
             else
             {
-                CT.Print("Sum of odd elements is smaller than limit.");
                 limitIsLess = false;
             }
 
@@ -186,7 +188,7 @@ namespace HomeworkMargaret.General
                     sum += array[i];
                 }
             }
-            CT.Print(sum, "The sum is ");
+            
             return sum;
         }
 
