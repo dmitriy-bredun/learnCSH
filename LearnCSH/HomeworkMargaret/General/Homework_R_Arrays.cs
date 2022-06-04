@@ -107,8 +107,8 @@ namespace HomeworkMargaret.General
 
         private static double ArithmeticMeanOfEvenNumb(int[] array)
         {
-            int sum = 0;
-            int counter = 0;
+            double sum = 0;
+            double counter = 0;
             double arithMean;
 
             for (int i = 0; i < array.Length; i++)
