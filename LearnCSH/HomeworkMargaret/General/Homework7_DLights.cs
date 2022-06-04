@@ -161,7 +161,7 @@ namespace HomeworkMargaret.General
                 }
             }
 
-            foreach()
+            //foreach()
 
             for (int i = 0; i < Height; i++)
             {
