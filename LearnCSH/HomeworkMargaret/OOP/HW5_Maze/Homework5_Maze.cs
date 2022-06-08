@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using HomeworkMargaret.Tools;
 
 namespace HomeworkMargaret.OOP.HW5_Maze
 {
@@ -9,7 +10,7 @@ namespace HomeworkMargaret.OOP.HW5_Maze
         public static void Start()
         {
             Maze maze = new Maze();
-            
+            bool youWin;
             do
             {
                 maze.ShowMap();
@@ -36,8 +37,18 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                         break;
                 }
                 Console.Clear();
-            } while (true);
-            
+                youWin = maze.CheeseIsEaten();
+            } while (!youWin);
+            YouWin();
+        }
+        private static void YouWin()
+        {
+            CT.Print("**************************");
+            CT.Print("*        CONGRATS!       *");
+            CT.Print("*                        *");
+            CT.Print("*         YOU            *");
+            CT.Print("*         WIN            *");
+            CT.Print("**************************");
         }
     }
 }
