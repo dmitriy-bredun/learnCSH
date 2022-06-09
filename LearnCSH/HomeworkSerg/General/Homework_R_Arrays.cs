@@ -76,5 +76,39 @@ namespace HomeworkSerg.General
             } while (userChoice != 0);
         }
         
+        public static bool MEAN(int[]array)
+        {
+            int sum = 0;
+            int count = 0;
+            int mean = 0;
+
+            for (int a = 0; a < array.Length; a++)
+            {
+                if (a % 2 == 0 && a != 0)
+                {
+                    sum = sum + array[a];
+                    count++;
+                }
+
+                mean = sum / count;           
+            }
+            return mean;
+        }
+
+       // double sum = 0;
+        //    double counter = 0;
+        //    double arithMean;
+
+       //     for (int i = 0; i < array.Length; i++)
+       //     {
+       //         if (i % 2 == 0 && i != 0)
+       //         {
+        //            sum = array[i] + sum;
+        //            counter++;
+        //        }
+        //    }
+        //    arithMean = sum / counter;
+                        
+        //    return arithMean;
     }
 }
