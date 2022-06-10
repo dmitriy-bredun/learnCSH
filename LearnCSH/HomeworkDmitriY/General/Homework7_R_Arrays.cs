@@ -32,10 +32,9 @@ namespace HomeworkDmitriy.General
                     "Выводим массив",
                     "Изменить какой-нибудь элемент массива",
                     "Написать статический метод, который будет считать среднее арифметическое значение, всех элементов массива, которые хранятся в ячейках с четным индексом и возвращать результат. Метод принимает: одномерный массив. Метод возвращает: дробное число",
-                    "Написать статический метод, который будет проверять не превышает ли сумма элементов массива, которые хранятся в ячейках с не четным индексом заданный лимит. Метод принимает: одномерный массив и лимит(целое число). Метод возвращает: true / false в зав.от полученного результата",
-                    "",
-                    "",
-                    "");
+                    "Написать статический метод, который будет проверять не превышает ли сумма элементов массива, которые хранятся в ячейках с не четным индексом заданный лимит. Метод принимает: одномерный массив и лимит (целое число). Метод возвращает: true / false в зав.от полученного результата",
+                    "Написать статический метод, который будет считать сумму всех значений в массиве, которые находятся между минимальным и максимальным элементами Метод принимает: одномерный массив массивМетод возвращает: сумму элементов находящимися между максимальным и минимальным элементами массива (максимальный и минимальный не считаем)",
+                    "Написать статический метод, который будет сортировать массив в порядке возрастания. (возвращать метод ничего не должен) Метод принимает: одномерный массивМетод возвращает: void");
                 CT.Space2();
                 switch (usersChoice)
                 {
@@ -52,23 +51,23 @@ namespace HomeworkDmitriy.General
                         break;
 
                     case 4:
-                        Task4(nums);
+                        double result = Task4(nums);
                         break;
 
                     case 5:
-                        Task5(nums);
+                        Write($"Введи лимит: ");
+                        int limit = ToInt32(ReadLine());
+                        bool Suma = Task5(nums, limit);
                         break;
 
                     case 6:
-                        Task6(nums);
+                        int sum = Task6(nums);
+                        Write($"Сумма равна: {sum}");
                         break;
 
                     case 7:
                         Task7(nums);
-                        break;
-
-                    case 8:
-                        Task8(nums);
+                        Write($"Сортировка завершена");
                         break;
 
                     case 0:
@@ -121,7 +120,7 @@ namespace HomeworkDmitriy.General
 
             for (int indx = 0; indx < masiv.Length; ++indx)
             {
-                if (masiv[indx] % 2 == 0)
+                if (masiv[indx] % 2 == 0 && indx != 0)
                 {
                     suma = masiv[indx] + suma;
                     counter++;
@@ -132,41 +131,92 @@ namespace HomeworkDmitriy.General
             return result;
         }
 
-        public static bool Task5(int[] masiv)
+        public static bool Task5(int[] masiv, int limit)
         {
-            int limit = ToInt32(ReadLine());
-            int suma = 0;
-            int result;
+            int sum = 0;
 
-            for (int indx = 0; indx < masiv.Length; ++indx)
+            for (int i = 0; i < masiv.Length; i++)
             {
-                if (masiv[indx] % 2 != 0)
+                if (i % 2 != 0 && i != 0)
                 {
-                    suma = masiv[indx] + suma;
-
-                    if (suma < limit)
-                    {
-                        return true;
-                    }
+                    sum = masiv[i] + sum; // sum += array[i];
                 }
-                return false;
             }
-            WriteLine($"");
+
+            if (sum <= limit)
+            {
+                WriteLine($"Сумма элементов массива не превышает лимит");
+                CT.Space2();
+                return true;
+            }
+
+            WriteLine($"Сумма элементов массива превышает лимит");
+            CT.Space2();
+            return false;
         }
 
-        public static void Task6(int[] masiv)
+        public static int Task6(int[] masiv)
         {
-           
+            int min = int.MaxValue;
+            int max = int.MinValue;
+
+            int minIndx = -1;
+            int maxIndx = -1;
+
+            int sum = 0;
+
+            for (int i = 0; i < masiv.Length; i++)
+            {
+                if (masiv[i] > max)
+                {
+                    max = masiv[i];
+                    maxIndx = i;
+                }
+
+                if (masiv[i] < min)
+                {
+                    min = masiv[i];
+                    minIndx = i;
+                }
+            }
+
+            if (minIndx < maxIndx)
+            {
+                for (int i = minIndx + 1; i < maxIndx; i++)
+                {
+                    sum += masiv[i];
+                }
+            }
+            else
+            {
+                for (int i = maxIndx + 1; i < minIndx; i++)
+                {
+                    sum += masiv[i];
+                }
+            }
+            return sum;
         }
 
         public static void Task7(int[] masiv)
         {
-            
-        }
+            bool Sorting = true;
 
-        public static void Task8(int[] masiv)
-        {
-            
+            while (Sorting)
+            {
+                Sorting = false;
+
+                for (int i = 0; i < masiv.Length - 1; i++)        // -1, чтобы не выйти за границу массива, когда array[i+1];
+                {
+                    if (masiv[i] > masiv[i + 1])
+                    {
+                        int box = masiv[i];
+                        masiv[i] = masiv[i + 1];
+                        masiv[i + 1] = box;
+
+                        Sorting = true;
+                    }
+                }
+            }
         }
     }
 }
