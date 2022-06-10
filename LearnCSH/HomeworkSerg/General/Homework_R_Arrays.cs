@@ -37,7 +37,9 @@ namespace HomeworkSerg.General
                     case 1:
                         WriteLine("     1)  Заполняем массив случайными числами");
                         WriteLine();
+                        WriteLine("     Минимальное значение:");
                         int volmin = Convert.ToInt32(ReadLine());
+                        WriteLine("     Максимальное значение:");
                         int volmax = Convert.ToInt32(ReadLine());
                         AT.FillingRandom(array, volmin, volmax);
                         WriteLine();
@@ -64,8 +66,36 @@ namespace HomeworkSerg.General
 
                         array[box] = change;
 
-                        WriteLine($"Ячейка [{box}] изменена на: {change}");
+                        WriteLine($"    Ячейка [{box}] изменена на: {change}");
                         WriteLine();
+                        break;
+
+                    case 4:
+                        WriteLine("     4)  Написать статический метод, который будет считать среднее значение масива");
+                        WriteLine();
+                        double mean = MEAN(array);
+                        WriteLine($"    Cреднее арифметическое значение масива = {mean}");
+                        WriteLine();
+                        break;
+                    
+                    case 5:
+                        WriteLine("     5)  Написать статический метод, который будет проверять");
+                        WriteLine();
+
+                        Write("     Введите лимит:    ");
+                        int limit = Convert.ToInt32(ReadLine());
+                        WriteLine();
+
+                        bool result =  LIMIT(array, limit);
+
+                        if(result)
+                        {
+                            WriteLine("     Сумма значений не привышает лимит");
+                        }
+                        else 
+                        {
+                            WriteLine("     Сумма значений привышает лимит");
+                        }
                         break;
 
                     default:
@@ -75,12 +105,11 @@ namespace HomeworkSerg.General
                 WriteLine();
             } while (userChoice != 0);
         }
-        
-        public static bool MEAN(int[]array)
+        public static double MEAN(int[]array)
         {
             int sum = 0;
             int count = 0;
-            int mean = 0;
+            double mean = 0;
 
             for (int a = 0; a < array.Length; a++)
             {
@@ -89,26 +118,32 @@ namespace HomeworkSerg.General
                     sum = sum + array[a];
                     count++;
                 }
-
                 mean = sum / count;           
             }
             return mean;
         }
+        public static bool LIMIT(int[]array, int limit)
+        {
+            int sum = 0;
+            bool result = true;
 
-       // double sum = 0;
-        //    double counter = 0;
-        //    double arithMean;
-
-       //     for (int i = 0; i < array.Length; i++)
-       //     {
-       //         if (i % 2 == 0 && i != 0)
-       //         {
-        //            sum = array[i] + sum;
-        //            counter++;
-        //        }
-        //    }
-        //    arithMean = sum / counter;
-                        
-        //    return arithMean;
+            for (int b = 0; b < array.Length; b++)
+            {
+                if (b % 2 != 0 && b != 0)
+                {
+                    sum = sum + array[b];
+                }
+                
+            }
+            if (sum <= limit)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
+        }
     }
 }
