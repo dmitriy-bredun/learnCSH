@@ -9,9 +9,14 @@ namespace HomeworkDmitriy.General
     {
         public static void Task0()
         {
-            Console.WriteLine($"Назови себя");
-            string number = Console.ReadLine();
-            long num1 = Convert.ToInt64(number);
+            //Console.WriteLine($"Назови себя");
+            //string number = Console.ReadLine();
+            //long num1 = Convert.ToInt64(number);
+
+            int[,] array = new int[,]
+            {
+                { 1, 2, 3, 4, 5, 6,}
+            };
         }
     }
 }
