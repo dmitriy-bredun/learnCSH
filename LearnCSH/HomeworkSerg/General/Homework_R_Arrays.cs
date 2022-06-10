@@ -96,6 +96,22 @@ namespace HomeworkSerg.General
                         {
                             WriteLine("     Сумма значений привышает лимит");
                         }
+                        WriteLine();
+                        break;
+
+                    case 6:
+                        WriteLine("     6)  Написать статический метод, который будет считать сумму");
+                        WriteLine();
+                        int sum = SUM(array);
+                        Write($"     Сумма всех значений в массиве, которые находятся между минимальным и максимальным элементами = {sum}");
+                        WriteLine();
+                        break;
+
+                    case 7:
+                        WriteLine("     7)  Написать статический метод, который будет сортировать массив");
+                        WriteLine();
+                        BUBBLE(array);
+                        Write("     Cортировка массива в порядке возрастания пузырьковым методом произошла! Поверьте на слово и живете с этим!");
                         break;
 
                     default:
@@ -144,6 +160,68 @@ namespace HomeworkSerg.General
                 result = false;
             }
             return result;
+        }
+        public static int SUM(int[] array)
+        {
+            int min = array[0];
+            int max = array[0];
+
+            int minIndx = -1;
+            int maxIndx = -1;
+
+            int sum = 0;
+
+            for (int c = 1; c < array.Length; c++)
+            {
+                if (array[c] > max)
+                {
+                    max = array[c];
+                    maxIndx = c;
+                }
+
+                if (array[c] < min)
+                {
+                    min = array[c];
+                    minIndx = c;
+                }
+            }
+            // С первой чвстью мы разобрались как работает, а вот со второй нет
+            if (minIndx > maxIndx)
+            {
+                for (int i = maxIndx + 1; i < minIndx; i++)
+                {
+                    sum += array[i];
+                }
+            }
+            else
+            {
+                for (int i = minIndx + 1; i < maxIndx; i++)
+                {
+                    sum += array[i];
+                }
+            }
+            return sum;
+        }
+        public static void BUBBLE(int[] array)
+        {
+            bool Sorting = true;
+            
+            while (Sorting)
+            {
+                Sorting = false;
+
+                for (int d = 0; d < array.Length - 1; d++)
+                {
+                    if (array[d] > array[d+1])
+                    {
+                        int box = array[d];
+                        array[d] = array[d + 1];
+                        array[d + 1] = box;
+
+                        Sorting = true;
+                    }
+                }
+            }
         }
     }
 }
