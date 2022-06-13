@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Lessons.General;
+using Lessons.OOP.Lesson1_Classes;
 using Lessons.Practice;
 using Lessons.Test;
 
@@ -22,7 +23,7 @@ namespace Lessons
         {
             GothamConsoleTheme();
 
-            CurrentLesson.GoGoGo();
+            // CurrentLesson.GoGoGo();
 
             // Раскомментируйте тот урок, который хотите повторить и перебилдите проект...
             // Lesson1_Variables.Start();
@@ -44,6 +45,10 @@ namespace Lessons
 
             // Practice6_ClassesRelationship.Start();
             // TestProgram.StartTest();
+
+
+            // = = = = = = = =   C L A S S E S   = = = = = = =
+            Lesson1_Classes.Start();
         }
     }
 }
