@@ -7,11 +7,11 @@ namespace HomeworkDmitriy.OOP.HW1_Classes
     class Processor
     {
         public string companyName;
-        public int frequency;
+        public double frequency;
         public int countOfCores;
         public int cache;
 
-        public Processor(string companyN, int frequency, int cores, int cache)
+        public Processor(string companyN, double frequency, int cores, int cache)
         {
             companyName = companyN;
             this.frequency = frequency;

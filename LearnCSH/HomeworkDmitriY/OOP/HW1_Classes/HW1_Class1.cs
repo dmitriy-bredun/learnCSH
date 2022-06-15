@@ -16,29 +16,29 @@ namespace HomeworkDmitriy.OOP.HW1_Classes
             string companyN = (ReadLine());
 
             CT.Print("Введите частоту процессора: ");
-            int frequency = ToInt32(ReadLine());
-            
+            double frequency = ToDouble(ReadLine());
+
             CT.Print("Введите нужное количество ядер: ");
             int cores = ToInt32(ReadLine());
-            
+
             CT.Print("Введите размер кеша L3: ");
             int cache = ToInt32(ReadLine());
 
-            Processor processor1 = new Processor(companyN, frequency, cores, cache);
+            Processor processor = new Processor(companyN, frequency, cores, cache);
 
-            ShowProcessor(Processor);
-
+            ShowProcessor(processor);
         }
-        public static void ShowProcessor(Processor showProcessor)
+        public static void ShowProcessor(Processor processorInfo)
         {
             WriteLine();
-            WriteLine($"    Well Number: {showProcessor.companyN}:");
-            WriteLine();
-            WriteLine($"    Well Type: {showProcessor.frequency}");
-            WriteLine();
-            WriteLine($"    Well Diameter: {showProcessor.cores}");
-            WriteLine();
-            WriteLine($"    Well Depth: {showProcessor.cache}");
+            WriteLine($"- - - - - Выбранный процессор- - - - - - -");
+            WriteLine($"Модель процессора: {processorInfo.companyName}:");
+            WriteLine($"Частота: {processorInfo.frequency}");
+            WriteLine($"Количество ядер: {processorInfo.countOfCores}");
+            WriteLine($"Кеш L3: {processorInfo.cache}");
+            WriteLine($"- - - - - - - - - - - - - - - - - - - - - -");
+            WriteLine($"Ищем выбранный процессор в базе данных магазина...");
             WriteLine();
         }
     }
+}
