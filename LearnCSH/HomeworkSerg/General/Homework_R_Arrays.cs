@@ -118,7 +118,6 @@ namespace HomeworkSerg.General
                         WriteLine("    Неверный ввод");
                         break;
                 }
-                WriteLine();
             } while (userChoice != 0);
         }
         public static double MEAN(int[]array)
