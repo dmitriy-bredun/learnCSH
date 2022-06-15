@@ -12,13 +12,33 @@ namespace HomeworkDmitriy.OOP.HW1_Classes
     {
         public static void Start()
         {
-            CT.Print("Введите размер массива: ");
-            double frequency = ToInt32(ReadLine());
+            CT.Print("Введите название модели процессора: ");
+            string companyN = (ReadLine());
 
-            Processor processor = new Processor (4.9, "AMD", 16, "white", "sweet", 64);
-
+            CT.Print("Введите частоту процессора: ");
+            int frequency = ToInt32(ReadLine());
             
+            CT.Print("Введите нужное количество ядер: ");
+            int cores = ToInt32(ReadLine());
+            
+            CT.Print("Введите размер кеша L3: ");
+            int cache = ToInt32(ReadLine());
+
+            Processor processor1 = new Processor(companyN, frequency, cores, cache);
+
+            ShowProcessor(Processor);
 
         }
+        public static void ShowProcessor(Processor showProcessor)
+        {
+            WriteLine();
+            WriteLine($"    Well Number: {showProcessor.companyN}:");
+            WriteLine();
+            WriteLine($"    Well Type: {showProcessor.frequency}");
+            WriteLine();
+            WriteLine($"    Well Diameter: {showProcessor.cores}");
+            WriteLine();
+            WriteLine($"    Well Depth: {showProcessor.cache}");
+            WriteLine();
+        }
     }
-}
