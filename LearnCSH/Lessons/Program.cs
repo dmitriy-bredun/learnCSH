@@ -2,6 +2,7 @@
 
 using Lessons.General;
 using Lessons.OOP.Lesson1_Classes;
+using Lessons.OOP.Lesson2_Methods;
 using Lessons.Practice;
 using Lessons.Test;
 
@@ -48,7 +49,8 @@ namespace Lessons
 
 
             // = = = = = = = =   C L A S S E S   = = = = = = =
-            Lesson1_Classes.Start();
+            //Lesson1_Classes.Start();
+            Lesson2_Methods.Start();
         }
     }
 }
