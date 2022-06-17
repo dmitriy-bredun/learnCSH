@@ -2,7 +2,7 @@
 
 using HomeworkSerg.General;
 using HomeworkSerg.Tools;
-using HomeworkSerg.OOP;
+using HomeworkSerg.OOP.HW1_Classes;
 
 namespace HomeworkSerg
 {
@@ -18,7 +18,7 @@ namespace HomeworkSerg
             //Homework6_1_SimpleArrays.Start();
             //Homework6_2_BigSmallArray.Start();
             //Homework_R_Arrays.Start();
-            HW1_Classes.Start()
+            HW1_Classes.Start();
         }
     }
 }
