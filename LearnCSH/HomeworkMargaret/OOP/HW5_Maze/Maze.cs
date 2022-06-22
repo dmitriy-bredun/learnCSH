@@ -16,36 +16,62 @@ namespace HomeworkMargaret.OOP.HW5_Maze
         public Maze()
         {
             map = new int[10, 10];
-            mouseI = 0;
-            mouseJ = 0;
+            mouseI = 1;
+            mouseJ = 1;
             Random rand = new Random();
-            int countOfBlocks = rand.Next(10, 20);
-            for (int i = 1; i <= countOfBlocks; i++)
+                      
+            for (int columnInd = 1; columnInd < map.GetLength(1) - 1; columnInd+=2) // рух. по колонках
             {
-                int rI = rand.Next(0, map.GetLength(0) - 1);
-                int rJ = rand.Next(0, map.GetLength(1) - 1);
-                if (rI != 0 && rJ != 0)
+                int countOfPasses = rand.Next(1, 4);
+                int[] passIndx = new int[countOfPasses];
+                for (int i = 0; i < passIndx.Length; i++)
                 {
-                    map[rI, rJ] = 1;
+                    passIndx[i] = rand.Next(0, map.GetLength(0) - 1);
+                }
+
+                for (int lineInd = 0; lineInd < map.GetLength(0); lineInd++)  // ставить блоки
+                {
+                    if (IsBlock(lineInd, passIndx))
+                    {
+                        map[lineInd, columnInd] = 1;
+                    }
                 }
             }
-                        
             int piecesOfCheese = rand.Next(3, 6);
             for (int i = 1; i <= piecesOfCheese; i++)
             {
                 int cI = rand.Next(0, map.GetLength(0) - 1);
-                int cJ = rand.Next(0, map.GetLength(0) - 1);
+                int cJ = rand.Next(0, map.GetLength(1) - 1);
                 if (cI != 0 && cJ != 0 && map[cI, cJ] != 1)
                 {
                     map[cI, cJ] = 2;
                 }
             }
         }
+        private bool IsBlock(int currentIndx, int[] passIndx)
+        {
+            for (int i = 0; i < passIndx.Length; i++)
+            {
+                if (currentIndx == passIndx[i])
+                {
+                    return false; //не ставить блоки
+                }    
+            }
+            return true;
+        }
 
         public void ShowMap()
         {
+            CT.Print(" ", false);
+            for (int i = 0; i < map.GetLength(1); i++)
+            {
+                CT.Print("-", false);
+            }
+            WriteLine();
+
             for (int i = 0; i < map.GetLength(0); i++)
             {
+                CT.Print("|", false);
                 for (int j = 0; j < map.GetLength(1); j++)
                 {
                     if (i == mouseI && j == mouseJ)
@@ -62,11 +88,19 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                     }
                     else
                     {
-                        CT.Print("-", false);
+                        CT.Print(" ", false);
                     }
                 }
+                CT.Print("|", false);
                 WriteLine();
             }
+
+            CT.Print(" ", false);
+            for (int i = 0; i < map.GetLength(1); i++)
+            {
+                CT.Print("-", false);
+            }
+            WriteLine();
         }
 
         public void MouseUp()
