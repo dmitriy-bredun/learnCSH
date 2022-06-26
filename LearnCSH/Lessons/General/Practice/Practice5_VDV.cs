@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 using static System.Console;
 
-namespace Lessons.Practice
+namespace Lessons.General.Practice
 {
     class Practice5_VDV
     {

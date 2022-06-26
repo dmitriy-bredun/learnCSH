@@ -2,7 +2,7 @@
 
 using static System.Console;
 
-namespace Lessons.OOP.Lesson2_Methods
+namespace Lessons.OOP.Lessons.Lesson2_Methods
 {
     class Lesson2_Methods
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Lessons.General
+namespace Lessons.General.Lessons
 {
     class Lesson1_Variables
     {

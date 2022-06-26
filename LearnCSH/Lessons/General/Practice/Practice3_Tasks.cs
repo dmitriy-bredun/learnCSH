@@ -2,7 +2,7 @@
 
 using static System.Console;
 
-namespace Lessons.Practice
+namespace Lessons.General.Practice
 {
     class Practice3_Tasks
     {

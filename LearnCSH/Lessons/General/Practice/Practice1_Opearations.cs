@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Lessons.Practice
+namespace Lessons.General.Practice
 {
     class Practice1_Opearations
     {

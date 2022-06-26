@@ -2,7 +2,7 @@
 
 using static System.Console;
 
-namespace Lessons.General
+namespace Lessons.General.Lessons
 {
     /*
      *           ----- CONSOLE HELPER CLASS ----- 

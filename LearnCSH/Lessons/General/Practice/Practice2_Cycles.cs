@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 
-namespace Lessons.Practice
+namespace Lessons.General.Practice
 {
     class Practice2_Cycles
     {

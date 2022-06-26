@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Threading;
+
 using static System.Console;
 
-namespace Lessons.Practice
+namespace Lessons.General.Practice
 {
     class Practice2_DoubleCycles
     {

@@ -1,10 +1,9 @@
 ﻿using System;
-
 using static System.Console;
 
 using Lessons.Tools;
 
-namespace Lessons.Practice
+namespace Lessons.General.Practice
 {
     class Practice4_SimpleArrays
     {

@@ -1,11 +1,8 @@
-﻿using Lessons.Tools;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 using static System.Console;
 
-namespace Lessons.OOP.Lesson1_Classes
+namespace Lessons.OOP.Lessons.Lesson1_Classes
 {
     class Lesson1_Classes
     {
