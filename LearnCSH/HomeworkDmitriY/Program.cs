@@ -5,6 +5,7 @@ using HomeworkDmitriy.OOP.HW1_Classes;
 using static System.Console;
 using static System.Convert;
 using static System.ConsoleColor;
+using HomeworkDmitriy.OOP.HWGame;
 
 namespace HomeworkDmitriy
 {
@@ -25,7 +26,8 @@ namespace HomeworkDmitriy
             WriteLine("         5 - Циклы");
             WriteLine("         6 - Массивы");
             WriteLine("         7 - Массивы (повторение)");
-            WriteLine("         8 - Классы");
+            WriteLine("         8 - Классы, выбор процессора");
+            WriteLine("         9 - Игра ''Смертельные гонки''");
             WriteLine();
             Write("         ");
 
@@ -66,6 +68,9 @@ namespace HomeworkDmitriy
                     break;
                 case 8:
                     HW1_Class1.Start();
+                    break;
+                case 9:
+                    HWGame.StartGame();
                     break;
 
                 default:
