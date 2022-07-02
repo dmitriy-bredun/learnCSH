@@ -18,7 +18,8 @@ namespace HomeworkSerg
             //Homework6_1_SimpleArrays.Start();
             //Homework6_2_BigSmallArray.Start();
             //Homework_R_Arrays.Start();
-            HW1_Classes.Start();
+            //HW1_Classes.Start();
+            HW_Game_Snake.StartGameSnake();
         }
     }
 }
