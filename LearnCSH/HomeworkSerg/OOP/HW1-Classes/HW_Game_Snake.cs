@@ -11,10 +11,11 @@ namespace HomeworkSerg.OOP.HW1_Classes
         {
             ConsoleKeyInfo key; // Шо це таке ?
 
-            Playing_field game = new Playing_field(10, 10);
+            Playing_field game = new Playing_field(15, 15);
 
             do
             {
+                WriteLine();
                 game.PrintMap();
 
                 key = ReadKey();         // Шо це таке ?
