@@ -19,6 +19,7 @@ namespace HomeworkSerg.OOP.HW1_Classes
         public int mouseY2;
 
         public int Eat;
+        public int Snake;
 
         public Playing_field(int width, int height)
         {
@@ -44,21 +45,27 @@ namespace HomeworkSerg.OOP.HW1_Classes
             int width = Map.GetLength(1); // Шо це таке ?
             int height = Map.GetLength(0); // Шо це таке ?
 
-            Write(" ");
-            for (int i = 0; i < width + 2; i++)
+            Write("   ");
+            for (int i = 0; i < width+2; i++)
             {
-                Write("--");
+                Write("- ");
             }
 
             WriteLine();
             for (int y = 0; y < height; y++)
             {
-                Write(" |");
+                Write("   |");
                 for (int x = 0; x < width; x++)
                 {
                     if (y == SnakeY && x == SnakeX)
                     {
                         Write(" S");
+
+                        for (int i = 0; i < Snake; i++)
+                        {
+                            Write("S");
+                        }
+                        
                     }
                     else if(y == mouseY1 && x == mouseX1)
                     {
@@ -76,7 +83,13 @@ namespace HomeworkSerg.OOP.HW1_Classes
                 Write(" |");
                 WriteLine();
             }
-            WriteLine($" Кол-во. сожраных мыш: {Eat}");
+            Write("   ");
+            for (int i = 0; i < width + 2; i++)
+            {
+                Write("- ");
+            }
+            WriteLine();
+            WriteLine($"   Кол-во. сожраных мыш: {Eat}");
         }
         public void SnakeStepRight()
         {
@@ -120,13 +133,13 @@ namespace HomeworkSerg.OOP.HW1_Classes
             {
                 mouseX1 = R.Next(0, Map.GetLength(1) - 1);
                 mouseY1 = R.Next(0, Map.GetLength(0) - 1);
-                Eat++;
+                Eat++; Snake++;
             }
             if (SnakeX == mouseX2 && SnakeY == mouseY2)
             {
                 mouseX2 = R.Next(0, Map.GetLength(1) - 1);
                 mouseY2 = R.Next(0, Map.GetLength(0) - 1);
-                Eat++;
+                Eat++; Snake++;
             }
         }
     }
