@@ -9,9 +9,17 @@ namespace HomeworkMargaret.OOP.HW5_Maze
 {
     class Maze
     {
+        enum MazeItems
+        {
+            Block = 1,
+            Cheese,
+            Lazergun,
+        }
         private int[,] map;
         private int mouseI;
         private int mouseJ;
+        private int score;
+        private bool lazergun;
 
         public Maze()
         {
@@ -33,20 +41,18 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                 {
                     if (IsBlock(lineInd, passIndx))
                     {
-                        map[lineInd, columnInd] = 1;
+                        map[lineInd, columnInd] = (int)MazeItems.Block;
                     }
                 }
             }
+
             int piecesOfCheese = rand.Next(3, 6);
             for (int i = 1; i <= piecesOfCheese; i++)
             {
-                int cI = rand.Next(0, map.GetLength(0) - 1);
-                int cJ = rand.Next(0, map.GetLength(1) - 1);
-                if (cI != 0 && cJ != 0 && map[cI, cJ] != 1)
-                {
-                    map[cI, cJ] = 2;
-                }
+                AddMazeItem(MazeItems.Cheese);
             }
+
+            AddMazeItem(MazeItems.Lazergun);
         }
         private bool IsBlock(int currentIndx, int[] passIndx)
         {
@@ -59,6 +65,21 @@ namespace HomeworkMargaret.OOP.HW5_Maze
             }
             return true;
         }
+        private void AddMazeItem (MazeItems item)
+        {
+            Random rand = new Random();
+            bool check = false;
+            while (check != true)
+            {
+                int i = rand.Next(0, map.GetLength(0) - 1);
+                int j = rand.Next(0, map.GetLength(1) - 1);
+                if (map[i,j] != ((int)MazeItems.Block)) 
+                {
+                    map[i, j] = (int)item;
+                    check = true;
+                }
+            }
+        }
 
         public void ShowMap()
         {
@@ -69,6 +90,7 @@ namespace HomeworkMargaret.OOP.HW5_Maze
             }
             WriteLine();
 
+            
             for (int i = 0; i < map.GetLength(0); i++)
             {
                 CT.Print("|", false);
@@ -86,15 +108,27 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                     {
                         CT.Print("C", false);
                     }
+                    else if (map[i, j] == 3)
+                    {
+                        CT.Print("L", false);
+                    }
                     else
                     {
                         CT.Print(" ", false);
                     }
                 }
                 CT.Print("|", false);
+                if (i == map.GetLength(0) / 2)
+                {
+                    CT.Print($"Total score: {score}", false);
+                }
+                if (i == map.GetLength(0) / 2 + 1)
+                {
+                    CT.Print($"Lazergun: {lazergun}", false);
+                }
                 WriteLine();
             }
-
+            
             CT.Print(" ", false);
             for (int i = 0; i < map.GetLength(1); i++)
             {
@@ -109,6 +143,7 @@ namespace HomeworkMargaret.OOP.HW5_Maze
             {
                 mouseI -= 1;
                 EatCheeseIfExists();
+                MouseHasLazergun();
             }
         }
 
@@ -118,6 +153,7 @@ namespace HomeworkMargaret.OOP.HW5_Maze
             {
                 mouseI += 1;
                 EatCheeseIfExists();
+                MouseHasLazergun();
             }
         }
 
@@ -127,6 +163,7 @@ namespace HomeworkMargaret.OOP.HW5_Maze
             {
                 mouseJ -= 1;
                 EatCheeseIfExists();
+                MouseHasLazergun();
             }
         }
 
@@ -136,6 +173,7 @@ namespace HomeworkMargaret.OOP.HW5_Maze
             {
                 mouseJ += 1;
                 EatCheeseIfExists();
+                MouseHasLazergun();
             }
         }
 
@@ -143,8 +181,10 @@ namespace HomeworkMargaret.OOP.HW5_Maze
         {
             if (map[mouseI, mouseJ] == 2)
             {
-                map[mouseI, mouseJ] = 0;
+               map[mouseI, mouseJ] = 0;
+                score += 10;
             }
+            
         }
 
         public bool CheeseIsEaten()
@@ -160,6 +200,15 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                 }
             }
             return true;
+        }
+
+        public void MouseHasLazergun()
+        {
+            if (map[mouseI, mouseJ] == (int)MazeItems.Lazergun)
+            {
+                map[mouseI, mouseJ] = 0;
+                lazergun = true;
+            }
         }
     }
 }
