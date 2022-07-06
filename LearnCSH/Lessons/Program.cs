@@ -36,6 +36,7 @@ namespace Lessons
             // Lesson5_StaticMethods.Start();
             // Lesson6_SimpleArrays.Start();
             // Lesson7_MultiDimensionalArrays.Start();
+            Lesson8_Enums.Start();
 
             // Practice1_Opearations.Start();
             // Practice2_Cycles.Start();
@@ -49,7 +50,7 @@ namespace Lessons
             // Lesson1_Classes.Start();
             // Lesson2_Methods.Start();
 
-            Practice1_Labyrinth.StartGame();
+            // Practice1_Labyrinth.StartGame();
         }
     }
 }
