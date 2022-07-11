@@ -11,10 +11,10 @@ namespace HomeworkDmitriy.OOP.HWGame
     class Racing
     {
         public int[,] Map;
-        public int AutoY;
+        public int AutoY; // 1 - координаты машинки
         public int AutoX;
 
-        // 1 - координаты машинки
+        int newAuto;
 
         public Racing(int height, int width)
         {
@@ -24,18 +24,22 @@ namespace HomeworkDmitriy.OOP.HWGame
         }
         public void AutoUp()
         {
-            if (AutoY != 0)
-            {
-                AutoY--;
-            }
+            //if (AutoY != 0)
+            //{
+            //    AutoY--;
+            //}
+            DownNewAuto();
+            AddNewAuto();
         }
 
         public void AutoDown()
         {
-            if (AutoY != Map.GetLength(0) - 2)
-            {
-                AutoY++;
-            }
+            //if (AutoY != Map.GetLength(0) - 2)
+            //{
+            //    AutoY++;
+            //}
+            //DownNewAuto();
+            //AddNewAuto();
         }
 
         public void AutoLeft()
@@ -44,6 +48,8 @@ namespace HomeworkDmitriy.OOP.HWGame
             {
                 AutoX--;
             }
+            AddNewAuto();
+            DownNewAuto();
         }
 
         public void AutoRight()
@@ -52,6 +58,8 @@ namespace HomeworkDmitriy.OOP.HWGame
             {
                 AutoX++;
             }
+            AddNewAuto();
+            DownNewAuto();
         }
 
 
@@ -73,15 +81,19 @@ namespace HomeworkDmitriy.OOP.HWGame
                     {
                         Console.Write(" A");
                     }
-                    else if(j == 0)
+                    else if (Map[i, j] == 1)
+                    {
+                        Console.Write(" H"); // - отрисовка вражеских машинок
+                    }
+                    else if (j == 0)
                     {
                         Console.Write(" |");
                     }
-                    else if(j == 4)
+                    else if (j == 4)
                     {
                         Console.Write(" '");
                     }
-                    else if(j == 8)
+                    else if (j == 8)
                     {
                         Console.Write(" '");
                     }
@@ -97,6 +109,42 @@ namespace HomeworkDmitriy.OOP.HWGame
 
                 Console.WriteLine();
             }
+        }
+        
+        public void AddNewAuto()
+        {
+            Random randomAuto = new Random();
+            int newAuto = randomAuto.Next(1, 2);
+
+            for (int i = 0; i < newAuto; i++)
+                {
+                    Map[0, randomAuto.Next(1, Map.GetLength(1) - 1)] = 1;
+                }
+        }
+        public void DownNewAuto()
+        {
+            for (int i = Map.GetLength(0) - 1; i >= 0; i--)
+            {
+                for (int j = 0; j < Map.GetLength(1); j++)
+                {
+                    if (Map[i, j] == 1)
+                    {
+                        if (i != Map.GetLength(0) - 1)
+                        {
+                            Map[i, j] = 0;
+                            Map[i + 1, j] = 1;
+                        }
+                        else
+                        {
+                            Map[i, j] = 0;
+                        }
+                    }
+                }
+            }
+        }
+        public void ScoreInfo()
+        {
+
         }
     }
 }
