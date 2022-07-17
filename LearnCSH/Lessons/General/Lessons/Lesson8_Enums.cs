@@ -27,21 +27,15 @@ namespace Lessons.General.Lessons
     {
         public int Width;
         public int Height;
+        public Colors Color;
         public BorderSides Sides;
 
-        public Box(int width, int height, BorderSides sides)
+        public Box(int width, int height, Colors color, BorderSides sides)
         {
             Width = width;
             Height = height;
+            Color = color;
             Sides = sides;
-        }
-
-        public override string ToString()
-        {
-            return $"Class info: \n" +
-                $"Width = {Width}, \n" +
-                $"Height = {Height},\n" +
-                $"Sides = {Sides}";
         }
     }
 
@@ -49,43 +43,39 @@ namespace Lessons.General.Lessons
     {
         public static void Start()
         {
-            Colors col = Colors.Blue;
-            Colors col2 = Colors.Red;
-            Colors test = col | col2;
-           
+            int boxWidth = 5;
+            int boxHeight = 10;
             BorderSides sides = BorderSides.Top | BorderSides.Left;
+            
+            Box box = new Box(boxWidth, boxHeight, Colors.Blue, sides);
 
-            sides = sides ^ BorderSides.Bottom;
-
-            Box box = new Box(5, 5, sides);
-
-            WriteLine(box);
+            Paiting(box);
         }
 
+        // Красит нужные стороны коробки в нужный цвет
         public static void Paiting(Box box)
         {
             BorderSides sides = box.Sides;
-
-            WriteLine($"Sides = {sides}");
+            WriteLine($"Нужно покрасить: {sides} стороны.");
 
             if (sides.HasFlag(BorderSides.Left))
             {
-                WriteLine("Paint Left side");
+                WriteLine($"Paint Left side to {box.Color} color");
             }
 
             if (sides.HasFlag(BorderSides.Right))
             {
-                WriteLine("Paint Right side");
+                WriteLine($"Paint Right side to {box.Color} color");
             }
 
             if (sides.HasFlag(BorderSides.Top))
             {
-                WriteLine("Paint Top side");
+                WriteLine($"Paint Top side to {box.Color} color");
             }
 
             if (sides.HasFlag(BorderSides.Bottom))
             {
-                WriteLine("Paint Bottom side");
+                WriteLine($"Paint Bottom side to {box.Color} color");
             }
         }
     }

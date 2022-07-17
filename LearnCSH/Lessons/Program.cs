@@ -8,6 +8,8 @@ using Lessons.OOP.Lessons.Lesson2_Methods;
 
 using Lessons.OOP.Practice.Labyrinth;
 
+using Lessons.DynamicCollections;
+
 namespace Lessons
 {
     class Program
@@ -51,6 +53,10 @@ namespace Lessons
             // Lesson2_Methods.Start();
 
             // Practice1_Labyrinth.StartGame();
+
+
+            // = = = = = = = =   Dynamic Collections  = = = = = = = = = = = = =   
+            Lesson1_List.Start();
         }
     }
 }
