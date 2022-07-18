@@ -1,6 +1,7 @@
 ﻿using System;
 
 using HomeworkDmitriy.General;
+using HomeworkDmitriy.OOP.HW1_Classes;
 using static System.Console;
 using static System.Convert;
 using static System.ConsoleColor;
@@ -23,6 +24,8 @@ namespace HomeworkDmitriy
             WriteLine("         4 - Выброска пацанов");
             WriteLine("         5 - Циклы");
             WriteLine("         6 - Массивы");
+            WriteLine("         7 - Массивы (повторение)");
+            WriteLine("         8 - Классы");
             WriteLine();
             Write("         ");
 
@@ -57,6 +60,12 @@ namespace HomeworkDmitriy
 
                 case 6:
                     Homework4_SimpleArrays.Start();
+                    break;
+                case 7:
+                    Homework7_R_Arrays.Start();
+                    break;
+                case 8:
+                    HW1_Class1.Start();
                     break;
 
                 default:

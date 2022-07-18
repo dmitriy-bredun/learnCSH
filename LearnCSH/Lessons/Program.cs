@@ -1,8 +1,14 @@
 ﻿using System;
 
-using Lessons.General;
-using Lessons.Practice;
-using Lessons.Test;
+using Lessons.General.Lessons;
+using Lessons.General.Practice;
+
+using Lessons.OOP.Lessons.Lesson1_Classes;
+using Lessons.OOP.Lessons.Lesson2_Methods;
+
+using Lessons.OOP.Practice.Labyrinth;
+
+using Lessons.DynamicCollections;
 
 namespace Lessons
 {
@@ -22,9 +28,7 @@ namespace Lessons
         {
             GothamConsoleTheme();
 
-            CurrentLesson.GoGoGo();
-
-            // Раскомментируйте тот урок, который хотите повторить и перебилдите проект...
+            // = = = = = = = =   General programming  = = = = = = = = = = = =            
             // Lesson1_Variables.Start();
             // Lesson2_1TypeConversion.Start();
             // Lesson2_2Operations.Start();
@@ -32,8 +36,9 @@ namespace Lessons
             // Lesson3_SwitchAndTernaryOperation.Start();
             // Lesson4_Cycles.Start();
             // Lesson5_StaticMethods.Start();
-            // Lesson6_SingleArray.Start();
+            // Lesson6_SimpleArrays.Start();
             // Lesson7_MultiDimensionalArrays.Start();
+            Lesson8_Enums.Start();
 
             // Practice1_Opearations.Start();
             // Practice2_Cycles.Start();
@@ -42,8 +47,16 @@ namespace Lessons
             // Practice4_SimpleArrays.Start();
             // Practice5_VDV.Start();
 
-            // Practice6_ClassesRelationship.Start();
-            // TestProgram.StartTest();
+
+            // = = = = = = = =   Object oriented programming  = = = = = = = = =   
+            // Lesson1_Classes.Start();
+            // Lesson2_Methods.Start();
+
+            // Practice1_Labyrinth.StartGame();
+
+
+            // = = = = = = = =   Dynamic Collections  = = = = = = = = = = = = =   
+            Lesson1_List.Start();
         }
     }
 }
