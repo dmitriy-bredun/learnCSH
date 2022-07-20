@@ -21,6 +21,14 @@ namespace HomeworkMargaret.OOP.HW5_Maze
         private int score;
         private bool lazergun;
 
+        enum MouseDirections
+        {
+            Up,
+            Down,
+            Right,
+            Left
+        }
+        private MouseDirections currentDirection;
         public Maze()
         {
             map = new int[10, 10];
@@ -126,6 +134,10 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                 {
                     CT.Print($"Lazergun: {lazergun}", false);
                 }
+                if (i == map.GetLength(0) / 2 + 2)
+                {
+                    CT.Print($"Direction: {currentDirection}", false);
+                }
                 WriteLine();
             }
             
@@ -139,6 +151,7 @@ namespace HomeworkMargaret.OOP.HW5_Maze
 
         public void MouseUp()
         {
+            currentDirection = MouseDirections.Up;
             if (mouseI > 0 && map[mouseI - 1, mouseJ] != 1)
             {
                 mouseI -= 1;
@@ -149,6 +162,7 @@ namespace HomeworkMargaret.OOP.HW5_Maze
 
         public void MouseDown()
         {
+            currentDirection = MouseDirections.Down;
             if (mouseI < map.GetLength(0) - 1 && map[mouseI + 1, mouseJ] != 1)
             {
                 mouseI += 1;
@@ -159,6 +173,7 @@ namespace HomeworkMargaret.OOP.HW5_Maze
 
         public void MouseLeft()
         {
+            currentDirection = MouseDirections.Left;
             if (mouseJ > 0 && map[mouseI, mouseJ - 1] != 1)
             {
                 mouseJ -= 1;
@@ -169,6 +184,7 @@ namespace HomeworkMargaret.OOP.HW5_Maze
 
         public void MouseRight()
         {
+            currentDirection = MouseDirections.Right;
             if (mouseJ < map.GetLength(1) - 1 && map[mouseI, mouseJ +1] != 1)
             {
                 mouseJ += 1;
@@ -177,6 +193,57 @@ namespace HomeworkMargaret.OOP.HW5_Maze
             }
         }
 
+        public void TryShot()
+        {
+            if (lazergun)
+            {
+                switch (currentDirection)
+                {
+                    case MouseDirections.Up:
+                       
+                        for (int step = 1; step <= 3; step++)
+                        {
+                            if (mouseI - step >= 0 && map[mouseI - step, mouseJ] == (int)MazeItems.Block)
+                            {
+                                map[mouseI - step, mouseJ] = 0;
+                            }
+                        }
+                        break;
+
+                    case MouseDirections.Down:
+                        for (int step = 1; step <= 3; step++)
+                        {
+                            if (mouseI + step <= map.GetLength(0) - 1 && map[mouseI + step, mouseJ] == (int)MazeItems.Block)
+                            {
+                                map[mouseI + step, mouseJ] = 0;
+                            }
+                        }
+                        break;
+
+                    case MouseDirections.Left:
+                        for (int step = 1; step <= 3; step++)
+                        {
+                            if (mouseJ - step >= 0 && map[mouseI, mouseJ - step] == (int)MazeItems.Block)
+                            {
+                                map[mouseI, mouseJ - step] = 0;
+                            }
+                        }
+                        break;
+
+                    case MouseDirections.Right:
+
+                        for (int step = 1; step <= 3; step++)
+                        {
+                            if (mouseJ + step <= map.GetLength(1) - 1 && map[mouseI, mouseJ + step] == (int)MazeItems.Block)
+                            {
+                                map[mouseI, mouseJ + step] = 0;
+                            }
+                        }
+                        break;
+                }
+                lazergun = false;
+            }
+        }
         private void EatCheeseIfExists()
         {
             if (map[mouseI, mouseJ] == 2)
@@ -184,7 +251,6 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                map[mouseI, mouseJ] = 0;
                 score += 10;
             }
-            
         }
 
         public bool CheeseIsEaten()

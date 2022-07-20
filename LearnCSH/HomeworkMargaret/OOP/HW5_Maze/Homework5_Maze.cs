@@ -33,6 +33,10 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                         maze.MouseRight();
                         break;
 
+                    case ConsoleKey.Spacebar:
+                        maze.TryShot();
+                        break;
+
                     default:
                         break;
                 }
