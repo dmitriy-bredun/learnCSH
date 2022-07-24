@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 using static System.Console;
 using HomeworkMargaret.Tools;
@@ -9,114 +7,78 @@ namespace HomeworkMargaret.OOP.HW5_Maze
 {
     class Maze
     {
-        enum MazeItems
-        {
-            Block = 1,
-            Cheese,
-            Lazergun,
-        }
-        private int[,] map;
-        private int mouseI;
-        private int mouseJ;
-        private int score;
-        private bool lazergun;
+        private int[,] Map;
+        private int PiecesOfCheeseOnTheMap;
 
-        enum MouseDirections
-        {
-            Up,
-            Down,
-            Right,
-            Left
-        }
+        private int MouseI;
+        private int MouseJ;
+        
+        private int Score;
+        
+        private bool Lazergun;
         private MouseDirections currentDirection;
+
         public Maze()
         {
-            map = new int[10, 10];
-            mouseI = 1;
-            mouseJ = 1;
-            Random rand = new Random();
-                      
-            for (int columnInd = 1; columnInd < map.GetLength(1) - 1; columnInd+=2) // рух. по колонках
+            Map = new int[10, 11];
+            MouseI = 0;
+            MouseJ = 0;
+
+            Random rand = new Random();          
+            for (int columnInd = 1; columnInd < Map.GetLength(1) - 1; columnInd+=2) // рух. по колонках
             {
                 int countOfPasses = rand.Next(1, 4);
                 int[] passIndx = new int[countOfPasses];
                 for (int i = 0; i < passIndx.Length; i++)
                 {
-                    passIndx[i] = rand.Next(0, map.GetLength(0) - 1);
+                    passIndx[i] = rand.Next(0, Map.GetLength(0) - 1);
                 }
 
-                for (int lineInd = 0; lineInd < map.GetLength(0); lineInd++)  // ставить блоки
+                for (int lineInd = 0; lineInd < Map.GetLength(0); lineInd++)  // ставить блоки
                 {
                     if (IsBlock(lineInd, passIndx))
                     {
-                        map[lineInd, columnInd] = (int)MazeItems.Block;
+                        Map[lineInd, columnInd] = (int)MazeItems.Block;
                     }
                 }
             }
 
-            int piecesOfCheese = rand.Next(3, 6);
-            for (int i = 1; i <= piecesOfCheese; i++)
+            PiecesOfCheeseOnTheMap = rand.Next(3, 6);
+            for (int i = 1; i <= PiecesOfCheeseOnTheMap; i++)
             {
                 AddMazeItem(MazeItems.Cheese);
             }
 
             AddMazeItem(MazeItems.Lazergun);
         }
-        private bool IsBlock(int currentIndx, int[] passIndx)
-        {
-            for (int i = 0; i < passIndx.Length; i++)
-            {
-                if (currentIndx == passIndx[i])
-                {
-                    return false; //не ставить блоки
-                }    
-            }
-            return true;
-        }
-        private void AddMazeItem (MazeItems item)
-        {
-            Random rand = new Random();
-            bool check = false;
-            while (check != true)
-            {
-                int i = rand.Next(0, map.GetLength(0) - 1);
-                int j = rand.Next(0, map.GetLength(1) - 1);
-                if (map[i,j] != ((int)MazeItems.Block)) 
-                {
-                    map[i, j] = (int)item;
-                    check = true;
-                }
-            }
-        }
-
         public void ShowMap()
         {
             CT.Print(" ", false);
-            for (int i = 0; i < map.GetLength(1); i++)
+            for (int i = 0; i < Map.GetLength(1); i++)
             {
                 CT.Print("-", false);
             }
             WriteLine();
 
             
-            for (int i = 0; i < map.GetLength(0); i++)
+            for (int i = 0; i < Map.GetLength(0); i++)
             {
                 CT.Print("|", false);
-                for (int j = 0; j < map.GetLength(1); j++)
+                for (int j = 0; j < Map.GetLength(1); j++)
                 {
-                    if (i == mouseI && j == mouseJ)
+                    if (i == MouseI && j == MouseJ)
                     {
                         CT.Print("M", false);
                     }
-                    else if (map[i, j] == 1)
+                    else if (Map[i, j] == 1)
                     {
                         CT.Print("*", false);
                     }
-                    else if (map[i, j] == 2)
+                    else if (Map[i, j] == 2)
                     {
                         CT.Print("C", false);
                     }
-                    else if (map[i, j] == 3)
+                    else if (Map[i, j] == 3)
                     {
                         CT.Print("L", false);
                     }
@@ -126,15 +88,15 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                     }
                 }
                 CT.Print("|", false);
-                if (i == map.GetLength(0) / 2)
+                if (i == Map.GetLength(0) / 2)
                 {
-                    CT.Print($"Total score: {score}", false);
+                    CT.Print($"Total score: {Score}", false);
                 }
-                if (i == map.GetLength(0) / 2 + 1)
+                if (i == Map.GetLength(0) / 2 + 1)
                 {
-                    CT.Print($"Lazergun: {lazergun}", false);
+                    CT.Print($"Lazergun: {Lazergun}", false);
                 }
-                if (i == map.GetLength(0) / 2 + 2)
+                if (i == Map.GetLength(0) / 2 + 2)
                 {
                     CT.Print($"Direction: {currentDirection}", false);
                 }
@@ -142,60 +104,55 @@ namespace HomeworkMargaret.OOP.HW5_Maze
             }
             
             CT.Print(" ", false);
-            for (int i = 0; i < map.GetLength(1); i++)
+            for (int i = 0; i < Map.GetLength(1); i++)
             {
                 CT.Print("-", false);
             }
             WriteLine();
         }
-
         public void MouseUp()
         {
             currentDirection = MouseDirections.Up;
-            if (mouseI > 0 && map[mouseI - 1, mouseJ] != 1)
+            if (MouseI > 0 && Map[MouseI - 1, MouseJ] != 1)
             {
-                mouseI -= 1;
+                MouseI -= 1;
                 EatCheeseIfExists();
-                MouseHasLazergun();
+                CatchLazerguIfExist();
             }
         }
-
         public void MouseDown()
         {
             currentDirection = MouseDirections.Down;
-            if (mouseI < map.GetLength(0) - 1 && map[mouseI + 1, mouseJ] != 1)
+            if (MouseI < Map.GetLength(0) - 1 && Map[MouseI + 1, MouseJ] != 1)
             {
-                mouseI += 1;
+                MouseI += 1;
                 EatCheeseIfExists();
-                MouseHasLazergun();
+                CatchLazerguIfExist();
             }
         }
-
         public void MouseLeft()
         {
             currentDirection = MouseDirections.Left;
-            if (mouseJ > 0 && map[mouseI, mouseJ - 1] != 1)
+            if (MouseJ > 0 && Map[MouseI, MouseJ - 1] != 1)
             {
-                mouseJ -= 1;
+                MouseJ -= 1;
                 EatCheeseIfExists();
-                MouseHasLazergun();
+                CatchLazerguIfExist();
             }
         }
-
         public void MouseRight()
         {
             currentDirection = MouseDirections.Right;
-            if (mouseJ < map.GetLength(1) - 1 && map[mouseI, mouseJ +1] != 1)
+            if (MouseJ < Map.GetLength(1) - 1 && Map[MouseI, MouseJ +1] != 1)
             {
-                mouseJ += 1;
+                MouseJ += 1;
                 EatCheeseIfExists();
-                MouseHasLazergun();
+                CatchLazerguIfExist();
             }
         }
-
         public void TryShot()
         {
-            if (lazergun)
+            if (Lazergun)
             {
                 switch (currentDirection)
                 {
@@ -203,9 +160,9 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                        
                         for (int step = 1; step <= 3; step++)
                         {
-                            if (mouseI - step >= 0 && map[mouseI - step, mouseJ] == (int)MazeItems.Block)
+                            if (MouseI - step >= 0 && Map[MouseI - step, MouseJ] == (int)MazeItems.Block)
                             {
-                                map[mouseI - step, mouseJ] = 0;
+                                Map[MouseI - step, MouseJ] = 0;
                             }
                         }
                         break;
@@ -213,9 +170,9 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                     case MouseDirections.Down:
                         for (int step = 1; step <= 3; step++)
                         {
-                            if (mouseI + step <= map.GetLength(0) - 1 && map[mouseI + step, mouseJ] == (int)MazeItems.Block)
+                            if (MouseI + step <= Map.GetLength(0) - 1 && Map[MouseI + step, MouseJ] == (int)MazeItems.Block)
                             {
-                                map[mouseI + step, mouseJ] = 0;
+                                Map[MouseI + step, MouseJ] = 0;
                             }
                         }
                         break;
@@ -223,9 +180,9 @@ namespace HomeworkMargaret.OOP.HW5_Maze
                     case MouseDirections.Left:
                         for (int step = 1; step <= 3; step++)
                         {
-                            if (mouseJ - step >= 0 && map[mouseI, mouseJ - step] == (int)MazeItems.Block)
+                            if (MouseJ - step >= 0 && Map[MouseI, MouseJ - step] == (int)MazeItems.Block)
                             {
-                                map[mouseI, mouseJ - step] = 0;
+                                Map[MouseI, MouseJ - step] = 0;
                             }
                         }
                         break;
@@ -234,46 +191,66 @@ namespace HomeworkMargaret.OOP.HW5_Maze
 
                         for (int step = 1; step <= 3; step++)
                         {
-                            if (mouseJ + step <= map.GetLength(1) - 1 && map[mouseI, mouseJ + step] == (int)MazeItems.Block)
+                            if (MouseJ + step <= Map.GetLength(1) - 1 && Map[MouseI, MouseJ + step] == (int)MazeItems.Block)
                             {
-                                map[mouseI, mouseJ + step] = 0;
+                                Map[MouseI, MouseJ + step] = 0;
                             }
                         }
                         break;
                 }
-                lazergun = false;
+                Lazergun = false;
             }
         }
-        private void EatCheeseIfExists()
-        {
-            if (map[mouseI, mouseJ] == 2)
-            {
-               map[mouseI, mouseJ] = 0;
-                score += 10;
-            }
-        }
-
         public bool CheeseIsEaten()
         {
-            for (int i = 0; i < map.GetLength(0); i++)
+            if (PiecesOfCheeseOnTheMap == 0)
             {
-                for (int j = 0; j < map.GetLength(1); j++)
+                return true;
+            }
+
+            return false;
+        }
+        private bool IsBlock(int currentIndx, int[] passIndx)
+        {
+            for (int i = 0; i < passIndx.Length; i++)
+            {
+                if (currentIndx == passIndx[i])
                 {
-                    if(map[i, j] == 2)
-                    {
-                        return false;
-                    }
+                    return false; //не ставить блоки
                 }
             }
             return true;
         }
-
-        public void MouseHasLazergun()
+        private void AddMazeItem(MazeItems item)
         {
-            if (map[mouseI, mouseJ] == (int)MazeItems.Lazergun)
+            Random rand = new Random();
+            bool check = false;
+            while (check != true)
             {
-                map[mouseI, mouseJ] = 0;
-                lazergun = true;
+                int i = rand.Next(0, Map.GetLength(0) - 1);
+                int j = rand.Next(0, Map.GetLength(1) - 1);
+                if (Map[i, j] != ((int)MazeItems.Block))
+                {
+                    Map[i, j] = (int)item;
+                    check = true;
+                }
+            }
+        }
+        private void EatCheeseIfExists()
+        {
+            if (Map[MouseI, MouseJ] == 2)
+            {
+                Map[MouseI, MouseJ] = 0;
+                PiecesOfCheeseOnTheMap--;
+                Score += 10;
+            }
+        }
+        private void CatchLazerguIfExist()
+        {
+            if (Map[MouseI, MouseJ] == (int)MazeItems.Lazergun)
+            {
+                Map[MouseI, MouseJ] = 0;
+                Lazergun = true;
             }
         }
     }
