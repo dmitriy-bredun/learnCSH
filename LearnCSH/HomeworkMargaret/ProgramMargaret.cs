@@ -5,6 +5,7 @@ using HomeworkMargaret.OOP;
 using HomeworkMargaret.OOP.HW4_Encapsulation;
 using HomeworkMargaret.OOP.HW4_Encapsulation.Task1;
 using HomeworkMargaret.OOP.HW4_Encapsulation.Task2;
+using HomeworkMargaret.OOP.HW5_Maze;
 
 namespace HomeworkMargaret
 {
@@ -45,7 +46,8 @@ namespace HomeworkMargaret
             //Game.Start();
             //Homework6_Lights.Start();
             //Homework7_DLights.Start();
-            Homework_R_Arrays.Start();
+            //Homework_R_Arrays.Start();
+            Homework5_Maze.Start();
         }
     }
 }
