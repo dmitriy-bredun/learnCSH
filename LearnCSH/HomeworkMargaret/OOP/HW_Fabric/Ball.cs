@@ -12,14 +12,24 @@ namespace HomeworkMargaret.OOP.HW_Fabric
     }
     class Ball
     {
-        private int Diameter;
-        private int Color;
+        private int _diameter;
+        private BallColor _color;
 
-        public Ball(int diameter, int color)
+        public int Diameter
         {
-            Diameter = diameter;
-            Color = color;
+            get { return _diameter; }
         }
-        
+
+        public BallColor Color 
+        {  
+            get { return _color; }
+        }
+
+
+        public Ball(int diameter, BallColor color)
+        {
+            _diameter = diameter;
+            _color = color;
+        }
     }
 }

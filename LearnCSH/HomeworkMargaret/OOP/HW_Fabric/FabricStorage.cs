@@ -1,63 +1,75 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+
 
 namespace HomeworkMargaret.OOP.HW_Fabric
 {
     class FabricStorage
     {
-        public Ball[] StoragedBalls;
-        List<int> redBalls = new List<int>();
-        List<int> blueBalls = new List<int>();
-        List<int> blackBalls = new List<int>();
+        List<Ball> redBalls = new List<Ball>();
+        List<Ball> blueBalls = new List<Ball>();
+        List<Ball> blackBalls = new List<Ball>();
 
-        public int color;
-        public void KeepBallsInStorage (Ball[] newBalls)
+        public void KeepBallsInStorage(params Ball[] newBalls)
         {
-            if (StoragedBalls == null)
+            foreach (Ball ball in newBalls)
             {
-                StoragedBalls = newBalls;
-            }
-            else
-            {
-                int alreadyStoraged = StoragedBalls.Length;
-                int newStoraged = newBalls.Length;
-                int allStoraged = alreadyStoraged + newStoraged;
-                Ball[] allStoragedBalls = new Ball[allStoraged];
-
-                for (int i = 0; i < StoragedBalls.Length; i++)
+                switch (ball.Color)
                 {
-                    allStoragedBalls[i] = StoragedBalls[i];
-                }
+                    case BallColor.Red:
+                        redBalls.Add(ball);
+                        break;
 
-                int indx = StoragedBalls.Length;
-                for (int i = 0; i < newBalls.Length; i++)
-                {
-                    allStoragedBalls[indx++] = newBalls[i];
+                    case BallColor.Blue:
+                        blueBalls.Add(ball);
+                        break;
+
+                    case BallColor.Black:
+                        blackBalls.Add(ball);
+                        break;
+
+                    default:
+                        break;
                 }
-                
             }
         }
 
         public Ball[] GetBallsFromStorage(int count, BallColor color)
         {
-            int countOfBalls = 0;
-            
-            if (color == BallColor.Red)
+            Ball[] balls = null;
+            switch (color)
             {
-                redBalls.Remove(count);
-            }
-            else if (color == BallColor.Blue)
-            {
-                blueBalls.Remove(count);
-            }
-            else
-            {
-                blackBalls.Remove(count);
-            }
-            Ball[] leftBalls = new Ball[countOfBalls];
+                case BallColor.Red:
+                    if (count <= redBalls.Count)
+                    {
+                        balls = new Ball[count];
+                        redBalls.CopyTo(0, balls, 0, count);
+                        redBalls.RemoveRange(0, count);
+                    }
+                    break;
 
-            return leftBalls;
+                case BallColor.Blue:
+                    if (count <= blueBalls.Count)
+                    {
+                        balls = new Ball[count];
+                        blueBalls.CopyTo(0, balls, 0, count);
+                        blueBalls.RemoveRange(0, count);
+                    }
+                    break;
+
+                case BallColor.Black:
+                    if (count <= blackBalls.Count)
+                    {
+                        balls = new Ball[count];
+                        blackBalls.CopyTo(0, balls, 0, count);
+                        blackBalls.RemoveRange(0, count);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            return balls;
         }
     }
 }
