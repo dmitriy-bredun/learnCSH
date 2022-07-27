@@ -12,7 +12,6 @@ namespace HomeworkDmitriy.General
     {
         public static void Start()
         {
-            //CT.CreateArray(nums);
             CT.PrintL("--Создаём новый массив--");
             CT.Space();
 

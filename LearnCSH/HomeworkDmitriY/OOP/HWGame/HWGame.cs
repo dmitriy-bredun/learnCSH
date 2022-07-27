@@ -15,6 +15,7 @@ namespace HomeworkDmitriy.OOP.HWGame
             Console.Clear();
             
             ConsoleKeyInfo infoKey;
+            bool isGameFinished;
 
             Racing game = new Racing(24, 13);
 
@@ -22,15 +23,11 @@ namespace HomeworkDmitriy.OOP.HWGame
             {
                 game.PrintMap();
 
-                infoKey = Console.ReadKey();
+                infoKey = ReadKey();
                 switch (infoKey.Key)
                 {
                     case ConsoleKey.W:
                         game.AutoUp();
-                        break;
-
-                    case ConsoleKey.S:
-                        game.AutoDown();
                         break;
 
                     case ConsoleKey.A:
@@ -45,8 +42,14 @@ namespace HomeworkDmitriy.OOP.HWGame
                         break;
                 }
 
-                Console.Clear();
-            } while (infoKey.Key != ConsoleKey.Q);
+                Clear();
+                isGameFinished = game.GameFinished();
+                if (isGameFinished)
+                {
+                    game.LogoFinished();
+                }
+
+            } while (infoKey.Key != ConsoleKey.Q && isGameFinished != true);
         }
     }
 }
