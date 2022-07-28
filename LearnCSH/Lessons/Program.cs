@@ -38,7 +38,7 @@ namespace Lessons
             // Lesson5_StaticMethods.Start();
             // Lesson6_SimpleArrays.Start();
             // Lesson7_MultiDimensionalArrays.Start();
-            Lesson8_Enums.Start();
+            // Lesson8_Enums.Start();
 
             // Practice1_Opearations.Start();
             // Practice2_Cycles.Start();
@@ -46,7 +46,7 @@ namespace Lessons
             // Practice3_Tasks.Start();
             // Practice4_SimpleArrays.Start();
             // Practice5_VDV.Start();
-
+            Practice6_Enums.Start();
 
             // = = = = = = = =   Object oriented programming  = = = = = = = = =   
             // Lesson1_Classes.Start();
@@ -56,7 +56,7 @@ namespace Lessons
 
 
             // = = = = = = = =   Dynamic Collections  = = = = = = = = = = = = =   
-            Lesson1_List.Start();
+            // Lesson1_List.Start();
         }
     }
 }
