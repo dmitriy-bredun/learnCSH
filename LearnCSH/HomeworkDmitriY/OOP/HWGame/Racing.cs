@@ -9,6 +9,13 @@ using static System.Convert;
 
 namespace HomeworkDmitriy.OOP.HWGame
 {
+
+    enum RaceItems  
+    {
+        Car = 1,
+        Shield = 2
+    }
+
     class Racing
     {
         public int[,] Map;
@@ -32,12 +39,11 @@ namespace HomeworkDmitriy.OOP.HWGame
         public void AutoUp()
         {
             ScoreInfo += 100;
-            DownNewAuto();
-            AddNewAuto();
-            AddShield();
-            DownShield();
+            MoveRaceItemsDown();
+            AddNewItemToRace(RaceItems.Car);
+            AddNewItemToRace(RaceItems.Shield);
+            CatchShield();
             Crash();
-            CrashShield();
         }
 
         public void AutoLeft()
@@ -47,12 +53,11 @@ namespace HomeworkDmitriy.OOP.HWGame
                 AutoX--;
             }
             ScoreInfo += 100;
-            AddNewAuto();
-            DownNewAuto();
-            AddShield();
-            DownShield();
+            MoveRaceItemsDown();
+            AddNewItemToRace(RaceItems.Car);
+            AddNewItemToRace(RaceItems.Shield);
+            CatchShield();
             Crash();
-            CrashShield();
         }
 
         public void AutoRight()
@@ -62,72 +67,58 @@ namespace HomeworkDmitriy.OOP.HWGame
                 AutoX++;
             }
             ScoreInfo += 100;
-            AddNewAuto();
-            DownNewAuto();
-            AddShield();
-            DownShield();
+            MoveRaceItemsDown();
+            AddNewItemToRace(RaceItems.Car);
+            AddNewItemToRace(RaceItems.Shield);
+            CatchShield();
             Crash();
-            CrashShield();
         }
 
-        public void AddNewAuto()
+        public void AddNewItemToRace(RaceItems raceItem)
         {
-            Random randomAuto = new Random();
-            int newAuto = randomAuto.Next(1, 2);
+            Random random = new Random();
+            int countOfNewItems;
 
-            for (int i = 0; i < newAuto; i++)
+            switch (raceItem)
             {
-                Map[0, randomAuto.Next(1, Map.GetLength(1) - 1)] = 1;
-            }
-        }
-        public void AddShield()
-        {
-            Random randomAuto = new Random();
-            int newAuto = randomAuto.Next(1, 2);
-
-            if (ScoreInfo % 1200 == 0)
-            {
-                for (int i = 0; i < newAuto; i++)
-                {
-                    Map[0, randomAuto.Next(1, Map.GetLength(1) - 1)] = 2;
-                }
-            } 
-        }
-
-        public void DownNewAuto()
-        {
-            for (int i = Map.GetLength(0) - 1; i >= 0; i--)
-            {
-                for (int j = 0; j < Map.GetLength(1); j++)
-                {
-                    if (Map[i, j] == 1)
+                case RaceItems.Car:
+                    countOfNewItems = random.Next(1, 2);
+                    for (int i = 0; i < countOfNewItems; i++)
                     {
-                        if (i != Map.GetLength(0) - 1)
+                        Map[0, random.Next(1, Map.GetLength(1) - 1)] = 1;
+                    }
+                    break;
+
+                case RaceItems.Shield:
+                    countOfNewItems = random.Next(1, 2);
+                    if (ScoreInfo % 1200 == 0)
+                    {
+                        for (int i = 0; i < countOfNewItems; i++)
                         {
-                            Map[i, j] = 0;
-                            Map[i + 1, j] = 1;
-                        }
-                        else
-                        {
-                            Map[i, j] = 0;
+                            Map[0, random.Next(1, Map.GetLength(1) - 1)] = 2;
                         }
                     }
-                }
+                    break;
+
+                default:
+                    break;
             }
         }
 
-        public void DownShield()
+        public void MoveRaceItemsDown()
         {
             for (int i = Map.GetLength(0) - 1; i >= 0; i--)
             {
                 for (int j = 0; j < Map.GetLength(1); j++)
                 {
-                    if (Map[i, j] == 2)
+                    if (Map[i, j] != 0)
                     {
+                        int raceItem = Map[i, j];
+
                         if (i != Map.GetLength(0) - 1)
                         {
                             Map[i, j] = 0;
-                            Map[i + 1, j] = 2;
+                            Map[i + 1, j] = raceItem;
                         }
                         else
                         {
@@ -148,7 +139,7 @@ namespace HomeworkDmitriy.OOP.HWGame
                     isGameFinished = true;
             }
         }
-        public void CrashShield()
+        public void CatchShield()
         {
             if (Map[AutoY, AutoX] == 2)
             {
