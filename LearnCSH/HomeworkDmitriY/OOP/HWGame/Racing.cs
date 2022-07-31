@@ -9,116 +9,85 @@ using static System.Convert;
 
 namespace HomeworkDmitriy.OOP.HWGame
 {
-
-    enum RaceItems  
+    enum Items
     {
-        Car = 1,
-        Shield = 2
+        Car,
+        Shield,
     }
-
     class Racing
     {
         public int[,] Map;
-        public int AutoY; // 1 - координаты машинки
+        public int AutoY;
         public int AutoX;
 
+        public int Count;
         public int ScoreInfo;
         public int Shield;
-
         bool isGameFinished;
+
+        Random random = new Random();
 
         public Racing(int height, int width)
         {
             Map = new int[height, width];
             AutoY = 22;
             AutoX = 6;
-
             isGameFinished = false;
         }
 
-        public void AutoUp()
-        {
-            ScoreInfo += 100;
-            MoveRaceItemsDown();
-            AddNewItemToRace(RaceItems.Car);
-            AddNewItemToRace(RaceItems.Shield);
-            CatchShield();
-            Crash();
-        }
-
-        public void AutoLeft()
+        public void Left()
         {
             if (AutoX != 1)
             {
                 AutoX--;
             }
-            ScoreInfo += 100;
-            MoveRaceItemsDown();
-            AddNewItemToRace(RaceItems.Car);
-            AddNewItemToRace(RaceItems.Shield);
-            CatchShield();
-            Crash();
+            Move();
         }
 
-        public void AutoRight()
+        public void Right()
         {
             if (AutoX != Map.GetLength(1) - 2)
             {
                 AutoX++;
             }
-            ScoreInfo += 100;
-            MoveRaceItemsDown();
-            AddNewItemToRace(RaceItems.Car);
-            AddNewItemToRace(RaceItems.Shield);
+            Move();
+        }
+
+        public void Move()
+        {
+            Count++;
+            DownItems();
+            AddNewItems(Items.Car);
+            AddNewItems(Items.Shield);
             CatchShield();
             Crash();
+            AddScore();
         }
 
-        public void AddNewItemToRace(RaceItems raceItem)
-        {
-            Random random = new Random();
-            int countOfNewItems;
-
-            switch (raceItem)
-            {
-                case RaceItems.Car:
-                    countOfNewItems = random.Next(1, 2);
-                    for (int i = 0; i < countOfNewItems; i++)
-                    {
-                        Map[0, random.Next(1, Map.GetLength(1) - 1)] = 1;
-                    }
-                    break;
-
-                case RaceItems.Shield:
-                    countOfNewItems = random.Next(1, 2);
-                    if (ScoreInfo % 1200 == 0)
-                    {
-                        for (int i = 0; i < countOfNewItems; i++)
-                        {
-                            Map[0, random.Next(1, Map.GetLength(1) - 1)] = 2;
-                        }
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        public void MoveRaceItemsDown()
+        public void DownItems()
         {
             for (int i = Map.GetLength(0) - 1; i >= 0; i--)
             {
                 for (int j = 0; j < Map.GetLength(1); j++)
                 {
-                    if (Map[i, j] != 0)
+                    if (Map[i, j] == 1)
                     {
-                        int raceItem = Map[i, j];
-
                         if (i != Map.GetLength(0) - 1)
                         {
                             Map[i, j] = 0;
-                            Map[i + 1, j] = raceItem;
+                            Map[i + 1, j] = 1;
+                        }
+                        else
+                        {
+                            Map[i, j] = 0;
+                        }
+                    }
+                    else if (Map[i, j] == 2)
+                    {
+                        if (i != Map.GetLength(0) - 1)
+                        {
+                            Map[i, j] = 0;
+                            Map[i + 1, j] = 2;
                         }
                         else
                         {
@@ -129,21 +98,62 @@ namespace HomeworkDmitriy.OOP.HWGame
             }
         }
 
-        public void Crash()
+        public void AddNewItems(Items ItemsRace)
         {
-            if (Map[AutoY, AutoX] == 1)
+            switch (ItemsRace)
             {
-                Shield--;
-                
-                if (Shield < 0)
-                    isGameFinished = true;
+                case Items.Car:
+                    for (int i = 0; i < random.Next(1, 2); i++)
+                    {
+                        Map[0, random.Next(1, Map.GetLength(1) - 1)] = 1;
+                    }
+                    break;
+
+                case Items.Shield:
+                    if (Count % 20 == 0)
+                    {
+                        for (int i = 0; i < random.Next(1, 2); i++)
+                        {
+                            Map[0, random.Next(1, Map.GetLength(1) - 1)] = 2;
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
             }
         }
+        
+        public void AddScore()
+        {
+            for (int i = 0; i < Map.GetLength(1); i++)
+            {
+                if (Map[AutoY, i] == 1)
+                {
+                    ScoreInfo += 100;
+                }
+            }
+        }
+
         public void CatchShield()
         {
-            if (Map[AutoY, AutoX] == 2)
+            if (Map[AutoY, AutoX] == 2 || Map[AutoY + 1, AutoX] == 2)
             {
                 Shield += 1;
+            }
+        }
+
+        public void Crash()
+        {
+            if (Map[AutoY, AutoX] == 1 || Map[AutoY + 1, AutoX] == 1)
+            {
+                ScoreInfo -= 1000;
+                Shield--;
+
+                if (Shield < 0)
+                {
+                    isGameFinished = true;
+                }
             }
         }
 
@@ -154,75 +164,62 @@ namespace HomeworkDmitriy.OOP.HWGame
 
         public void PrintMap()
         {
-            int height = Map.GetLength(0);
-            int width = Map.GetLength(1);
-
-            for (int i = 0; i < height; i++)
+            for (int i = 0; i < Map.GetLength(0); i++)
             {
-                for (int j = 0; j < width; j++)
+                for (int j = 0; j < Map.GetLength(1); j++)
                 {
-                    if (i == AutoY && j == AutoX)
+                    if (i == AutoY && j == AutoX || i - 1 == AutoY && j == AutoX)
                     {
                         ForegroundColor = DarkCyan;
-                        Write(" A");
-                    }
-                    else if (i - 1 == AutoY && j == AutoX)
-                    {
-                        ForegroundColor = DarkCyan;
-                        Write(" A");
+                        CT.Print(" A");
+                        Map[AutoY, AutoX] = 0;
                     }
                     else if (Map[i, j] == 1)
                     {
                         ForegroundColor = Red;
-                        Write(" H"); // - отрисовка вражеской машиноки
+                        CT.Print(" H");
                     }
                     else if (Map[i, j] == 2)
                     {
                         ForegroundColor = Green;
-                        Write(" S"); // - отрисовка щита
+                        CT.Print(" S");
                     }
-                    else if (j == 0)
+                    else if (j == 0 || j == 12)
                     {
                         ForegroundColor = White;
-                        Write(" |");
+                        CT.Print(" |");
                     }
-                    else if (j == 4)
+                    else if (j == 4 || j == 8)
                     {
                         ForegroundColor = White;
-                        Write(" '");
-                    }
-                    else if (j == 8)
-                    {
-                        ForegroundColor = White;
-                        Write(" '");
-                    }
-                    else if (j == 12)
-                    {
-                        ForegroundColor = White;
-                        Write(" |");
+                        CT.Print(" '");
                     }
                     else
-                        Write("  ");
+                    {
+                        CT.Print("  ");
+                    } 
                 }
-                WriteLine();
+                CT.Space();
             }
-            WriteLine();
+            CT.Space2();
+
             ForegroundColor = White;
-            Write($"    Score: {ScoreInfo}");
-            Write($"    Shield: {Shield}");
+            CT.Print($"   (( {Shield} ))");
+            CT.Print($"    Score: {ScoreInfo}");
+            
         }
 
         public void LogoFinished()
         {
-            WriteLine();
-            WriteLine("   **************************");
-            WriteLine("   *                        *");
-            WriteLine("   *         GAME           *");
-            WriteLine("   *        FINISH          *");
-            WriteLine("   *                        *");
-            WriteLine("   **************************");
-            WriteLine();
-            WriteLine($"          Score: {ScoreInfo}");
+            CT.Space();
+            CT.PrintL("   **************************");
+            CT.PrintL("   *                        *");
+            CT.PrintL("   *          GAME          *");
+            CT.PrintL("   *         FINISH         *");
+            CT.PrintL("   *                        *");
+            CT.PrintL("   **************************");
+            CT.Space();
+            CT.PrintL($"          Score: {ScoreInfo}");
         }
     }
 }

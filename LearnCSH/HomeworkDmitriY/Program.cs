@@ -70,7 +70,7 @@ namespace HomeworkDmitriy
                     HW1_Class1.Start();
                     break;
                 case 9:
-                    HWGame.StartGame();
+                    Game.StartGame();
                     break;
 
                 default:

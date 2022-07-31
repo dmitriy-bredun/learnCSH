@@ -8,17 +8,15 @@ using static System.Convert;
 
 namespace HomeworkDmitriy.OOP.HWGame
 {
-    class HWGame
+    class Game
     {
         public static void StartGame()
         {
-            Console.Clear();
-            
             ConsoleKeyInfo infoKey;
             bool isGameFinished;
-
             Racing game = new Racing(24, 13);
-
+            
+            Clear();
             do
             {
                 game.PrintMap();
@@ -27,21 +25,20 @@ namespace HomeworkDmitriy.OOP.HWGame
                 switch (infoKey.Key)
                 {
                     case ConsoleKey.W:
-                        game.AutoUp();
+                        game.Move();
                         break;
 
                     case ConsoleKey.A:
-                        game.AutoLeft();
+                        game.Left();
                         break;
 
                     case ConsoleKey.D:
-                        game.AutoRight();
+                        game.Right();
                         break;
 
                     default:
                         break;
                 }
-
                 Clear();
                 isGameFinished = game.GameFinished();
                 if (isGameFinished)
