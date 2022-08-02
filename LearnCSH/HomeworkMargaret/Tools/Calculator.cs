@@ -15,35 +15,16 @@ namespace HomeworkMargaret.Tools
     {
         public static double ArithOperation(int numb, int numb2, ArithmeticOperation operation)
         {
-            int sum = 0;
-            switch (operation)
+            int mathOperation = operation switch
             {
-                case ArithmeticOperation.Add:
-                    sum = numb + numb2;
-                    break;
+                ArithmeticOperation.Add => numb + numb2,
+                ArithmeticOperation.Substract => numb - numb2,
+                ArithmeticOperation.Multiply => numb * numb2,
+                ArithmeticOperation.Divide => numb / numb2,
+                _ => 0,
+            };
 
-                case ArithmeticOperation.Substract:
-                    sum = numb - numb2;
-                    break;
-
-                case ArithmeticOperation.Multiply:
-                    sum = numb * numb2;
-                    break;
-
-                case ArithmeticOperation.Divide:
-                    if (numb2 == 0)
-                    {
-                        CT.ErrorMsg("wrong operation");
-                        return 0;
-                    }
-
-                    sum = numb / numb2;
-                    break;
-
-                default:
-                    break;
-            }
-            return sum;
+            return mathOperation;
         }
     }
 }
