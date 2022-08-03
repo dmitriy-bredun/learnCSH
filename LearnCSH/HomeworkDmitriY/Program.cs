@@ -1,11 +1,12 @@
 ﻿using System;
 
 using HomeworkDmitriy.General;
+using HomeworkDmitriy.OOP.HW_Fabric;
 using HomeworkDmitriy.OOP.HW1_Classes;
+using HomeworkDmitriy.OOP.HWGame;
 using static System.Console;
 using static System.Convert;
 using static System.ConsoleColor;
-using HomeworkDmitriy.OOP.HWGame;
 
 namespace HomeworkDmitriy
 {
@@ -27,7 +28,8 @@ namespace HomeworkDmitriy
             WriteLine("         6 - Массивы");
             WriteLine("         7 - Массивы (повторение)");
             WriteLine("         8 - Классы, выбор процессора");
-            WriteLine("         9 - Игра ''Смертельные гонки''");
+            WriteLine("         9 - Игра <<Смертельные гонки>>");
+            WriteLine("         10 - Фабрика");
             WriteLine();
             Write("         ");
 
@@ -36,42 +38,17 @@ namespace HomeworkDmitriy
 
             switch (Choice)
             {
-                case 0:
-                    Homework0_Test.Task0();
-                    break;
-
-                case 1:
-                    Homework1_Variables.Start();
-                    break;
-
-                case 2:
-                    Homework2_Convert.Start();
-                    break;
-
-                case 3:
-                    Homework3_Operations.Start();
-                    break;
-
-                case 4:
-                    Homework4_VDV.Start();
-                    break;
-
-                case 5:
-                    Homework5_Cycles.Start();
-                    break;
-
-                case 6:
-                    Homework4_SimpleArrays.Start();
-                    break;
-                case 7:
-                    Homework7_R_Arrays.Start();
-                    break;
-                case 8:
-                    HW1_Class1.Start();
-                    break;
-                case 9:
-                    Game.StartGame();
-                    break;
+                case 0:Homework0_Test.Task0();break;
+                case 1:Homework1_Variables.Start();break;
+                case 2:Homework2_Convert.Start();break;
+                case 3:Homework3_Operations.Start();break;
+                case 4:Homework4_VDV.Start();break;
+                case 5:Homework5_Cycles.Start();break;
+                case 6:Homework4_SimpleArrays.Start();break;
+                case 7:Homework7_R_Arrays.Start();break;
+                case 8:HW1_Class1.Start();break;
+                case 9:Game.StartGame();break;
+                case 10:HW_Fabric.Start();break;
 
                 default:
                     Write("Ты не то жмакнул :О");
