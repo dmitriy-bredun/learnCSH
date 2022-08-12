@@ -6,7 +6,7 @@ namespace HomeworkMargaret.OOP.HW_AccountManager
 {
     enum Profession
     {
-        Teacher = 1,
+        Teacher,
         Programmer,
         Driver,
         Manager,
