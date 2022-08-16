@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HomeworkSerg.OOP.HW_AccoungManager
+namespace HomeworkSerg.OOP.HW_AccountManager
 {
-    enum Profession
-    {
-        Cook,
-        Teacher,
-        Police,
-        Painter
-    }
     
     class Person
     {

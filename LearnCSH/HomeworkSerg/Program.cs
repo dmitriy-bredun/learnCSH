@@ -5,7 +5,9 @@ using HomeworkSerg.General;
 using HomeworkSerg.Tools;
 using HomeworkSerg.OOP.HW1_Classes;
 using HomeworkSerg.OOP.HW_Factory;
+
 using HomeworkSerg.Test;
+using HomeworkSerg.OOP.HW_AccountManager;
 
 namespace HomeworkSerg
 {
@@ -23,7 +25,8 @@ namespace HomeworkSerg
             //Homework_R_Arrays.Start();
             //HW1_Classes.Start();
             //HW_Factory.Start();
-            Test.Start();
+            MyExperiments.Start();
+            HW_AccountManager.Start();
 
         }
     }

@@ -5,7 +5,7 @@ using static System.Console;
 
 namespace HomeworkSerg.Test
 {
-    internal class Test
+    public class MyExperiments
     {
         public static void Start()
         {

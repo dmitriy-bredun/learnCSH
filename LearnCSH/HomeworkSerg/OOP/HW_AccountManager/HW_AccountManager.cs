@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using static System.Console;
 
-namespace HomeworkSerg.OOP.HW_AccoungManager
+namespace HomeworkSerg.OOP.HW_AccountManager
 {
-    internal class HW_AccountManager
+    public class HW_AccountManager
     {
         public static void Start()
         {
