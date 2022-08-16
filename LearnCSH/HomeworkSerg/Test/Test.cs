@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using static System.Console;
 
-namespace HomeworkSerg.Test.Test
+namespace HomeworkSerg.Test
 {
     internal class Test
     {
