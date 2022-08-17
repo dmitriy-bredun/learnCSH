@@ -57,7 +57,7 @@ namespace HomeworkMargaret.OOP.HW_AccountManager
                         break;
 
                     case 7:
-                        ShowProfiles();
+                        ShowProfiles(null);
                         break;
 
                     default:
@@ -135,7 +135,7 @@ namespace HomeworkMargaret.OOP.HW_AccountManager
         {
             Print("Choose a profile to change: ");
             Person person = ChooseAProfile();
-            Space();
+            Space();           
 
             for(int i = 0; i < person._friends.Count; i++)
             {
@@ -148,18 +148,25 @@ namespace HomeworkMargaret.OOP.HW_AccountManager
             Print("A friend has been removed.");
         }
 
-        public static void ShowProfiles()
+        public static void ShowProfiles(Person excludeProfile)
         {
             for (int i = 0; i < profile.Count; i++)
             {
-                Print($"Profile № {i + 1} ");
-                profile[i].ShowInfo();
+                if (profile[i] == excludeProfile)
+                {
+                    continue;
+                }
+                else
+                {
+                    Print($"Profile № {i + 1} ");
+                    profile[i].ShowInfo();
+                }
             }
         }
 
         public static Person ChooseAProfile()
         {
-            ShowProfiles();
+            ShowProfiles(null);
             int choice = EnterInt("Choose a profile: ");
             return profile[choice - 1];
         }
