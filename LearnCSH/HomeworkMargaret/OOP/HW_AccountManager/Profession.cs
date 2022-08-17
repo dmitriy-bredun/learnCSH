@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeworkMargaret.OOP.HW_AccountManager
 {
-    enum Profession
+    public enum Profession
     {
         Teacher,
         Programmer,

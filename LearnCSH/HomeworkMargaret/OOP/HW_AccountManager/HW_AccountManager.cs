@@ -57,7 +57,7 @@ namespace HomeworkMargaret.OOP.HW_AccountManager
                         break;
 
                     case 7:
-                        ShowProfiles(null);
+                        ShowProfiles();
                         break;
 
                     default:
@@ -86,7 +86,7 @@ namespace HomeworkMargaret.OOP.HW_AccountManager
             Person person = ChooseAProfile();
             Print("Choose another profession: ");
             Profession newProf = (Profession)EnumMenu(typeof(Profession));
-            person._prof = newProf;
+            person.Profession = newProf;
         }
 
         public static void AddParent(Parent parent)
@@ -96,17 +96,17 @@ namespace HomeworkMargaret.OOP.HW_AccountManager
             Space();
 
             Print($"Please, choose a {parent}:");
-            Person parentProfile = ChooseAProfile();
+            Person parentProfile = ChooseAProfile(person);
             Space();
 
             switch (parent)
             {
                 case Parent.Father:
-                    person._myFather = parentProfile;
+                    person.AddFather(parentProfile);
                     break;
 
                 case Parent.Mother:
-                    person._myMother = parentProfile;
+                    person.AddMother(parentProfile);
                     break;
                 
                 default:
@@ -123,10 +123,10 @@ namespace HomeworkMargaret.OOP.HW_AccountManager
             Space();
 
             Print("Choose a friend profile: ");
-            Person friend = ChooseAProfile();
+            Person friend = ChooseAProfile(person);
             Space();
 
-            person._friends.Add(friend);
+            person.AddAFriend(friend);
 
             Print($"{friend._name} was added to the profile's friends.");
         }
@@ -144,11 +144,11 @@ namespace HomeworkMargaret.OOP.HW_AccountManager
             }
 
             int indx = EnterInt("Choose a friend to delete: ");
-            person._friends.RemoveAt(indx);
+            person.RemoveFriend(indx - 1);
             Print("A friend has been removed.");
         }
 
-        public static void ShowProfiles(Person excludeProfile)
+        public static void ShowProfiles(Person excludeProfile = null)
         {
             for (int i = 0; i < profile.Count; i++)
             {
@@ -164,9 +164,9 @@ namespace HomeworkMargaret.OOP.HW_AccountManager
             }
         }
 
-        public static Person ChooseAProfile()
+        private static Person ChooseAProfile(Person excludeProfile = null)
         {
-            ShowProfiles(null);
+            ShowProfiles(excludeProfile);
             int choice = EnterInt("Choose a profile: ");
             return profile[choice - 1];
         }
