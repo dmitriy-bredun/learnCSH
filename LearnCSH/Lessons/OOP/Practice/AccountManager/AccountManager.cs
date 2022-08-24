@@ -183,7 +183,7 @@ namespace Lessons.OOP.Practice.AccountManager
         public static Profession ChooseProfession()
         {
             Console.WriteLine("Выберите профессию: ");
-            string[] professions = Enum.GetNames<Profession>(); // получаем все имена значений перечисления
+            string[] professions = Enum.GetNames(typeof(Profession)); // получаем все имена значений перечисления
             for (int i = 0; i < professions.Length; i++)     // проходимся по всем этим именам
             {
                 Console.WriteLine($"{i} - {professions[i]}");  // и печатаем каждую профессию в консоль

@@ -7,9 +7,9 @@ using Lessons.OOP.Lessons.Lesson1_Classes;
 using Lessons.OOP.Lessons.Lesson2_Methods;
 
 using Lessons.OOP.Practice.Labyrinth;
+using Lessons.OOP.Practice.AccountManager;
 
 using Lessons.DynamicCollections;
-using Lessons.OOP.Practice.AccountManager;
 
 namespace Lessons
 {
