@@ -9,6 +9,7 @@ using Lessons.OOP.Lessons.Lesson2_Methods;
 using Lessons.OOP.Practice.Labyrinth;
 
 using Lessons.DynamicCollections;
+using Lessons.OOP.Practice.AccountManager;
 
 namespace Lessons
 {
@@ -46,13 +47,15 @@ namespace Lessons
             // Practice3_Tasks.Start();
             // Practice4_SimpleArrays.Start();
             // Practice5_VDV.Start();
-            Practice6_Enums.Start();
+            // Practice6_Enums.Start();
+
 
             // = = = = = = = =   Object oriented programming  = = = = = = = = =   
             // Lesson1_Classes.Start();
             // Lesson2_Methods.Start();
 
             // Practice1_Labyrinth.StartGame();
+            AccountManager.Start();
 
 
             // = = = = = = = =   Dynamic Collections  = = = = = = = = = = = = =   
