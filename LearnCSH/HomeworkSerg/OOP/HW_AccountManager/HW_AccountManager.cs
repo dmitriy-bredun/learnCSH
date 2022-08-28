@@ -200,7 +200,7 @@ namespace HomeworkSerg.OOP.HW_AccountManager
             WriteLine();
 
             accaunt.Mather = accmather;
-            WriteLine($"     {accmather.Name} is now father for {accaunt.Name}.");
+            WriteLine($"     {accmather.Name} is now mother for {accaunt.Name}.");
             WriteLine();
         }
         public static void AddFriendProfile()
