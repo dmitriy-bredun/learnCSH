@@ -2,9 +2,15 @@
 {
     public enum Profession
     {
+        Soldier_VSU,
+        Musician,
+        Killer,
         Cook,
+        Assasin,
         Teacher,
+        Ninja,
+        Painter,
         Police,
-        Painter
+        Mechanic,
     }
 }

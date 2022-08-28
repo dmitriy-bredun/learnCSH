@@ -25,7 +25,7 @@ namespace HomeworkSerg
             //Homework_R_Arrays.Start();
             //HW1_Classes.Start();
             //HW_Factory.Start();
-            MyExperiments.Start();
+            //MyExperiments.Start();
             HW_AccountManager.Start();
 
         }
