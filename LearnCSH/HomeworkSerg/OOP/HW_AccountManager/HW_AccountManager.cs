@@ -81,60 +81,7 @@ namespace HomeworkSerg.OOP.HW_AccountManager
             WriteLine();
             int age = Convert.ToInt32(ReadLine());
             WriteLine();
-            //WriteLine("    Please choice profession:");
-            //WriteLine();
-            //WriteLine("    1 - Soldier VSU,");
-            //WriteLine("    2 - Musician,");
-            //WriteLine("    3 - Killer,");
-            //WriteLine("    4 - Cook,");
-            //WriteLine("    5 - Assasin,");
-            //WriteLine("    6 - Teacher,");
-            //WriteLine("    7 - Ninja,");
-            //WriteLine("    8 - Painter,");
-            //WriteLine("    9 - Police,");
-            //WriteLine("    10 - Mechanic.");
 
-            //userChoice2 = Convert.ToInt32(ReadLine());
-
-            //Profession prof;
-
-            //switch (userChoice2)
-            //{
-            //    case 1:
-            //        prof = Profession.Soldier_VSU;
-            //        break;
-            //    case 2:
-            //        prof = Profession.Musician;
-            //        break;
-            //    case 3:
-            //        prof = Profession.Killer;
-            //        break;
-            //    case 4:
-            //        prof = Profession.Cook;
-            //        break;
-            //    case 5:
-            //        prof = Profession.Assasin;
-            //        break;
-            //    case 6:
-            //        prof = Profession.Teacher;
-            //        break;
-            //    case 7:
-            //        prof = Profession.Ninja;
-            //        break;
-            //    case 8:
-            //        prof = Profession.Painter;
-            //        break;
-            //    case 9:
-            //        prof = Profession.Police;
-            //        break;
-            //    case 10:
-            //        prof = Profession.Mechanic;
-            //        break;
-            //    default:
-            //        WriteLine("    You wrong. Are you stupid as a moskal?");
-            //        prof = Profession.Soldier_VSU;
-            //        break;
-            //}
             Profession prof = ChooseProfession();
             Person acc = new Person(name, age, prof);
             Accounts.Add(acc);
@@ -165,7 +112,8 @@ namespace HomeworkSerg.OOP.HW_AccountManager
 
                 if (acc.Friends.Count > 0)
                 {
-                    WriteLine("    Friends: [");
+                    WriteLine("    Friends:");
+                    WriteLine("    [");
                     foreach (Person items in acc.Friends)
                     {
                         WriteLine($"    {items.Name}");
@@ -180,7 +128,7 @@ namespace HomeworkSerg.OOP.HW_AccountManager
             WriteLine("    Please choice profession:");
             WriteLine();
             string[] profession = Enum.GetNames(typeof(Profession));
-            for(int i = 1; i<profession.Length;i++)
+            for(int i = 0; i<profession.Length;i++)
             {
                 WriteLine($"     {i} - {profession[i]}");
             }
@@ -196,12 +144,7 @@ namespace HomeworkSerg.OOP.HW_AccountManager
 
             ShouProfile();
             Person acc = ProfileSelection();
-            //WriteLine("    Please choice Profile:");
-            //WriteLine();
-            //int userChoice = Convert.ToInt32(ReadLine());
-            //Person account = Accounts[userChoice];
-            //WriteLine();
-            //WriteLine("    Profile selected successfully");
+
             Profession prof = ChooseProfession();
             acc.Prof = prof;
         }
@@ -224,19 +167,13 @@ namespace HomeworkSerg.OOP.HW_AccountManager
             WriteLine();
 
             // Выбираем кому указываем отца
-            //WriteLine("     Your choice  --->   ");
-            //int accIndx = Convert.ToInt32(ReadLine());
-            //Person accaunt = Accounts[accIndx];
-            //WriteLine("     Profile selected.");
+
             Person accaunt = ProfileSelection();
             WriteLine();
 
             // Выбираем отца
             WriteLine("    Who is the father?");
-            //WriteLine("     Your choice  --->   ");
-            //int fatherIndx = Convert.ToInt32(ReadLine());
-            //Person accfather = Accounts[fatherIndx];
-            //WriteLine("     Profile selected.");
+
             Person accfather = ProfileSelection();
             WriteLine();
 
@@ -253,20 +190,12 @@ namespace HomeworkSerg.OOP.HW_AccountManager
             ShouProfile();
             WriteLine();
 
-            // Выбираем кому указываем маму
-            //WriteLine("     Your choice  --->   ");
-            //int accIndx = Convert.ToInt32(ReadLine());
-            //Person accaunt = Accounts[accIndx];
-            //WriteLine("     Profile selected.");
             Person accaunt = ProfileSelection();
             WriteLine();
 
             // Выбираем маму
             WriteLine("    Who is the mather?");
-            //WriteLine("     Your choice  --->   ");
-            //int motherIndx = Convert.ToInt32(ReadLine());
-            //Person accmather = Accounts[motherIndx];
-            //WriteLine("     Profile selected.");
+
             Person accmather = ProfileSelection();
             WriteLine();
 
@@ -281,24 +210,16 @@ namespace HomeworkSerg.OOP.HW_AccountManager
             WriteLine("    Who do we add friends to?");
             WriteLine();
             ShouProfile();
-            //WriteLine("    Please choice Profile:");
-            //WriteLine();
-            //int userChoice = Convert.ToInt32(ReadLine());
-            //Person account = Accounts[userChoice];
-            //WriteLine();
-            //WriteLine("    Profile selected successfully");
+
             Person accaunt = ProfileSelection();
             WriteLine();
+
             WriteLine("    Friend Profile.");
             WriteLine();
-            //WriteLine("    Please choice Profile:");
-            //WriteLine();
-            //int userChoiceFr = Convert.ToInt32(ReadLine());
-            //Person accFriend = Accounts[userChoiceFr];
-            //WriteLine();
-            //WriteLine("    Profile selected successfully");
+
             Person accFriend = ProfileSelection();
             accaunt.Friends.Add(accFriend);
+
             WriteLine();
             WriteLine("    Friend profile added.");
         }
@@ -312,27 +233,28 @@ namespace HomeworkSerg.OOP.HW_AccountManager
             Person accaunt = ProfileSelection();
             WriteLine();
             WriteLine("    Friend Profile.");
-            WriteLine(); 
-            //string[] friends = List.GetNames(typeof(Friends));
-            //for (int i = 0; i < friends.Length; i++)
+            WriteLine();
+            
+            //for (int i = 0; i < accaunt.Friends.Count; i++)
             //{
-            //    WriteLine($"     {i} - {friends[i]}");
+            //    WriteLine($"     {i} - {accaunt.Friends[i].Name}");
             //}
-            //WriteLine("     Your choice  --->   ");
-            //WriteLine();
-            for(int i = 1; i < accaunt.Friends.Count; i++)
+
+            int somePersonIndex = 0;
+            foreach (Person items in accaunt.Friends)
             {
-                WriteLine($"     {i} - {accaunt}");
+                WriteLine($"    {somePersonIndex++} - {items.Name}");
             }
-            //foreach (Person items in accaunt.Friends)
-            //{
-            //    WriteLine($"    {items.Name}");
-            //}
+            WriteLine("    Who to remove?");
+
             int delFriend = Convert.ToInt32(ReadLine());
 
             accaunt.Friends.RemoveAt(delFriend);
             WriteLine();
             WriteLine("    Friend account deleted.");
+            WriteLine();
+            ShouProfile();
+            WriteLine();
         }
     }
 }
