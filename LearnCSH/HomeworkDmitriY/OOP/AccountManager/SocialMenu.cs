@@ -74,9 +74,7 @@ namespace HomeworkDmitriy.OOP.AccountManager
 
             // выбрать 1
             Write("Выберите 1 профиль: ");
-            int userChoice = ToInt32(ReadLine());
-            Person account = Accounts[userChoice];
-            WriteLine("Профиль выбран! ");
+            Person account = SelectProfile(Accounts);
 
             // показать все профессии
             // выбрать какую то одну профессию\
@@ -91,16 +89,14 @@ namespace HomeworkDmitriy.OOP.AccountManager
             // 1 - вывести все профили
             ShowProfiles(Accounts);
 
-            // выбираем 1-й, для кого устанавливаем мать
+            // выбираем 1-й, для кого устанавливаем отца
 
             Write("Выберите профиль, которому установится отец --> ");
             Person account = SelectProfile(Accounts);
 
-            // выбираем профиль матери
+            // выбираем профиль отца
             Write("Выберите профиль отца --> ");
-            int fatherIndex = ToInt32(ReadLine());
-            Person fatherAccount = Accounts[fatherIndex];
-            WriteLine("Профиль отца успешно выбран! ");
+            Person fatherAccount = SelectProfile(Accounts);
 
             account.Father = fatherAccount;
             WriteLine($"{fatherAccount.Name}, теперь является отцом {account.Name}");
@@ -113,17 +109,13 @@ namespace HomeworkDmitriy.OOP.AccountManager
             // показать все профили
             ShowProfiles(Accounts);
 
-            // выбираем 1-й, для кого устанавливаем отца
+            // выбираем 1-й, для кого устанавливаем мать
             Write("Выберите профиль, которому установится отец --> ");
-            int accountIndx = ToInt32(ReadLine());
-            Person account = Accounts[accountIndx];
-            WriteLine("Профиль успешно выбран! ");
+            Person account = SelectProfile(Accounts);
 
-            // выбираем профиль отца
+            // выбираем профиль матери
             Write("Выберите профиль отца --> ");
-            int motherIndex = ToInt32(ReadLine());
-            Person motherAccount = Accounts[motherIndex];
-            WriteLine("Профиль отца успешно выбран! ");
+            Person motherAccount = SelectProfile(Accounts);
 
             account.Mother = motherAccount;
             WriteLine($"{motherAccount.Name}, теперь является отцом {account.Name}");
@@ -136,16 +128,12 @@ namespace HomeworkDmitriy.OOP.AccountManager
 
             // 2 - выбрать профиль, которому будем добавлять друга
             Write("Выберите профиль, будем добавлять друга --> ");
-            int accountIndx = ToInt32(ReadLine());
-            Person account = Accounts[accountIndx];
-            WriteLine("Профиль успешно выбран! ");
+            Person account = SelectProfile(Accounts);
 
 
             // 3 - выбрать профиль друга
             Write("Выберите профиль друга --> ");
-            int friendAccountIndx = ToInt32(Console.ReadLine());
-            Person friendAccount = Accounts[friendAccountIndx];
-            WriteLine("Профиль успешно выбран! ");
+            Person friendAccount = SelectProfile(Accounts);
 
             account.Friends.Add(friendAccount);
             WriteLine($"{friendAccount.Name}, теперь является другом {account.Name}");
@@ -158,9 +146,7 @@ namespace HomeworkDmitriy.OOP.AccountManager
 
             // 2 - выбрать профиль, у которого хотим удалить друга
             Write("Выберите профиль, в которо мбудем удалять друга --> ");
-            int accountIndx = ToInt32(ReadLine());
-            Person account = Accounts[accountIndx];
-            WriteLine("Профиль успешно выбран! ");
+            Person account = SelectProfile(Accounts);
 
             // 3 - показать всех друзей этого профиля
             int personFr = 0;
