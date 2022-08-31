@@ -44,7 +44,7 @@ namespace HomeworkSerg.Tools
             {
                 for (int indx = 0; indx < array.Length; indx++)
                 {
-                    WriteLine($"[{indx}] = {array[indx]} \t");
+                    WriteLine($"[{indx}] = {array[indx]}");
                 }
             }
             else
