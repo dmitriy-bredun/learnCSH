@@ -4,6 +4,7 @@ using HomeworkDmitriy.General;
 using HomeworkDmitriy.OOP.HW_Fabric;
 using HomeworkDmitriy.OOP.HW1_Classes;
 using HomeworkDmitriy.OOP.HWGame;
+// using HomeworkDmitriy.OOP.AccountManager;
 using static System.Console;
 using static System.Convert;
 using static System.ConsoleColor;
@@ -30,6 +31,8 @@ namespace HomeworkDmitriy
             WriteLine("         8 - Классы, выбор процессора");
             WriteLine("         9 - Игра <<Смертельные гонки>>");
             WriteLine("         10 - Фабрика");
+            WriteLine("         11 - Социальная сеть <Glooda>");
+            WriteLine("         12 - DynamicList");
             WriteLine();
             Write("         ");
 
@@ -38,17 +41,19 @@ namespace HomeworkDmitriy
 
             switch (Choice)
             {
-                case 0:Homework0_Test.Task0();break;
-                case 1:Homework1_Variables.Start();break;
-                case 2:Homework2_Convert.Start();break;
-                case 3:Homework3_Operations.Start();break;
-                case 4:Homework4_VDV.Start();break;
-                case 5:Homework5_Cycles.Start();break;
-                case 6:Homework4_SimpleArrays.Start();break;
-                case 7:Homework7_R_Arrays.Start();break;
-                case 8:HW1_Class1.Start();break;
-                case 9:Game.StartGame();break;
-                case 10:HW_Fabric.Start();break;
+                case 0: Homework0_Test.Task0(); break;
+                case 1: Homework1_Variables.Start(); break;
+                case 2: Homework2_Convert.Start(); break;
+                case 3: Homework3_Operations.Start(); break;
+                case 4: Homework4_VDV.Start(); break;
+                case 5: Homework5_Cycles.Start(); break;
+                case 6: Homework4_SimpleArrays.Start(); break;
+                case 7: Homework7_R_Arrays.Start(); break;
+                case 8: HW1_Class1.Start(); break;
+                case 9: Game.StartGame(); break;
+                case 10: HW_Fabric.Start(); break;
+                //case 11: SocialMenu.Start(); break;
+                case 12: Homework8_DynamicList.Start(); break;
 
                 default:
                     Write("Ты не то жмакнул :О");
