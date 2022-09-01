@@ -8,13 +8,11 @@ namespace HomeworkMargaret.OOP.HW_Pizza
 {
     class FoolsPizza
     {
+        static OrderService OrderService = new OrderService();
+
         public static void Start()
         {
-            Ingridients ing = Ingridients.Avocado | Ingridients.Chedder;
-            Print($" {ing}");
-
             Print("Hi! We're happy to see you in our Fool's Pizza!");
-
             int userChoice;
             do
             {
@@ -26,7 +24,7 @@ namespace HomeworkMargaret.OOP.HW_Pizza
                 switch (userChoice)
                 {
                     case 1:
-                        MakeAnOrder();
+                        MakeOrder();
                         break;
 
                     case 2:
@@ -45,9 +43,9 @@ namespace HomeworkMargaret.OOP.HW_Pizza
             } while (userChoice != 0);
         }
 
-        private static void MakeAnOrder()
+        private static void MakeOrder()
         {
-            throw new NotImplementedException();
+            OrderService.MakeOrder();
         }
 
         private static void CheckTheOrder()
