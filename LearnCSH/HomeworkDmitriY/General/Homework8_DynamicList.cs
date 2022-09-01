@@ -27,19 +27,19 @@ namespace HomeworkDmitriy.General
                 CT.Space2();
                 switch (usersChoice)
                 {
-                    case 1: Task1(KKK); break;
-                    case 2: Task2(KKK); break;
-                    case 3: Task3(KKK); break;
+                    case 1: AddingNumbers(KKK); break;
+                    case 2: AddRandomNumbers(KKK); break;
+                    case 3: DisplayListValues(KKK); break;
                     case 4: 
-                        bool result = Task4(KKK);
+                        bool result = Checknumber(KKK);
 
                         if (result)
                             WriteLine("Совпадение найдено");
                         else
                             WriteLine("Совпадение отсудствует");
                         break;
-                    case 5: Task5(KKK); break;
-                    case 6: Task6(KKK); break;
+                    case 5: EvenValues(KKK); break;
+                    case 6: AverageValue(KKK); break;
                     case 0: break;
                     default:
                         Write("Ты не то жмакнул :О");
@@ -48,24 +48,24 @@ namespace HomeworkDmitriy.General
             } while (usersChoice != 0);
         }
 
-        public static void Task1(List<int> KKK)
+        public static void AddingNumbers(List<int> KKK)
         {
             Write("Сколько ячеек заполняем: ");
             int size = ToInt32(ReadLine());
-            int[] nums = new int[size];
 
             WriteLine("Добавляем новые значения: ");
-            for (int i = 0; i < nums.Length; i++)
+            
+            for (int i = 0; i < size; i++)
             {
                 Write($"[{i}] = ");
-                nums[i] = ToInt32(ReadLine());
+                int numb = ToInt32(ReadLine());
+                KKK.Add(numb);
             }
-            KKK.AddRange(nums);
             WriteLine();
             WriteLine("Заполнение листа завершено!");
         }
 
-        public static void Task2(List<int> KKK)
+        public static void AddRandomNumbers(List<int> KKK)
         {
             Random random = new Random();
 
@@ -83,14 +83,14 @@ namespace HomeworkDmitriy.General
             WriteLine($"Рандом выполнен :О");
         }
 
-        public static void Task3(List<int> KKK)
+        public static void DisplayListValues(List<int> KKK)
         {
             WriteLine("Выводим лист: ");
             for (int indx = 0; indx < KKK.Count; ++indx)
                 WriteLine($"В ячейке с индексом [{indx}] хранится = {KKK[indx]}");
         }
 
-        public static bool Task4(List<int> KKK)
+        public static bool Checknumber(List<int> KKK)
         {
             WriteLine("Какое число нужно проверить: ");
             int enterInt = 0;
@@ -103,7 +103,7 @@ namespace HomeworkDmitriy.General
             return false;
         }
 
-        public static void Task5(List<int> KKK)
+        public static void EvenValues(List<int> KKK)
         {
             int nums1 = 0;
             int nums2 = 0;
@@ -120,7 +120,7 @@ namespace HomeworkDmitriy.General
             CT.Space2();
         }
 
-        public static void Task6(List<int> KKK)
+        public static void AverageValue(List<int> KKK)
         {
             float result = 0;
             for (int indx = 0; indx < KKK.Count; ++indx)
