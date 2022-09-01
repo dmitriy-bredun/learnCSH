@@ -71,7 +71,7 @@ namespace HomeworkSerg.General
             //}
             for (int i = 0; i < amount; i++)
             {
-                Write($"Число для сохранения в ячейку [{i}]: ");
+                Write($"Число которое сохраняется в ячейку: ");
                 int numb = Convert.ToInt32(ReadLine());
                 Unknown.Add(numb);
                 WriteLine("Записано.");
@@ -118,7 +118,7 @@ namespace HomeworkSerg.General
             foreach (int numb in Unknown)
             {
                 WriteLine();
-                WriteLine($"В ячейке: {i++}, число: {numb}");
+                WriteLine($"В ячейке число: {numb}");
                 WriteLine();
             }
         }
@@ -187,7 +187,7 @@ namespace HomeworkSerg.General
         }
         public static void Middle()
         {
-            int sum = 0;
+            double sum = 0;
             foreach (int numb in Unknown)
             {
                 sum += numb;
