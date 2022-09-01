@@ -110,15 +110,15 @@ namespace HomeworkDmitriy.OOP.AccountManager
             ShowProfiles(Accounts);
 
             // выбираем 1-й, для кого устанавливаем мать
-            Write("Выберите профиль, которому установится отец --> ");
+            Write("Выберите профиль, которому установится мать --> ");
             Person account = SelectProfile(Accounts);
 
             // выбираем профиль матери
-            Write("Выберите профиль отца --> ");
+            Write("Выберите профиль матери --> ");
             Person motherAccount = SelectProfile(Accounts);
 
             account.Mother = motherAccount;
-            WriteLine($"{motherAccount.Name}, теперь является отцом {account.Name}");
+            WriteLine($"{motherAccount.Name}, теперь является мамой {account.Name}");
         }
 
         public static void AddFriend(List<Person> Accounts)
