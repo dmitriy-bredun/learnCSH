@@ -32,6 +32,7 @@ namespace HomeworkDmitriy
             WriteLine("         9 - Игра <<Смертельные гонки>>");
             WriteLine("         10 - Фабрика");
             WriteLine("         11 - Социальная сеть <Glooda>");
+            WriteLine("         12 - DynamicList");
             WriteLine();
             Write("         ");
 
@@ -52,6 +53,7 @@ namespace HomeworkDmitriy
                 case 9: Game.StartGame(); break;
                 case 10: HW_Fabric.Start(); break;
                 case 11: SocialMenu.Start(); break;
+                case 12: Homework8_DynamicList.Start(); break;
 
                 default:
                     Write("Ты не то жмакнул :О");
