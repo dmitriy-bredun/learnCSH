@@ -25,7 +25,8 @@ namespace HomeworkSerg
             //HW1_Classes.Start();
             //HW_Factory.Start();
             //MyExperiments.Start();
-            HW_AccountManager.Start();
+            //HW_AccountManager.Start();
+            Homework7_DynamicList.Start();
 
         }
     }

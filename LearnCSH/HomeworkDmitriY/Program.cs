@@ -4,7 +4,7 @@ using HomeworkDmitriy.General;
 using HomeworkDmitriy.OOP.HW_Fabric;
 using HomeworkDmitriy.OOP.HW1_Classes;
 using HomeworkDmitriy.OOP.HWGame;
-// using HomeworkDmitriy.OOP.AccountManager;
+using HomeworkDmitriy.OOP.AccountManager;
 using static System.Console;
 using static System.Convert;
 using static System.ConsoleColor;
@@ -52,7 +52,7 @@ namespace HomeworkDmitriy
                 case 8: HW1_Class1.Start(); break;
                 case 9: Game.StartGame(); break;
                 case 10: HW_Fabric.Start(); break;
-                //case 11: SocialMenu.Start(); break;
+                case 11: SocialMenu.Start(); break;
                 case 12: Homework8_DynamicList.Start(); break;
 
                 default:
