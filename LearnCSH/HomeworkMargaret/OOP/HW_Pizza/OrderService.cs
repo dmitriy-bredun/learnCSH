@@ -27,9 +27,10 @@ namespace HomeworkMargaret.OOP.HW_Pizza
                 userChoice = Menu(
                     " make a new pizza; ",
                     " remove pizza from the order ",
-                    " show all pizzas");
+                    " show all pizzas",
+                    " confirm your order ");
 
-                switch(userChoice)
+                switch (userChoice)
                 {
                     case 1:
                         MakePizza();
@@ -43,19 +44,23 @@ namespace HomeworkMargaret.OOP.HW_Pizza
                         ShowAllPizzas();
                         break;
 
+                    case 4:
+                        break;
+
+                    case 5:
+                        break;
+
                     default:
                         break;
                 }
 
-            } while (userChoice != 0);
+            } while (userChoice != 0 || userChoice != 9);
         }
 
         private void MakePizza()
         {
-            
             Pizza newPizza = CraftMenu.Crafting();
             PizzasInOrder.Add(newPizza);
-
         }
 
         private void RemovePizza()
