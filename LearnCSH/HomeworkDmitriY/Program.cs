@@ -5,6 +5,7 @@ using HomeworkDmitriy.OOP.HW_Fabric;
 using HomeworkDmitriy.OOP.HW1_Classes;
 using HomeworkDmitriy.OOP.HWGame;
 using HomeworkDmitriy.OOP.AccountManager;
+using HomeworkDmitriy.IndependentWork;
 using static System.Console;
 using static System.Convert;
 using static System.ConsoleColor;
@@ -33,6 +34,7 @@ namespace HomeworkDmitriy
             WriteLine("         10 - Фабрика");
             WriteLine("         11 - Социальная сеть <Glooda>");
             WriteLine("         12 - DynamicList");
+            WriteLine("         13 - IndependentWork1_BasicComplex");
             WriteLine();
             Write("         ");
 
@@ -54,6 +56,7 @@ namespace HomeworkDmitriy
                 case 10: HW_Fabric.Start(); break;
                 case 11: SocialMenu.Start(); break;
                 case 12: Homework8_DynamicList.Start(); break;
+                case 13: IndWork1_BasicComplex.Start(); break;
 
                 default:
                     Write("Ты не то жмакнул :О");
