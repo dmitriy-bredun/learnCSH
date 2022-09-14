@@ -18,8 +18,10 @@ namespace HomeworkMargaret.OOP.HW_Pizza
             PizzasInOrder = new List<Pizza>();
         }
 
-        public void MakeOrder()
+        public UserOrder MakeOrder()
         {
+            UserOrder userOrder = null;
+
             int userChoice;
             Print("Great! Choose, what you wanna do: ");
             do
@@ -27,9 +29,9 @@ namespace HomeworkMargaret.OOP.HW_Pizza
                 userChoice = Menu(
                     " make a new pizza; ",
                     " remove pizza from the order ",
-                    " show all pizzas",
-                    " confirm your order ");
-
+                    " show all pizzas " ,
+                    " confirm your order and return to the main menu");
+                
                 switch (userChoice)
                 {
                     case 1:
@@ -45,16 +47,19 @@ namespace HomeworkMargaret.OOP.HW_Pizza
                         break;
 
                     case 4:
+                        userOrder = new UserOrder(PizzasInOrder);
                         break;
 
-                    case 5:
+                    case 0:
+                        CancelOrder();
                         break;
 
                     default:
                         break;
                 }
-
-            } while (userChoice != 0 || userChoice != 9);
+                Space();
+            } while (userChoice != 0 && userChoice != 4);
+            return userOrder;
         }
 
         private void MakePizza()
@@ -78,6 +83,11 @@ namespace HomeworkMargaret.OOP.HW_Pizza
                 Print($"Pizza № {indx++}");
                 item.PrintToConsole();
             }
+        }
+
+        public void CancelOrder()
+        {
+            PizzasInOrder.Clear();
         }
     }
 }
