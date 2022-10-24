@@ -20,6 +20,26 @@ namespace HomeworkDmitriy.Tools
             WriteLine();
         }
 
+        public static void Space4()
+        {
+            WriteLine();
+            WriteLine();
+            WriteLine();
+            WriteLine();
+        }
+
+        public static void Space8()
+        {
+            WriteLine();
+            WriteLine();
+            WriteLine();
+            WriteLine();
+            WriteLine();
+            WriteLine();
+            WriteLine();
+            WriteLine();
+        }
+
         public static void Print(string text)
         {
             Write(text);
