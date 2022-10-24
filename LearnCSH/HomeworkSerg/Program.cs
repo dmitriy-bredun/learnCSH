@@ -3,6 +3,7 @@ using static System.Console;
 
 using HomeworkSerg.General;
 using HomeworkSerg.Tools;
+using HomeworkSerg.IndependentWork;
 
 using HomeworkSerg.OOP.HW1_Classes;
 using HomeworkSerg.OOP.HW_Factory;
@@ -26,7 +27,8 @@ namespace HomeworkSerg
             //HW_Factory.Start();
             //MyExperiments.Start();
             //HW_AccountManager.Start();
-            Homework7_DynamicList.Start();
+            //Homework7_DynamicList.Start();
+            IndWork1_BasicComplex.Start();
 
         }
     }
