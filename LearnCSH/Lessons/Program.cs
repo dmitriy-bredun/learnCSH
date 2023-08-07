@@ -35,16 +35,16 @@ namespace Lessons
             // Lesson2_2Operations.Start();
             // Lesson2_3ConditionalConstructions.Start();
             // Lesson3_SwitchAndTernaryOperation.Start();
-            // Lesson4_Cycles.Start();
+            // Lesson4_Cycles.Start();weergaerghaergaerg
             // Lesson5_StaticMethods.Start();
             // Lesson6_SimpleArrays.Start();
             // Lesson7_MultiDimensionalArrays.Start();
-            // Lesson8_Enums.Start();
+            // Lesson8_Enums.Start();123123123
 
             // Practice1_Opearations.Start();
             // Practice2_Cycles.Start();
             // Practice2_DoubleCycles.Start();
-            // Practice3_Tasks.Start();
+            // Practice3_Tasks.Start();qweqweqweqweqweqw
             // Practice4_SimpleArrays.Start();
             // Practice5_VDV.Start();
             // Practice6_Enums.Start();
